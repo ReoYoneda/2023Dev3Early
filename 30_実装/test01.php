@@ -12,7 +12,14 @@
     <link rel="stylesheet" href="css/style_test.css">
 </head>
 <body>
-    <div class="animation-box"></div>
-    <div class="animation-multi"></div>
+    
+    <div class="animation-box mt-5"></div>
+    <div class="animation-multi mt-5 mb-5"></div>
+    <div class="row">
+        <input type="button" value="戻る" onclick="history.back()">
+    </div>
+    <div class="row pt-5">
+        <input type="button" value="戻る" onclick="location.href='test02.php'">
+    </div>
 </body>
 </html>

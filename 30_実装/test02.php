@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>webstore</title>
+    <title>ログイン</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -12,38 +12,87 @@
     <link rel="stylesheet" href="css/style_test.css">
 </head>
 <body>
-    <div class="container" style="background-color: #F0F0F0;">
+<style>
+    button,
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #999;
+      border-radius: 4px;
+    }
+
+    input[type="submit"].blue{
+        background-color: #acf;
+    }
+    input[type="submit"].blue:hover{
+        background-color: #9bf;
+    }
+
+    input[type="submit"].red{
+        background-color: #fbb;
+    }
+    input[type="submit"].red:hover{
+        background-color: #faa;
+    }
+
+    input[type="button"]:hover,
+    input[type="submit"]:hover {
+      background-color: #ddd;
+    }
+
+    input[type="button"]:active,
+    input[type="submit"]:active {
+      background-color: #ace;
+    }
+    
+  </style>
+    <div class="container">
             
         <div class="row justify-content-center">
         
-            <div style="width: 100%; background-color:#FFDFFF">laksdfj</div>
-            <div class="text-center" style="width: 100%; background-color:#DFFFFF">laksdfj</div>
+            <div>laksdfj</div>
+            <div class="text-center h4 p-2">ログイン</div>
 
-            <div class="pt-2 pb-5
-                        col-sm-10 col-md-8 col-lg-6 col-xl-5"
+            <div class="pt-2 pb-2
+                        col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5"
                  style="background-color:#FFFFFF">
 
+                <form action="test01.php" method="POST">
                 <div class="row mt-3">
-                    <span>ログインID</span>
-                    <input type="text" name="loginID" placeholder="loginID">
+                    <!--<label for="username">ユーザーID</label>-->
+                    ユーザーID
+                    <input type="text" name="userID" placeholder="userID" required>
                 </div>
 
                 <div class="row mt-3">
-                    <span>パスワード</span>
-                    <input type="password" name="password" placeholder="password">
+                    パスワード
+                    <input type="password" name="password" placeholder="password" required>
                 </div>
 
-                <div class="row mt-3">
-                    <input type="submit" value="ログイン">
-                </div>
+                <div class="row mt-3 pt-3 pb-3
+                            justify-content-between">
 
-                <div class="row justify-content-end mt-3">
-                    <p></p>
-                    <div class="col-6 text-right">
-                        <input type="submit" value="ログイン">
+                    <div class="col-3">
+                        <div class="row">
+                            <input type="button" value="戻る" onclick="history.back()">
+                        </div>
+                        <div class="row">
+                            <input type="button" value="戻る" onclick="location.href='test02.php'">
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="row">
+                            <input type="submit" class="blue" value="ログイン">
+                        </div>
                     </div>
                     
                 </div>
+                </form>
+                
 
             </div>
         </div>
