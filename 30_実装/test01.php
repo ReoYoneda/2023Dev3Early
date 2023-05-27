@@ -18,8 +18,5 @@
     <div class="row">
         <input type="button" value="戻る" onclick="history.back()">
     </div>
-    <div class="row pt-5">
-        <input type="button" value="戻る" onclick="location.href='test02.php'">
-    </div>
 </body>
 </html>
