@@ -79,7 +79,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="blue" value="ログイン">
+                            <input type="submit" class="black" value="ログイン">
                         </div>
                     </div>
                     
@@ -93,7 +93,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" class="red" value="戻る" onclick="history.back()">
+                            <input type="button" value="戻る" onclick="history.back()">
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="blue" value="ログイン">
+                            <input type="submit" class="black" value="ログイン">
                         </div>
                     </div>
                     
