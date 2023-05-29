@@ -92,5 +92,6 @@
       <img src="img/img1.jpg"alt="">
       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     </div>
+    <a href="C_G1-5.php">ファイル</a>
   </body>
 </html>
