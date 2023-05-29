@@ -96,10 +96,15 @@
 
                 <div class="row mb-3">
                     <div>
-                        <label for="post_text">質問内容</label>
+                        <label for="grade">質問内容</label>
                     </div>
                     <div>
-                        <textarea name="post_text" id="post_text" rows="10" required></textarea>
+                        <select class="select" name="grade" id="grade" required>
+                            <option value=1 style="background: #fff" onmousemove="this.style.background='#97f'">１</option>
+                            <option value=2 style="background-color: #fff">２</option>
+                            <option value=3 style="background-color: #fff">３</option>
+                            <option value=4 style="background-color: #fff">４</option>
+                        </select>
                     </div>
                 </div>
 

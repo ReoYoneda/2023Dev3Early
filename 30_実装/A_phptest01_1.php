@@ -9,9 +9,14 @@
     学科名 : 
     <input type="text" name="course" required><br>
     専攻名 : 
-    <input type="text" name="major" required><br>
+    <input type="text"  name="major" required><br>
     学年 : 
-    <input type="text" name="grade" required><br>
+    <select name="grade" required>
+        <option value=1>１</option>
+        <option value=2>２</option>
+        <option value=3>３</option>
+        <option value=4>４</option>
+    </select><br>
     クラス名 : 
     <input type="text" name="classname" required><br>
     得意科目 : 
