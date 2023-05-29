@@ -1,5 +1,5 @@
 <?php
-require_once "DBManager.php";
+require_once "A_DBManager.php";
 $insert = new DBManager();
 $insert->create($_POST["loginID"],$_POST["password"],$_POST["nickname"],$_POST["course"],
                 $_POST["major"],$_POST["grade"],$_POST["classname"],$_POST["Fsubject"]);

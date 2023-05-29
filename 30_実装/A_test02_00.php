@@ -20,7 +20,7 @@
             
         <div class="row py-2 justify-content-center">
 
-            <div class=" col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
 
                 <!-- ナビ -->
                 <div class="row nav">
@@ -33,13 +33,19 @@
                 </div>
                 <!--/ナビ -->
 
-
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="ユーザーIDとパスワードを入力して、ログインボタンを押してください。">ログイン</div>
                 </div>
                 <!--/見出し -->
 
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center"><!-- フォーム用コンテナ -->
+
+            <div class="col-11 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
                 <form action="test01.php" method="POST">
@@ -90,20 +96,36 @@
                         <label for="post_text">質問内容</label>
                     </div>
                     <div>
-                        <textarea name="post_text" id="post_text" rows="10" required></textarea>
+                        <textarea name="post_text" id="post_text" rows="8" required></textarea>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div>
-                        <label for="grade">質問内容</label>
+                        <label for="grade">学年</label>
                     </div>
                     <div>
-                        <select class="select" name="grade" id="grade" required>
-                            <option value=1 style="background: #fff" onmousemove="this.style.background='#97f'">１</option>
-                            <option value=2 style="background-color: #fff">２</option>
-                            <option value=3 style="background-color: #fff">３</option>
-                            <option value=4 style="background-color: #fff">４</option>
+                        <select class="select" name="grade" id="grade"  required>
+                            <option value="">- - - - -</option>
+                            <option value=1>１年生</option>
+                            <option value=2>２年生</option>
+                            <option value=3>３年生</option>
+                            <option value=4>４年生</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div>
+                        <label for="grade">学年</label>
+                    </div>
+                    <div>
+                        <select class="select" name="grade" id="grade"  required>
+                            <option value="">- - - - -</option>
+                            <option value=1>１年生</option>
+                            <option value=2>２年生</option>
+                            <option value=3>３年生</option>
+                            <option value=4>４年生</option>
                         </select>
                     </div>
                 </div>

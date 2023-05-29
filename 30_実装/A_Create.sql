@@ -5,7 +5,7 @@ CREATE TABLE users
  user_name VARCHAR(128) NOT NULL,
  user_course VARCHAR(128) NOT NULL,
  user_major VARCHAR(128),
- user_grade CHAR(1) NOT NULL,
+ user_grade INT NOT NULL,
  user_classname VARCHAR(128),
  user_Fsubject VARCHAR(128),
 PRIMARY KEY(user_id)

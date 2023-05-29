@@ -1,3 +1,10 @@
+/* 「ホバー、　フレームアウト！！」 */
+/*
+:hover {
+    box-shadow: 0px 0px 3px 2px #999;
+}
+*/
+
 body {
     color: #000; 
 }
@@ -11,7 +18,7 @@ input,
 textarea,
 select{
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     border: 1.5px solid #000;
     border-radius: 4px;
 }
@@ -27,19 +34,14 @@ a.col:focus,
 input:focus,
 textarea:focus,
 select:focus{
-    outline: 3px solid #97f;
+    outline: 4px solid #86f;
 }
-
-/*:hover {
-    outline: 5px solid #73f;
-    box-shadow: 0px 0px 4px 3px #73f;
-    box-shadow: 5px 5px 10px 1px #222;
-    box-shadow: 2px 2px 3px 1px #999;
-}*/
-
 
 input[type="submit"],
 input[type="button"]{
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #fff;
     color: #000;
 }

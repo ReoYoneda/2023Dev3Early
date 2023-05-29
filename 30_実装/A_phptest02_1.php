@@ -1,4 +1,4 @@
-<form action="phptest02_2.php" method="post">
+<form action="A_phptest02_2.php" method="post">
     <h1>ログイン実験</h1>
     ログインID : 
     <input type="text" name="loginID"><br>
