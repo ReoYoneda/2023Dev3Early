@@ -47,6 +47,7 @@
       .img-wrap{
         width: auto;
         height: auto;
+        display:flex;
       }
       .img-wrap img{
         width: 200px;
@@ -87,9 +88,9 @@
       </div>
     </div>
     <!--写真・ファイル説明-->
-    <div class="example3"
     <div class="img-wrap">
       <img src="img/img1.jpg"alt="">
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     </div>
   </body>
 </html>
