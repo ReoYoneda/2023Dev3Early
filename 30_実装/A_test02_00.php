@@ -35,7 +35,9 @@
 
                 <!-- 見出し -->
                 <div class="row mt-4">
-                    <div class="h4 text-center" title="ユーザーIDとパスワードを入力して、ログインボタンを押してください。">ログイン</div>
+                    <div class="h4 text-center" title="ユーザーIDとパスワードを入力して、ログインボタンを押してください。">
+                        LOGIN
+                    </div>
                 </div>
                 <!--/見出し -->
 
@@ -45,7 +47,7 @@
 
         <div class="row justify-content-center"><!-- フォーム用コンテナ -->
 
-            <div class="col-11 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
+            <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
                 <form action="test01.php" method="POST">
@@ -71,21 +73,21 @@
                 <div class="row mb-3
                             justify-content-between">
 
-                    <div class="col-3">
+                    <div class="col-4">
                         <div>
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="戻る" onclick="history.back()">
+                            <input type="button" value="Back" onclick="history.back()">
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-4">
                         <div>
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="ログイン">
+                            <input type="submit" class="black" value="Login">
                         </div>
                     </div>
                     
@@ -106,7 +108,7 @@
                     </div>
                     <div>
                         <select class="select" name="grade" id="grade"  required>
-                            <option value="">- - - - -</option>
+                            <option value="" style="color: #bbb">選択してください</option>
                             <option value=1>１年生</option>
                             <option value=2>２年生</option>
                             <option value=3>３年生</option>
@@ -121,7 +123,7 @@
                     </div>
                     <div>
                         <select class="select" name="grade" id="grade"  required>
-                            <option value="">- - - - -</option>
+                            <option value="" style="color: #bbb">- - - - -</option>
                             <option value=1>１年生</option>
                             <option value=2>２年生</option>
                             <option value=3>３年生</option>
