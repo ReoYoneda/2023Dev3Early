@@ -1,13 +1,3 @@
-CREATE TABLE evaluation
-(evaluation_id INT AUTO_INCREMENT,
- evaluation_trp INT NOT NULL,
- evaluation_receivednum INT NOT NULL,
- evaluation_receivedvalue INT NOT NULL,
- evaluation_sentnum INT NOT NULL,
- evaluation_sentvalue INT NOT NULL,
- PRIMARY KEY(evaluation_id)
-);
-
 CREATE TABLE users
 (user_id INT AUTO_INCREMENT,
  user_loginid VARCHAR(128) NOT NULL,
@@ -18,16 +8,26 @@ CREATE TABLE users
  user_grade CHAR(1) NOT NULL,
  user_classname VARCHAR(128),
  user_Fsubject VARCHAR(128),
- evaluation_id INT NOT NULL,
-PRIMARY KEY(user_id),
- FOREIGN KEY (evaluation_id)
- 	REFERENCES evaluation(evaluation_id)
+PRIMARY KEY(user_id)
+);
+
+CREATE TABLE evaluation
+(evaluation_id INT AUTO_INCREMENT,
+ user_id INT NOT NULL,
+ evaluation_trp INT NOT NULL,
+ evaluation_receivednum INT NOT NULL,
+ evaluation_receivedvalue INT NOT NULL,
+ evaluation_sentnum INT NOT NULL,
+ evaluation_sentvalue INT NOT NULL,
+ PRIMARY KEY(evaluation_id),
+  FOREIGN KEY (user_id)
+	REFERENCES users(user_id)
 );
 
 CREATE TABLE posts
 (post_id INT AUTO_INCREMENT,
  user_id INT NOT NULL,
- post_flug BOOLEAN NOT NULL,
+ post_flag BOOLEAN NOT NULL,
  post_date DATETIME NOT NULL,
  post_title VARCHAR(128) NOT NULL,
  post_subject VARCHAR(128) NOT NULL,
