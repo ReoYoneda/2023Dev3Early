@@ -7,6 +7,10 @@
             return $pdo;
         }
 
+        function Lv_cal(){
+
+        }
+
         function Create_test($loginID,$password,$nickname,$course,$major,$grade,$classname,$Fsubject,  
                              $trp,$rnum,$rvalue,$snum,$svalue){
             $pdo = $this->dbConnect();
@@ -98,7 +102,53 @@
             $ps->bindValue(1,$userID,PDO::PARAM_INT);
             $ps->execute();
             $search = $ps->fetchAll();
-            return $search;
+            $row = $search[0];
+
+            $row["Lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));       # $row[""]に「Lv」を追加
+            $row["DP"] = (INT)($Lv/10)+1;                                            # $row[""]に「DP」を追加
+            $row["NRP"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];    # $row[""]に「NRP」を追加
+            
+            if($row['evaluation_receivednum']!=0){                                   # $row[""]に「Ravg」を追加
+                $row["Ravg"] = number_format($row['evaluation_receivedvalue']/$row['evaluation_receivednum'],1);
+            }else{
+                $row["Ravg"] = number_format(0.0,1) ;
+            }
+            if($row['evaluation_sentnum']!=0){                                       # $row[""]に「Savg」を追加
+                $row["Savg"] = number_format($row['evaluation_sentvalue']/$row['evaluation_sentnum'],1);
+            }else{
+                $row["Savg"] = number_format(0.0,1) ;
+            }
+            return $row;
+        }
+
+        function create_post($userID,$title,$subject,$text){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `posts`(`user_id`, `post_flag`, `post_title`, `post_subject`, `post_text`) 
+                                VALUES (?,1,?,?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$userID,PDO::PARAM_INT);
+            $ps->bindValue(2,$title,PDO::PARAM_STR);
+            $ps->bindValue(3,$subject,PDO::PARAM_STR);
+            $ps->bindValue(4,$text,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function create_post_image($image_path){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `post_images`(`post_id`, `post_image_path`) 
+                                        VALUES ((SELECT MAX(post_id) FROM posts),?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$image_path,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function create_post_file($file_path){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `post_files`(`post_id`, `post_file_path`) 
+                                        VALUES ((SELECT MAX(post_id) FROM posts),?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$file_path,PDO::PARAM_STR);
+            $ps->execute();
         }
 
     }

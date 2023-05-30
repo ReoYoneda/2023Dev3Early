@@ -8,6 +8,6 @@
         header('Location:A_phptest03.php');
     }
     if(count($search)==0){
-        header('Location:A_phptest02_1.php');
+        header('Location:A_phptest00.php');
     }
 ?>
