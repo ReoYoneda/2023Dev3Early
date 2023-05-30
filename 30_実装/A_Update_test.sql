@@ -1,11 +1,11 @@
 UPDATE evaluation SET
     evaluation_trp =
         CASE evaluation_id
-            WHEN 1 THEN     10
-            WHEN 2 THEN    321
-            WHEN 3 THEN    987
-            WHEN 4 THEN   8765
-            WHEN 5 THEN 123456
+            WHEN 1 THEN                  10
+            WHEN 2 THEN             3949827
+            WHEN 3 THEN         56180000000
+            WHEN 4 THEN      12098765011947
+            WHEN 5 THEN 2450000000000000000
         END,
     evaluation_receivednum =
         CASE evaluation_id

@@ -14,7 +14,7 @@ PRIMARY KEY(user_id)
 CREATE TABLE evaluation
 (evaluation_id INT AUTO_INCREMENT,
  user_id INT NOT NULL,
- evaluation_trp INT NOT NULL,
+ evaluation_trp BIGINT NOT NULL,
  evaluation_receivednum INT NOT NULL,
  evaluation_receivedvalue INT NOT NULL,
  evaluation_sentnum INT NOT NULL,

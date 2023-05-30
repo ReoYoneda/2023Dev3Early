@@ -18,6 +18,9 @@
     }else{
         $SentAvg = number_format(0.0,1) ;
     }
+    $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));
+    $DP = (INT)($Lv/10)+1;
+    $NRP = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];
     echo    "ログインID　：".$row['user_loginid']."<br>
             ニックネーム：".$row['user_name']."<br>
             学科名　　　：".$row['user_course']."<br>
@@ -25,9 +28,10 @@
             学年　　　　：".$row['user_grade']."<br>
             クラス名　　：".$row['user_classname']."<br>
             得意科目　　：".$row['user_Fsubject']."<br><br>
-            Lv　　　　　 = ".floor(sqrt(($row['evaluation_trp']+2)*5-9))."<br>
-            DP　　　　　= ".(INT)(floor(sqrt(($row['evaluation_trp']+2)*5-9))/10)+1.0."<br>
+            Lv　　　　　 = ".$Lv."<br>
+            DP　　　　　= ".$DP."<br>
             TRP　　　　 = ".$row['evaluation_trp']."<br>
+            NRP　　　　 = ".$NRP."<br>
             平均被評価値 = ".$ReceivedAvg."<br>
             平均与評価値 = ".$SentAvg;
 ?>
