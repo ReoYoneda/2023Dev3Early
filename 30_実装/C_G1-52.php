@@ -74,20 +74,21 @@
                         <textarea name="post_text" id="post_text" rows="8" required></textarea>
                     </div>
                 </div>
-                <!--ファイル-->
+                <!--画像-->
                 <div class="row mb-3">
                     <div>
-                        <label for="post_text">ファイル</label>
-                        
+                        <label for="post_text">画像</label>
                     </div>
                     
                 </div>
                 <form action="test.html" method="post" enctype="multipart/form-data" >
-                    <input type="file" name="test" onchange="previewFile(this);">
-                    <input type="submit" value="送信する">
+                    <label>
+                        <input type="file"name="file" onchange="previewFile(this);">
+                    </label>
                 </form>
-                <img id="preview">
- 
+                <div class="img-wrap">
+                    <img id="preview">
+                </div>
                 <script>
                     function previewFile(hoge){
                         var fileData = new FileReader();
@@ -99,6 +100,37 @@
                         fileData.readAsDataURL(hoge.files[0]);
                     }
                 </script>
+                <!--ファイル-->
+                <div class="row mb-3">
+                    <div>
+                        <label for="post_text">ファイル</label>
+                    </div>
+                    <div>
+                        <input type="file">
+                    </div>
+                </div>
+                <!--戻る-->
+                <div class="row mb-3
+                            justify-content-between">
+                <div class="col-4">
+                    <div>
+                        <label>　</label>
+                    </div>
+                    <div>
+                        <input type="button" value="Back" onclick="history.back()">
+                    </div>
+               </div>
+                <!--投稿-->
+                <div class="col-4">
+                    <div>
+                        <label>　</label>
+                    </div>
+                    <div>
+                        <input type="submit" class="black" value="投稿">
+                    </div>
+                </div>
+                </div>
+
 
     </body>
 </html>
