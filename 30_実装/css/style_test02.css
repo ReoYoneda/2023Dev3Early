@@ -63,3 +63,13 @@ a.col{
     color: #000;
     border-radius: 4px;
 }
+.img-wrap{
+    width: auto;
+    height: auto;
+    display:flex;
+}
+.img-wrap img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
