@@ -31,7 +31,7 @@
         width: 49%;
       }
       .bg-ddd {
-        background-color: #ddd;
+        background-color: #F0FFFF;
       }
       p {
         padding: 20px;
@@ -54,14 +54,23 @@
         height: 200px;
         object-fit: cover;
       }
+      .a{
+        background-color: #F0FFF0;
+      }
+      .b{
+        background-color: #F0FFFF;
+      }
     </style>
-    <div name="maindiv" class="container alert-info">
-      <h1 class="text-secondary text-center">回答一覧</h1>
+    <div class="a">
+      <div name="maindiv" class="container alert-info">
+        <h1 class="text-secondary text-center">回答一覧</h1>
+      </div>
     </div>
     <div align="left"class="example2">
       <input type="submit"class="button"value="戻る">
       <input type="submit"class="button"value="回答">
     </div>
+    <div class="b">
     <div class="ex3">
       <div class="bg-ddd">
         <div align="center" class="example">
@@ -87,11 +96,28 @@
         </div>
       </div>
     </div>
+    </div>
     <!--写真・ファイル説明-->
+    <div class="a">
     <div class="img-wrap">
       <img src="img/img1.jpg"alt="">
       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     </div>
     <a href="C_G1-5.php">ファイル</a>
+    </div>
+    <!--回答-->
+    <div class="b">
+    <div class="example2">
+      <a>ニックネーム</a>
+      <a>2023/05/29</a>
+    </div>
+    </div>
+    <div class="a">
+    <div class="img-wrap">
+      <img src="img/img1.jpg"alt="">
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    </div>
+    <a href="C_G1-5.php">ファイル</a>
+    </div>
   </body>
 </html>
