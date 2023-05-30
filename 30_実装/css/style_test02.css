@@ -1,9 +1,9 @@
 /* 「ホバー、　フレームアウト！！」 */
-/*
+
 :hover {
     box-shadow: 0px 0px 3px 2px #999;
 }
-*/
+
 
 body {
     color: #000; 
@@ -62,4 +62,14 @@ a.col{
     text-align: center;
     color: #000;
     border-radius: 4px;
+}
+.img-wrap{
+    width: auto;
+    height: auto;
+    display:flex;
+}
+.img-wrap img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
