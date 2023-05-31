@@ -116,29 +116,12 @@
               </div>
             </div>
           </div>
-
-
-    <!--写真・ファイル説明-->
-    <div class="a">
-    <div class="img-wrap">
-      <img src="img/img1.jpg"alt="">
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    </div>
-    <a href="C_G1-5.php">ファイル</a>
-    </div>
-    <!--回答-->
-    <div class="b">
-    <div class="example2">
-      <a>ニックネーム</a>
-      <a>2023/05/29</a>
-    </div>
-    </div>
-    <div class="a">
-    <div class="img-wrap">
-      <img src="img/img1.jpg"alt="">
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    </div>
-    <a href="C_G1-5.php">ファイル</a>
-    </div>
+          <div class="row mb-3">
+            <div class="col-4">
+              <div>
+                ファイル
+              </div>
+            </div>
+          </div>
   </body>
 </html>
