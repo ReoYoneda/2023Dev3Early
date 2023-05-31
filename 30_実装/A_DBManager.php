@@ -1,14 +1,9 @@
 <?php
     class DBManager{
 
-
         private function dbConnect(){
             $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8','webuser','abccsd2');
             return $pdo;
-        }
-
-        function Lv_cal(){
-
         }
 
         function Create_test($loginID,$password,$nickname,$course,$major,$grade,$classname,$Fsubject,  
@@ -52,7 +47,6 @@
             return $search;
         }
 
-
         function create($loginID,$password,$nickname,$course,$major,$grade,$classname,$Fsubject){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO users (user_loginid,user_password,user_name,user_course,
@@ -60,7 +54,8 @@
                                 VALUES(?,?,?,?,?,?,?,?)";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$loginID,PDO::PARAM_STR);
-            $ps->bindValue(2,password_hash($password,PASSWORD_DEFAULT),PDO::PARAM_STR);
+            /*$ps->bindValue(2,password_hash($password,PASSWORD_DEFAULT),PDO::PARAM_STR);*/
+            $ps->bindValue(2,$password,PDO::PARAM_STR);
             $ps->bindValue(3,$nickname,PDO::PARAM_STR);
             $ps->bindValue(4,$course,PDO::PARAM_STR);
             $ps->bindValue(5,$major,PDO::PARAM_STR);
@@ -84,7 +79,10 @@
             $search = $ps->fetchAll();
             if(!empty($search)){
                 foreach($search as $row){
-                    if(password_verify($password,$row["user_password"]) == true){
+                    /*if(password_verify($password,$row["user_password"]) == true){
+                        return $search;
+                    }*/
+                    if($password == $row["user_password"]){
                         return $search;
                     }
                 }
@@ -104,10 +102,42 @@
             $search = $ps->fetchAll();
             $row = $search[0];
 
-            $row["Lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));       # $row[""]に「Lv」を追加
-            $row["DP"] = (INT)($Lv/10)+1;                                            # $row[""]に「DP」を追加
-            $row["NRP"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];    # $row[""]に「NRP」を追加
+            $sql = "SELECT COUNT(*) AS user_cnt FROM users";
+            $ps = $pdo->prepare($sql);
+            $ps->execute();
+            $search = $ps->fetchAll();
+            $ary = $search[0];
+            $row["user_cnt"] = $ary["user_cnt"];
+
+            $row["Lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));     # $row[""]に「Lv」を追加
+            $row["DP"] = (INT)($Lv/10)+1;                                       # $row[""]に「DP」を追加
+            $row["NRP"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];  # $row[""]に「NRP」を追加
             
+            $sql = "SELECT *
+                    FROM (SELECT RANK() over(ORDER BY evaluation_trp DESC) AS userRank, user_id
+                    FROM evaluation) AS RANK
+                    WHERE user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$userID,PDO::PARAM_INT);
+            $ps->execute();
+            $search = $ps->fetchAll();
+            $rank = $search[0];
+
+            $row["user_rank"] = $rank["userRank"];
+
+            $row["user_ratio"] = (int)($row["user_rank"]/$row["user_cnt"]*100);
+            $ratio = $row["user_ratio"];
+            $rate = ["SSS","SS","S","A","B","C","D","E","F","G","G"];
+            $user_rate = $rate[$ratio/10];
+
+            $row["user_rate"] = $user_rate;
+
+            if($ratio%10 < 3){
+                $row["user_rate"] = $row["user_rate"]."+";
+            }else if($ratio%10 >= 7){
+                $row["user_rate"] = $row["user_rate"]."-";
+            }
+
             if($row['evaluation_receivednum']!=0){                                   # $row[""]に「Ravg」を追加
                 $row["Ravg"] = number_format($row['evaluation_receivedvalue']/$row['evaluation_receivednum'],1);
             }else{

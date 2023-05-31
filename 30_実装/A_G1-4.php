@@ -19,8 +19,11 @@
             DP　　　　　= ".$row['DP']."<br>
             TRP　　　　 = ".$row['evaluation_trp']."<br>
             NRP　　　　 = ".$row['NRP']."<br>
+            ランキング　 = ".$row['user_rank']." 位  ( ".$row["user_rate"]." )<br>
             平均被評価値 = ".$row['Ravg']."<br>
-            平均与評価値 = ".$row['Savg'];
+            平均与評価値 = ".$row['Savg']."<br>
+            ユーザー数 　= ".$row['user_cnt'];
+
 ?>
 <br>
-<input type="button" onclick="location.href='A_phptest04_1.php'" value="投稿へ">
+<input type="button" onclick="location.href='A_phptest04_1.php'" value="みんなの投稿へ">

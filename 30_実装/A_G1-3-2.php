@@ -1,22 +1,27 @@
-<form action="A_phptest01_2.php" method="post">
+<form action="A_G1-3-3.php" method="post">
     <h1>新規ユーザー登録</h1>
+    <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
+    <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
     ニックネーム : 
     <input type="text" name="nickname" required><br>
     学科名 : 
     <input type="text" name="course" required><br>
     専攻名 : 
-    <input type="text"  name="major" required><br>
+    <input type="text"  name="major"><br>
     学年 : 
     <select name="grade" required>
-        <option value=1>1</option>
-        <option value=2>2</option>
-        <option value=3>3</option>
-        <option value=4>4</option>
+        <option value=1>１年生</option>
+        <option value=2>２年生</option>
+        <option value=3>３年生</option>
+        <option value=4>４年生</option>
     </select><br>
     クラス名 : 
-    <input type="text" name="classname" required><br>
+    <input type="text" name="classname"><br>
     得意科目 : 
-    <input type="text" name="Fsubject" required><br>
+    <input type="text" name="Fsubject"><br>
  
-    <input type="submit" value="登録">
+    <input type="button" onclick="history.back()" value="戻る">
+    
+    <input type="submit" value="次へ">
+    
 </form>
