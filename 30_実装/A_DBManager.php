@@ -34,6 +34,7 @@
             $ps->bindValue(5,$svalue,PDO::PARAM_INT);
             $ps->execute();
         }
+
         function get_user_info_test($loginID){
             $pdo = $this->dbConnect();
             $sql = "SELECT * 
@@ -88,6 +89,16 @@
                 }
             }
             return $search=[];
+        }
+
+        function get_users(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * 
+                    FROM users";
+            $ps = $pdo->prepare($sql);
+            $ps->execute();
+            $search = $ps->fetchAll();
+            return $search;
         }
 
         function get_user_info($userID){
@@ -179,6 +190,15 @@
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$file_path,PDO::PARAM_STR);
             $ps->execute();
+        }
+
+        function get_posts(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM posts";
+            $ps = $pdo->prepare($sql);
+            $ps->execute();
+            $search = $ps->fetchAll();
+            return $search;
         }
 
     }

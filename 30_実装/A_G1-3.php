@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['userID'])==false){
-        header('Location:A_phptest02_1.php');
+        header('Location:A_G1-1.php');
     }
 
     require_once "A_DBManager.php";
@@ -27,4 +27,4 @@
 ?>
 <br>
 <input type="button" onclick="location.href='A_LogOut.php'" value="ログアウト">
-<input type="button" onclick="location.href='A_phptest04_1.php'" value="みんなの投稿へ">
+<input type="button" onclick="location.href='A_G1-4-1.php'" value="みんなの投稿へ">

@@ -50,7 +50,7 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="test01.php" method="POST">
+                <form action="A_test01.php" method="POST">
 
                 <div class="row mb-3">
                     <div>
@@ -131,8 +131,6 @@
                         </select>
                     </div>
                 </div>
-
-                
 
                 </form>
                 <!--/フォーム -->
