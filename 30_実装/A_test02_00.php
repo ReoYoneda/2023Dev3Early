@@ -18,9 +18,9 @@
 
     <div class="container" style="min-width: 360px;"><!-- コンテナ　ディスプレイ幅360px以下の画面ではレイアウト比率を固定にする -->
             
-        <div class="row py-2 justify-content-center">
+        <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
 
-            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
 
                 <!-- ナビ -->
                 <div class="row nav">
