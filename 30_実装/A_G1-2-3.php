@@ -1,4 +1,4 @@
-<form action="A_G1-3-3(b).php" method="post">
+<form action="A_G1-2-3(b).php" method="post">
     <h1>新規ユーザー登録</h1>
     <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
     <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">

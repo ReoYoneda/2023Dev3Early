@@ -1,8 +1,22 @@
-<input type="button" onclick="location.href='A_G1-5.php'" value="みんなの投稿"><br><br>
-<input type="button" onclick="location.href='A_G1-7.php'" value="じぶんの投稿"><br><br>
-<input type="button" onclick="location.href='A_G1-8.php'" value="新規登録"><br><br>
-<input type="button" onclick="location.href='A_G1-9.php'" value="新規登録"><br><br>
-<input type="button" onclick="location.href='A_G1-10.php'" value="新規登録"><br><br>
-<input type="button" onclick="location.href='A_G1-11.php'" value="新規登録"><br><br>
-<input type="button" onclick="location.href='A_G1-12.php'" value="新規登録"><br><br>
-<input type="button" onclick="location.href='A_LogOut.php'" value="ログアウト"><br><br>
+<?php
+    session_start();
+    if(isset($_SESSION['userID'])==false){
+        header('Location:A_phptest02_1.php');
+    }
+?>
+
+<form action="A_phptest04_2.php" method="post" enctype="multipart/form-data">
+    <h1>投稿</h1>
+    タイトル : 
+    <input type="post_title" name="title" maxlength="30" required><br>
+    授業科目 : 
+    <input type="text" name="subject" required><br>
+    質問内容 : 
+    <textarea name="text" rows="10" cols="50"></textarea><br>
+    画像ファイル : 
+    <input type="file" name="post_image" accept="image/*"><br>
+    テキストファイル : 
+    <input type="file" name="post_file"><br>
+ 
+    <input type="submit" value="登録">
+</form>

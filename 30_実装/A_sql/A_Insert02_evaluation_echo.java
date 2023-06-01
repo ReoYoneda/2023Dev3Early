@@ -1,5 +1,5 @@
 package A_sql;
-public class Insert_evaluation_echo {
+public class Insert02_evaluation_echo {
     public static void main(String[] args) {
         String s = "INSERT INTO `evaluation`(`user_id`, `evaluation_trp`, `evaluation_receivednum`, `evaluation_receivedvalue`, `evaluation_sentnum`, `evaluation_sentvalue`) VALUES ";
         int id = 0;

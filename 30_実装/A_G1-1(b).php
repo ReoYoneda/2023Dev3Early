@@ -5,7 +5,7 @@
     $search = $login->login($_POST["loginID"],$_POST["password"]);
     foreach($search as $row){
         $_SESSION['userID']=$row['user_id'];
-        header('Location:A_G1-4.php');
+        header('Location:A_G1-3.php');
     }
     if(count($search)==0){
         header('Location:A_G1-1.php');

@@ -1,9 +1,12 @@
-<form action="A_G1-2(b).php" method="post">
-    <h1>ログイン実験</h1>
+<form action="A_G1-2-2.php" method="post">
+    <h1>新規ユーザー登録</h1>
     ログインID : 
     <input type="text" name="loginID" required><br>
-    パスワード : 
+    パスワード：
     <input type="password" name="password" required><br>
+
     <input type="button" onclick="history.back()" value="戻る">
-    <input type="submit" value="ログイン">
+    
+    <input type="submit" value="次へ">
+    
 </form>

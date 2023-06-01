@@ -24,7 +24,7 @@
 
                 <!-- ナビ -->
                 <div class="row nav">
-                    <a class="col" href="test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="col" href="A_test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
                     <a class="col" href="test02_01.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
                     <a class="col" href="test02_02.php" title="ランキング"><i class="bi bi-trophy"></i></a>
                     <a class="col" href="test02_03.php" title="開催イベント"><i class="bi bi-flag"></i></a>

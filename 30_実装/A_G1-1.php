@@ -1,2 +1,9 @@
-<input type="button" onclick="location.href='A_G1-3-1.php'" value="新規登録"><br><br>
-<input type="button" onclick="location.href='A_G1-2.php'" value="ログイン">
+<form action="A_G1-1(b).php" method="post">
+    <h1>ログイン実験</h1>
+    ログインID : 
+    <input type="text" name="loginID" required><br>
+    パスワード : 
+    <input type="password" name="password" required><br>
+    <input type="button" onclick="history.back()" value="戻る">
+    <input type="submit" value="ログイン">
+</form>
