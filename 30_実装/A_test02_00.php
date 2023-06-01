@@ -35,7 +35,7 @@
 
                 <!-- 見出し -->
                 <div class="row mt-4">
-                    <div class="h4 text-center" title="ユーザーIDとパスワードを入力して、ログインボタンを押してください。">
+                    <div class="h4 text-center" title="ログインIDとパスワードを入力して、ログインボタンを押してください。">
                         LOGIN
                     </div>
                 </div>
@@ -54,10 +54,10 @@
 
                 <div class="row mb-3">
                     <div>
-                        <label for="userID">ユーザーID</label>
+                        <label for="userID">ログインID</label>
                     </div>
                     <div>
-                        <input type="text" name="userID" id="userID" placeholder="userID" required>
+                        <input type="text" name="userID" id="userID" placeholder="loginID" required>
                     </div>
                 </div>
 

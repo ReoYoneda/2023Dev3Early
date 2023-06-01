@@ -1,5 +1,5 @@
 package A_sql;
-public class Insert01_user_echo {
+public class A_Insert01_user_echo {
     public static void main(String[] args) {
         String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) VALUES ";
         
