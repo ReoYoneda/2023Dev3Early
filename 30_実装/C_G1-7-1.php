@@ -123,5 +123,50 @@
               </div>
             </div>
           </div>
+          <div class="row mb-3 justify-content-between">
+            <div class="col-4">
+              <div>
+                ニックネーム
+              </div>
+            </div>
+            <!--日付-->
+            <div class="col-4">
+              <div>
+                2023/05/31
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3 justify-content-between">
+            <div class="col-4">
+              <div>
+                Lv:999(SSS+)
+              </div>
+            </div>
+            <div class="col-4">
+              <div>
+                DP:4
+              </div>
+            </div>
+            <div class="col-4">
+              <div>
+                与評４
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-4">
+              <div class="img-wrap">
+                <img src="img/img1.jpg">
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-4">
+              <div>
+                ファイル
+              </div>
+            </div>
+          </div>
   </body>
 </html>
