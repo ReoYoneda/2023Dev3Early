@@ -16,7 +16,7 @@
     画像ファイル : 
     <input type="file" name="post_image" accept="image/*"><br>
     テキストファイル : 
-    <input type="file" name="post_file" accept="text/*"><br>
+    <input type="file" name="post_file" accept="text/*, .java, .php, .sql"><br>
  
     <input type="submit" value="登録">
 </form>

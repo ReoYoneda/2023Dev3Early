@@ -4,6 +4,6 @@
     <input type="text" name="loginID" required><br>
     パスワード : 
     <input type="password" name="password" required><br>
-    <input type="button" onclick="history.back()" value="戻る">
-    <input type="submit" value="ログイン">
+    <input type="submit" value="ログイン"><br>
+    <a href="A_G1-2-1.php">新規登録はこちら</a>
 </form>

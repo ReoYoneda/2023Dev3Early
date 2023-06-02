@@ -15,13 +15,13 @@
             学年　　　　：".$row['user_grade']."<br>
             クラス名　　：".$row['user_classname']."<br>
             得意科目　　：".$row['user_Fsubject']."<br><br>
-            Lv　　　　　 = ".$row['Lv']."<br>
-            DP　　　　　= ".$row['DP']."<br>
+            Lv　　　　　 = ".$row['user_lv']."<br>
+            DP　　　　　= ".$row['user_dp']."<br>
             TRP　　　　 = ".$row['evaluation_trp']."<br>
-            NRP　　　　 = ".$row['NRP']."<br>
+            NRP　　　　 = ".$row['user_nrp']."<br>
             ランキング　 = ".$row['user_rank']." 位  ( ".$row["user_rate"]." )<br>
-            平均被評価値 = ".$row['Ravg']."<br>
-            平均与評価値 = ".$row['Savg']."<br>
+            平均被評価値 = ".$row['user_Ravg']."<br>
+            平均与評価値 = ".$row['user_Savg']."<br>
             ユーザー数 　= ".$row['user_cnt'];
 
 ?>

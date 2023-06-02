@@ -35,19 +35,6 @@
             $ps->execute();
         }
 
-        function get_user_info_test($loginID){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT * 
-                    FROM users AS u LEFT OUTER JOIN evaluation AS e
-                    ON u.user_id = e.user_id
-                    WHERE u.user_loginID = ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$loginID,PDO::PARAM_STR);
-            $ps->execute();
-            $search = $ps->fetchAll();
-            return $search;
-        }
-
         function create($loginID,$password,$nickname,$course,$major,$grade,$classname,$Fsubject){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO users (user_loginid,user_password,user_name,user_course,
@@ -102,6 +89,26 @@
         }
 
         function get_user_info($userID){
+            #---------------
+            #user_id
+            #user_loginid
+            #user_password
+            #user_name
+            #user_course
+            #user_major
+            #user_grade
+            #user_classname
+            #user_Fsubject
+            #+++++++++++++++
+            #user_lv
+            #user_dp
+            #user_nrp
+            #user_rank
+            #user_ratio
+            #user_rate
+            #user_Ravg
+            #user_Savg
+            #---------------
             $pdo = $this->dbConnect();
             $sql = "SELECT * 
                     FROM users AS u LEFT OUTER JOIN evaluation AS e
@@ -110,19 +117,19 @@
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$userID,PDO::PARAM_INT);
             $ps->execute();
-            $search = $ps->fetchAll();
-            $row = $search[0];
+            $search = $ps->fetch();
+            $row = $search;
 
             $sql = "SELECT COUNT(*) AS user_cnt FROM users";
             $ps = $pdo->prepare($sql);
             $ps->execute();
-            $search = $ps->fetchAll();
-            $ary = $search[0];
+            $search = $ps->fetch();
+            $ary = $search;
             $row["user_cnt"] = $ary["user_cnt"];
 
-            $row["Lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));     # $row[""]に「Lv」を追加
-            $row["DP"] = (INT)($Lv/10)+1;                                       # $row[""]に「DP」を追加
-            $row["NRP"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];  # $row[""]に「NRP」を追加
+            $row["user_lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));     # $rowに「user_lv」を追加
+            $row["user_dp"] = (INT)($Lv/10)+1;                                       # $rowに「user_dp」を追加
+            $row["user_nrp"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];  # $rowに「user_nrp」を追加
             
             $sql = "SELECT *
                     FROM (SELECT RANK() over(ORDER BY evaluation_trp DESC) AS userRank, user_id
@@ -131,33 +138,33 @@
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$userID,PDO::PARAM_INT);
             $ps->execute();
-            $search = $ps->fetchAll();
-            $rank = $search[0];
+            $search = $ps->fetch();
+            $rank = $search;
 
-            $row["user_rank"] = $rank["userRank"];
+            $row["user_rank"] = $rank["userRank"];                              # $rowに「user_rank」を追加
 
-            $row["user_ratio"] = (int)($row["user_rank"]/$row["user_cnt"]*100);
+            $row["user_ratio"] = (int)($row["user_rank"]/$row["user_cnt"]*100); # $rowに「user_ratio」を追加
             $ratio = $row["user_ratio"];
             $rate = ["SSS","SS","S","A","B","C","D","E","F","G","G"];
             $user_rate = $rate[$ratio/10];
 
-            $row["user_rate"] = $user_rate;
+            $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
 
-            if($ratio%10 < 3){
+            if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
                 $row["user_rate"] = $row["user_rate"]."+";
             }else if($ratio%10 >= 7){
                 $row["user_rate"] = $row["user_rate"]."-";
             }
 
-            if($row['evaluation_receivednum']!=0){                                   # $row[""]に「Ravg」を追加
-                $row["Ravg"] = number_format($row['evaluation_receivedvalue']/$row['evaluation_receivednum'],1);
+            if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加
+                $row["user_Ravg"] = number_format($row['evaluation_receivedvalue']/$row['evaluation_receivednum'],1);
             }else{
-                $row["Ravg"] = number_format(0.0,1) ;
+                $row["user_Ravg"] = number_format(0.0,1) ;
             }
-            if($row['evaluation_sentnum']!=0){                                       # $row[""]に「Savg」を追加
-                $row["Savg"] = number_format($row['evaluation_sentvalue']/$row['evaluation_sentnum'],1);
+            if($row['evaluation_sentnum']!=0){                                  # $rowに「user_Savg」を追加
+                $row["user_Savg"] = number_format($row['evaluation_sentvalue']/$row['evaluation_sentnum'],1);
             }else{
-                $row["Savg"] = number_format(0.0,1) ;
+                $row["user_Savg"] = number_format(0.0,1) ;
             }
             return $row;
         }
@@ -198,6 +205,80 @@
             $ps = $pdo->prepare($sql);
             $ps->execute();
             $search = $ps->fetchAll();
+            return $search;
+        }
+
+        function get_post($postID){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * 
+                    FROM posts AS p
+                    LEFT OUTER JOIN post_images AS p_i
+                    ON p.post_id = p_i.post_id
+                    LEFT OUTER JOIN post_files AS p_f
+                    ON p_i.post_id = p_f.post_id
+                    WHERE p.post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$postID,PDO::PARAM_INT);
+            $ps->execute();
+            $search = $ps->fetch();
+
+            return $search;
+        }
+
+        function create_reply($postID,$userID,$text){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `replies`(`post_id`, `user_id`, `reply_text`)
+                                  VALUES (?,?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$postID,PDO::PARAM_INT);
+            $ps->bindValue(2,$userID,PDO::PARAM_STR);
+            $ps->bindValue(3,$text,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function create_reply_image($image_path){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `reply_images`(`reply_id`, `reply_image_path`) 
+                                        VALUES ((SELECT MAX(reply_id) FROM replies),?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$image_path,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function create_reply_file($file_path){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `reply_files`(`reply_id`, `reply_file_path`) 
+                                        VALUES ((SELECT MAX(reply_id) FROM replies),?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$file_path,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function get_replies($postID){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM replies
+                    WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$postID,PDO::PARAM_STR);
+            $ps->execute();
+            $search = $ps->fetchAll();
+            return $search;
+        }
+
+        function get_reply($replyID){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * 
+                    FROM replies AS r
+                    LEFT OUTER JOIN reply_images AS r_i
+                    ON r.reply_id = r_i.reply_id
+                    LEFT OUTER JOIN reply_files AS r_f
+                    ON r_i.reply_id = r_f.reply_id
+                    WHERE r.reply_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$replyID,PDO::PARAM_INT);
+            $ps->execute();
+            $search = $ps->fetch();
+
             return $search;
         }
 
