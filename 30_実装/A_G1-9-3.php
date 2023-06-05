@@ -36,6 +36,6 @@
  
     <input type="button" onclick="history.back()" value="戻る">
 
-    <input type="submit" value="登録">
+    <input type="submit" value="変更">
     
 </form>
