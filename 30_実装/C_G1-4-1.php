@@ -38,18 +38,19 @@
       </div>
       <!--追加ボタン-->
       <div class="row mb-3 justify-content-center">
-            <div class="col-4">
-                <a href="C_G1-4-2.php">
+            <div class="col-1">
+                <a href="C_G1-5.php">
                     <img src="imaging/puls.png"width="50px"
                     heght="50px">
                 </a>
             </div>
       </div>
       <!--投稿-->
-      <a href="C_G1-4-2.php">
-      <div class="row mb-3">
-      
-                <table border="1">
+      <div class="row mb-3 justify-content-center">
+        <div class="col-7">
+            <button type="btn" onclick=location.href="C_G1-4-2.php">
+            <div class="row mb-3 between">
+                <table>
                     <tr>
                         <th>2023/05/03 20:30</th>
                         <th>
@@ -61,52 +62,28 @@
                         <th>Lv　 :30(SSS+)</th>
                     </tr>
                     <tr>
-                        <th>科目システム設計</th>
+                        <th>科目　システム設計</th>
                         <th>DP　 :4</th>
                     </tr>
                     <tr>
                         <th>設計の課題を教えてください</th>
                         <th>被評　:4.5</th>
                     </tr>
-                    <tr><th></th>
+                    <tr>
+                        <th></th>
                         <th>与評　:3.3</th>
                     </tr>
                 </table>
+            </div>
+            </div>
+            </button>
+        </div>
+
         
-      </div>
-</a>
-<a href="C_G1-4-2.php">
-      <div class="row mb-3">
-      
-      <table border="1">
-          <tr>
-              <th>2023/05/03 20:30</th>
-              <th>
-                  ニックネーム
-              </th>
-          </tr>
-          <tr>
-              <th>情報システム専攻科　２年　SD2D</th>
-              <th>Lv　 :30(SSS+)</th>
-          </tr>
-          <tr>
-              <th>科目システム設計</th>
-              <th>DP　 :4</th>
-          </tr>
-          <tr>
-              <th>設計の課題を教えてください</th>
-              <th>被評　:4.5</th>
-          </tr>
-          <tr><th></th>
-              <th>与評　:3.3</th>
-          </tr>
-      </table>
-</div>
-</a>
 <a href="C_G1-4-2.php">
 <div class="row mb-3">
       
-      <table border="1">
+      <table>
           <tr>
               <th>2023/05/03 20:30</th>
               <th>
