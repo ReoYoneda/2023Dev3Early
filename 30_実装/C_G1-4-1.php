@@ -45,3 +45,89 @@
                 </a>
             </div>
       </div>
+      <!--投稿-->
+      <a href="C_G1-4-2.php">
+      <div class="row mb-3">
+      
+                <table border="1">
+                    <tr>
+                        <th>2023/05/03 20:30</th>
+                        <th>
+                            ニックネーム
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>情報システム専攻科　２年　SD2D</th>
+                        <th>Lv　 :30(SSS+)</th>
+                    </tr>
+                    <tr>
+                        <th>科目システム設計</th>
+                        <th>DP　 :4</th>
+                    </tr>
+                    <tr>
+                        <th>設計の課題を教えてください</th>
+                        <th>被評　:4.5</th>
+                    </tr>
+                    <tr><th></th>
+                        <th>与評　:3.3</th>
+                    </tr>
+                </table>
+        
+      </div>
+</a>
+<a href="C_G1-4-2.php">
+      <div class="row mb-3">
+      
+      <table border="1">
+          <tr>
+              <th>2023/05/03 20:30</th>
+              <th>
+                  ニックネーム
+              </th>
+          </tr>
+          <tr>
+              <th>情報システム専攻科　２年　SD2D</th>
+              <th>Lv　 :30(SSS+)</th>
+          </tr>
+          <tr>
+              <th>科目システム設計</th>
+              <th>DP　 :4</th>
+          </tr>
+          <tr>
+              <th>設計の課題を教えてください</th>
+              <th>被評　:4.5</th>
+          </tr>
+          <tr><th></th>
+              <th>与評　:3.3</th>
+          </tr>
+      </table>
+</div>
+</a>
+<a href="C_G1-4-2.php">
+<div class="row mb-3">
+      
+      <table border="1">
+          <tr>
+              <th>2023/05/03 20:30</th>
+              <th>
+                  ニックネーム
+              </th>
+          </tr>
+          <tr>
+              <th>情報システム専攻科　２年　SD2D</th>
+              <th>Lv　 :30(SSS+)</th>
+          </tr>
+          <tr>
+              <th>科目システム設計</th>
+              <th>DP　 :4</th>
+          </tr>
+          <tr>
+              <th>設計の課題を教えてください</th>
+              <th>被評　:4.5</th>
+          </tr>
+          <tr><th></th>
+              <th>与評　:3.3</th>
+          </tr>
+      </table>
+</div>
+</a>
