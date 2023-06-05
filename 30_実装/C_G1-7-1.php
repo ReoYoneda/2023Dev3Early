@@ -112,7 +112,7 @@
           <div class="row mb-3">
             <div class="col-4">
               <div class="img-wrap">
-                <img src="img/img1.jpg">
+                <img src="imaging/img1.jpg">
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@
           <div class="row mb-3">
             <div class="col-4">
               <div class="img-wrap">
-                <img src="img/img1.jpg">
+                <img src="imaging/img1.jpg">
               </div>
             </div>
           </div>
