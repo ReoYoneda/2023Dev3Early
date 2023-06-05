@@ -1,5 +1,5 @@
 <form action="A_G1-1(b).php" method="post">
-    <h1>ログイン実験</h1>
+    <h3>ログイン</h3>
     ログインID : 
     <input type="text" name="loginID" required><br>
     パスワード : 

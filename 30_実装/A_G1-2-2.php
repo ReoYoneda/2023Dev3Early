@@ -1,5 +1,5 @@
 <form action="A_G1-2-3.php" method="post">
-    <h1>新規ユーザー登録</h1>
+    <h3>ユーザ情報入力</h3>
     <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
     <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
     ニックネーム : 

@@ -88,82 +88,6 @@
             return $search;
         }
 
-        function get_users_info(){
-            /*---------------
-            user_id
-            user_loginid
-            user_password
-            user_name
-            user_course
-            user_major
-            user_grade
-            user_classname
-            user_Fsubject
-            +++++++++++++++
-            user_lv
-            user_dp
-            user_nrp
-            user_rank
-            user_ratio
-            user_rate
-            user_Ravg
-            user_Savg
-            ---------------*/
-            $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM users AS u 
-                    LEFT OUTER JOIN evaluation AS e
-                    ON u.user_id = e.user_id
-                    LEFT OUTER JOIN (SELECT RANK() over(ORDER BY evaluation_trp DESC) AS user_rank, user_id
-                                    FROM evaluation) AS r
-                    ON u.user_id = r.user_id
-                    ORDER BY evaluation_trp DESC";
-            $ps = $pdo->prepare($sql);
-            $ps->execute();
-            $search = $ps->fetchAll();
-
-            $sql = "SELECT COUNT(*) AS user_cnt FROM users";
-            $ps = $pdo->prepare($sql);
-            $ps->execute();
-            $cnt = $ps->fetch();
-            $user_cnt = $cnt["user_cnt"];
-
-            foreach($search as &$row){
-                $row["user_lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));     # $rowに「user_lv」を追加
-                $row["user_dp"] = (INT)($Lv/10)+1;                                       # $rowに「user_dp」を追加
-                $row["user_nrp"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];  # $rowに「user_nrp」を追加
-                
-                
-
-                $row["user_ratio"] = (int)($row["user_rank"]/$user_cnt*100); # $rowに「user_ratio」を追加
-                $ratio = $row["user_ratio"];
-                $rate = ["SSS","SS","S","A","B","C","D","E","F","G","G"];
-                $user_rate = $rate[$ratio/10];
-
-                $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
-
-                if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
-                    $row["user_rate"] .= "+";
-                }else if($ratio%10 >= 7){
-                    $row["user_rate"] .= "-";
-                }
-
-                if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加
-                    $row["user_Ravg"] = number_format($row['evaluation_receivedvalue']/$row['evaluation_receivednum'],1);
-                }else{
-                    $row["user_Ravg"] = number_format(0.0,1) ;
-                }
-                if($row['evaluation_sentnum']!=0){                                  # $rowに「user_Savg」を追加
-                    $row["user_Savg"] = number_format($row['evaluation_sentvalue']/$row['evaluation_sentnum'],1);
-                }else{
-                    $row["user_Savg"] = number_format(0.0,1) ;
-                }
-                
-            }
-            
-            return $search;
-        }
-
         function get_user_info($userID){
             /*---------------
             user_id
@@ -425,35 +349,6 @@
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$dp*3,PDO::PARAM_STR);
             $ps->bindValue(2,$userID,PDO::PARAM_STR);
-            $ps->execute();
-        }
-
-        function get_events(){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM `events`";
-            $ps = $pdo->prepare($sql);
-            $ps->execute();
-            $search = $ps->fetchAll();
-
-            return $search;
-        }
-
-        function user_update($userID,$loginID,$nickname,$course,$major,$grade,$classname,$Fsubject){
-            $pdo = $this->dbConnect();
-            $sql = "UPDATE `users`
-                    SET `user_loginid`= ? ,`user_name`= ? ,`user_course`= ? ,`user_major`= ? ,
-                        `user_grade`= ? ,`user_classname`= ? ,`user_Fsubject`= ?
-                    WHERE user_id = ? ";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$loginID,PDO::PARAM_STR);
-            /*$ps->bindValue(2,password_hash($password,PASSWORD_DEFAULT),PDO::PARAM_STR);*/
-            $ps->bindValue(2,$nickname,PDO::PARAM_STR);
-            $ps->bindValue(3,$course,PDO::PARAM_STR);
-            $ps->bindValue(4,$major,PDO::PARAM_STR);
-            $ps->bindValue(5,$grade,PDO::PARAM_STR_CHAR);
-            $ps->bindValue(6,$classname,PDO::PARAM_STR);
-            $ps->bindValue(7,$Fsubject,PDO::PARAM_STR);
-            $ps->bindValue(8,$userID,PDO::PARAM_STR);
             $ps->execute();
         }
 

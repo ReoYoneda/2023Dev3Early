@@ -28,7 +28,7 @@ CREATE TABLE posts
 (post_id INT AUTO_INCREMENT,
  user_id INT NOT NULL,
  post_flag BOOLEAN NOT NULL,
- post_date DATETIME NOT NULL,
+ post_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  post_title VARCHAR(128) NOT NULL,
  post_subject VARCHAR(128) NOT NULL,
  post_text VARCHAR(4000) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE replies
 (reply_id INT AUTO_INCREMENT,
  post_id INT NOT NULL,
  user_id INT NOT NULL,
- reply_date DATETIME NOT NULL,
+ reply_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  reply_text VARCHAR(4000) NOT NULL,
 PRIMARY KEY(reply_id),
  FOREIGN KEY (user_id)

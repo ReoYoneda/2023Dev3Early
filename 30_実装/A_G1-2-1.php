@@ -1,5 +1,5 @@
 <form action="A_G1-2-2.php" method="post">
-    <h1>新規ユーザー登録</h1>
+    <h3>新規登録</h3>
     ログインID : 
     <input type="text" name="loginID" required><br>
     パスワード：

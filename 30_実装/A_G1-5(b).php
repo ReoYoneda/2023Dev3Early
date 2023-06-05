@@ -16,6 +16,18 @@
             $create_post->create_post_image($file);
         }
     }
+    if(is_uploaded_file($_FILES['reply_file']['tmp_name'])){
+        if(!file_exists('text')){
+            mkdir('text');
+        }
+
+        $extension = explode(".",$_FILES['reply_file']['name']);
+        $file= 'text/'.date("YmdHis")."_".$extension[0].".txt";
+
+        if(move_uploaded_file($_FILES['reply_file']['tmp_name'],$file)){
+            $create_post->create_reply_file($file);
+        }
+    }
 
     if(is_uploaded_file($_FILES['post_file']['tmp_name'])){
         if(!file_exists('text')){
@@ -29,6 +41,6 @@
             $create_post->create_post_file($file);
         }
     }
-    header('Location:A_G1-6-1-1')
+    header('Location:A_G1-6-1-1.php')
 
 ?>

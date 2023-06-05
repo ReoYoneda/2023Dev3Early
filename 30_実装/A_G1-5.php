@@ -5,8 +5,18 @@
     }
 ?>
 
+<input type="button" onclick="location.href='A_G1-4-1.php'" value="みんなの投稿">
+<input type="button" onclick="location.href='A_G1-6-1-1.php'" value="じぶんの投稿">
+<input type="button" onclick="location.href='A_G1-7.php'" value="ランキング">
+<input type="button" onclick="location.href='A_G1-8.php'" value="開催イベント">
+<input type="button" onclick="location.href='A_G1-9-1.php'" value="ステータス">
+<input type="button" onclick="location.href='A_G1-10.php'" value="ヘルプ">
+
+<h3>投稿</h3>
+
+<input type="button" onclick="history.back()" value="戻る">
+
 <form action="A_G1-5(b).php" method="post" enctype="multipart/form-data">
-    <h1>投稿</h1>
     タイトル : 
     <input type="post_title" name="title" maxlength="30" required><br>
     授業科目 : 

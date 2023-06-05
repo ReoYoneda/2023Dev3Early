@@ -3,7 +3,11 @@
     if(isset($_SESSION['userID'])==false){
         header('Location:A_G1-1.php');
     }
+?>
 
+<h3>ステータス</h3>
+
+<?php
     require_once "A_DBManager.php";
     $get = new DBManager();
     $row = $get->get_user_info($_SESSION['userID']);
