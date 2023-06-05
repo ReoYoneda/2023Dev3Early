@@ -37,10 +37,11 @@
         </div>
       </div>
       <!--追加ボタン-->
-      <div class="row mb-3 justify-content-center">
+      <div class="h4 text-center">
             <div class="col-4">
                 <a href="C_G1-4-2.php">
-                    <img src="imaging/puls.png">
+                    <img src="imaging/puls.png"width="50px"
+                    heght="50px">
                 </a>
             </div>
       </div>
