@@ -49,7 +49,7 @@
       <div class="row mb-3 justify-content-center">
         <div class="col-7">
             <button type="btn" onclick=location.href="C_G1-4-2.php">
-            <div class="row mb-3 between">
+            <div class="row mb-3 justify-content-between">
                 <table>
                     <tr>
                         <th>2023/05/03 20:30</th>
