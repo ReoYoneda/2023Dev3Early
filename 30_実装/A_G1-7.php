@@ -64,19 +64,18 @@
     .rank{
         float: left;
         width: 70px;
-        height: 120px;
+        height: 118px;
         border-right: 1px solid;
         text-align: center;
-        line-height: calc(120px);
+        line-height: calc(118px);
     }
     table{
-        width: 400px;
+        width: 500px;
     }
     table.border{
         border-bottom:  1px solid;
     }
     td{
-        background-color: #fff;
         background-color: #fafafa;
     }
     td.rate{
