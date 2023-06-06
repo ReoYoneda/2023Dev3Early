@@ -3,7 +3,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>ログイン</title>
+    <title>ユーザ情報入力</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -35,8 +35,8 @@
 
                 <!-- 見出し -->
                 <div class="row mt-4">
-                    <div class="h4 text-center" title="ログインIDとパスワードを入力して [Login]を押してください">
-                        LOGIN
+                    <div class="h4 text-center" title="情報をを入力して [Next]を押してください">
+                        User Info
                     </div>
                 </div>
                 <!--/見出し -->
@@ -50,23 +50,65 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="A_test01.php" method="POST">
+                <form action="Af_G1-2-3.php" method="POST">
 
                 <div class="row mb-3">
                     <div>
-                        <label for="userID">ログインID</label>
+                        <label for="nickname">ニックネーム</label>
                     </div>
                     <div>
-                        <input type="text" name="userID" id="userID" placeholder="loginID" required>
+                        <input type="text" name="nickname" id="nickname" placeholder="nickname" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div>
-                        <label for="password">パスワード</label>
+                        <label for="course">学科</label>
                     </div>
                     <div>
-                        <input type="password" name="password" id="password" placeholder="password" required>
+                        <input type="text" name="course" id="course" placeholder="course" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div>
+                        <label for="major">専攻</label>
+                    </div>
+                    <div>
+                        <input type="text" name="major" id="major" placeholder="major">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div>
+                        <label for="grade">学年</label>
+                    </div>
+                    <div>
+                        <select class="select" name="grade" id="grade" required>
+                            <option value="" style="color: #bbb">選択してください</option>
+                            <option value=1>１年生</option>
+                            <option value=2>２年生</option>
+                            <option value=3>３年生</option>
+                            <option value=4>４年生</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div>
+                        <label for="classname">クラス</label>
+                    </div>
+                    <div>
+                        <input type="text" name="classname" id="classname" placeholder="classname">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div>
+                        <label for="Fsubject">得意科目</label>
+                    </div>
+                    <div>
+                        <input type="text" name="Fsubject" id="Fsubject" placeholder="favorite subject">
                     </div>
                 </div>
 
@@ -87,49 +129,10 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="Login">
+                            <input type="submit" class="black" value="Next">
                         </div>
                     </div>
                     
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="post_text">質問内容</label>
-                    </div>
-                    <div>
-                        <textarea name="post_text" id="post_text" rows="8" required></textarea>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="grade">学年</label>
-                    </div>
-                    <div>
-                        <select class="select" name="grade" id="grade"  required>
-                            <option value="" style="color: #bbb">選択してください</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="grade">学年</label>
-                    </div>
-                    <div>
-                        <select class="select" name="grade" id="grade"  required>
-                            <option value="" style="color: #bbb">- - - - -</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
-                        </select>
-                    </div>
                 </div>
 
                 </form>

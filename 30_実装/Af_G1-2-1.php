@@ -3,7 +3,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>ログイン</title>
+    <title>新規登録</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -24,19 +24,19 @@
 
                 <!-- ナビ -->
                 <div class="row nav">
-                    <a class="col" href="A_test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="test02_01.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="test02_02.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="test02_03.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="test02_04.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="test02_05.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                    <a class="col" href="Af_G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="col" href="Af_G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="col" href="Af_G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="Af_G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="col" href="Af_G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="col" href="Af_G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
                 </div>
                 <!--/ナビ -->
 
                 <!-- 見出し -->
                 <div class="row mt-4">
-                    <div class="h4 text-center" title="ログインIDとパスワードを入力して [Login]を押してください">
-                        LOGIN
+                    <div class="h4 text-center" title="ログインIDとパスワードを入力して [Next]を押してください">
+                        Sign Up
                     </div>
                 </div>
                 <!--/見出し -->
@@ -87,52 +87,12 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="Login">
+                            <input type="submit" class="black" value="Next">
                         </div>
                     </div>
                     
                 </div>
 
-                <div class="row mb-3">
-                    <div>
-                        <label for="post_text">質問内容</label>
-                    </div>
-                    <div>
-                        <textarea name="post_text" id="post_text" rows="8" required></textarea>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="grade">学年</label>
-                    </div>
-                    <div>
-                        <select class="select" name="grade" id="grade"  required>
-                            <option value="" style="color: #bbb">選択してください</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="grade">学年</label>
-                    </div>
-                    <div>
-                        <select class="select" name="grade" id="grade"  required>
-                            <option value="" style="color: #bbb">- - - - -</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
-                        </select>
-                    </div>
-                </div>
-
-                </form>
                 <!--/フォーム -->
 
             </div>

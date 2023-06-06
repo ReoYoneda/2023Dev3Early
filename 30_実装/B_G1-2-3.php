@@ -17,9 +17,6 @@
 <body>
 <div class="container" style="min-width: 360px;">
 <form action="A_G1-2-3(b).php" method="post">
-<<<<<<< HEAD
-    <h3>登録内容確認</h3>
-=======
     
     <div class="row mt-4">
         <div class="h4 text-center">
@@ -31,7 +28,6 @@
         <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4">
   
 
->>>>>>> 4441614ec123764842a038348df576dd1a3aa9c7
     <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
     <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
     <input type="hidden" name="nickname" value="<?php echo $_POST["nickname"] ?>">

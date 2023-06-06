@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<form action="A_G1-2-2.php" method="post">
-    <h3>新規登録</h3>
-    ログインID : 
-    <input type="text" name="loginID" required><br>
-    パスワード：
-    <input type="password" name="password" required><br>
-=======
->>>>>>> 4441614ec123764842a038348df576dd1a3aa9c7
 
 <!DOCTYPE html>
 <html lang="ja">

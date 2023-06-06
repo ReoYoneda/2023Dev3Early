@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<form action="A_G1-2-3.php" method="post">
-    <h3>ユーザ情報入力</h3>
-    <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
-    <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
-    ニックネーム : 
-    <input type="text" name="nickname" required><br>
-    学科名 : 
-    <input type="text" name="course" required><br>
-    専攻名 : 
-    <input type="text"  name="major"><br>
-    学年 : 
-    <select name="grade" required>
-=======
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -50,7 +36,6 @@
     <input type="text" class="form-control col-12" name="major"><br>
     学年  
     <select name="grade" class="form-control col-4"  required>
->>>>>>> 4441614ec123764842a038348df576dd1a3aa9c7
         <option value=1>１年生</option>
         <option value=2>２年生</option>
         <option value=3>３年生</option>

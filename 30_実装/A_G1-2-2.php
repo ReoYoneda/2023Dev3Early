@@ -16,9 +16,9 @@
         <option value=4>４年生</option>
     </select><br>
     クラス名　　 : 
-    <input type="text" class="form-control col-12" name="classname"><br>
+    <input type="text" name="classname"><br>
     得意科目　　 : 
-    <input type="text" class="form-control col-12" name="Fsubject"><br>
+    <input type="text" name="Fsubject"><br>
 
     <input type="button" onclick="history.back()" value="戻る">
 

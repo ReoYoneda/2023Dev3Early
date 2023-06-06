@@ -15,14 +15,6 @@
 
 <body>
 <form action="A_G1-1(b).php" method="post">
-<<<<<<< HEAD
-    <h3>ログイン</h3>
-    ログインID : 
-    <input type="text" name="loginID" required><br>
-    パスワード : 
-    <input type="password" name="password" required><br>
-    <input type="submit" value="ログイン"><br>
-=======
     <div class="container" style="min-width: 360px;">
     <div class="row mt-4">
         <div class="h4 text-center">
@@ -51,7 +43,6 @@
                       <input type="submit"  value="ログイン">
                     </div>
                 </div>
->>>>>>> 4441614ec123764842a038348df576dd1a3aa9c7
     <a href="A_G1-2-1.php">新規登録はこちら</a>
 
   </body>

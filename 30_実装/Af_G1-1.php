@@ -24,19 +24,19 @@
 
                 <!-- ナビ -->
                 <div class="row nav">
-                    <a class="col" href="A_test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="test02_01.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="test02_02.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="test02_03.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="test02_04.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="test02_05.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                    <a class="col" href="Af_G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="col" href="Af_G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="col" href="Af_G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="Af_G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="col" href="Af_G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="col" href="Af_G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
                 </div>
                 <!--/ナビ -->
 
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="ログインIDとパスワードを入力して [Login]を押してください">
-                        LOGIN
+                        Login
                     </div>
                 </div>
                 <!--/見出し -->
@@ -50,7 +50,7 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="A_test01.php" method="POST">
+                <form action="Af_G1-3.php" method="POST">
 
                 <div class="row mb-3">
                     <div>
@@ -71,16 +71,7 @@
                 </div>
 
                 <div class="row mb-3
-                            justify-content-between">
-
-                    <div class="col-4">
-                        <div>
-                            <label>　</label>
-                        </div>
-                        <div>
-                            <input type="button" value="Back" onclick="history.back()">
-                        </div>
-                    </div>
+                            justify-content-end">
 
                     <div class="col-4">
                         <div>
@@ -92,48 +83,16 @@
                     </div>
                     
                 </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="post_text">質問内容</label>
-                    </div>
-                    <div>
-                        <textarea name="post_text" id="post_text" rows="8" required></textarea>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="grade">学年</label>
-                    </div>
-                    <div>
-                        <select class="select" name="grade" id="grade"  required>
-                            <option value="" style="color: #bbb">選択してください</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div>
-                        <label for="grade">学年</label>
-                    </div>
-                    <div>
-                        <select class="select" name="grade" id="grade"  required>
-                            <option value="" style="color: #bbb">- - - - -</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
-                        </select>
-                    </div>
-                </div>
-
-                </form>
                 <!--/フォーム -->
+
+                <div class="row mb-3">
+                    <div>
+                        <label>　</label>
+                    </div>
+                    <div class="text-center">
+                        <a href="Af_G1-2-1.php" style="color: #63f">新規登録はこちら</a>
+                    </div>
+                </div>
 
             </div>
 
