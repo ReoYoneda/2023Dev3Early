@@ -15,27 +15,27 @@
   <body>
     <div class="container" style="min-width: 360px;"><!-- コンテナ　ディスプレイ幅360px以下の画面ではレイアウト比率を固定にする -->
 
-      <div class="row py-2 justify-content-center">
-        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
-          <!-- ナビ -->
-          <div class="row nav">
-            <a class="col" href="test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-            <a class="col" href="test02_01.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-            <a class="col" href="test02_02.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-            <a class="col" href="test02_03.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-            <a class="col" href="test02_04.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-            <a class="col" href="test02_05.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
-          </div>
-          <!--/ナビ -->
-    
-          <!-- 見出し -->
-          <div class="row mt-4">
-            <div class="h4 text-center">
-              みんなの投稿
+        <div class="row py-2 justify-content-center">
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                <!-- ナビ -->
+                <div class="row nav">
+                    <a class="col" href="test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="col" href="test02_01.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="col" href="test02_02.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="test02_03.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="col" href="test02_04.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="col" href="test02_05.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                </div>
+                <!--/ナビ -->
+            
+                <!-- 見出し -->
+                <div class="row mt-4">
+                    <div class="h4 text-center">
+                    みんなの投稿
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
       <!--追加ボタン-->
       <div class="row mb-3 justify-content-center">
             <div class="col-1">
@@ -47,30 +47,27 @@
       </div>
       <!--投稿-->
       <div class="row mb-3 justify-content-center">
-        <div class="col-7">
             <button type="btn" onclick=location.href="C_G1-4-2.php">
-            <div class="row mb-3 justify-content-between">
-                <table>
-                    <tr>
+                <table width="500px">
+                    <tr align="left">
                         <th>2023/05/03 20:30</th>
                         <th>
                             ニックネーム
                         </th>
                     </tr>
-                    <tr>
+                    <tr align="left">
                         <th>情報システム専攻科　２年　SD2D</th>
                         <th>Lv　 :30(SSS+)</th>
                     </tr>
-                    <tr>
+                    <tr align="left">
                         <th>科目　システム設計</th>
                         <th>DP　 :4</th>
                     </tr>
-                    <tr>
-                        <th>設計の課題を教えてください</th>
+                    <tr align="left">
+                        <th rowspan="2">設計の課題を教えてください</th>
                         <th>被評　:4.5</th>
                     </tr>
-                    <tr>
-                        <th></th>
+                    <tr align="left">
                         <th>与評　:3.3</th>
                     </tr>
                 </table>
@@ -78,33 +75,6 @@
             </div>
             </button>
         </div>
+  </body>
+</html>
 
-        
-<a href="C_G1-4-2.php">
-<div class="row mb-3">
-      
-      <table>
-          <tr>
-              <th>2023/05/03 20:30</th>
-              <th>
-                  ニックネーム
-              </th>
-          </tr>
-          <tr>
-              <th>情報システム専攻科　２年　SD2D</th>
-              <th>Lv　 :30(SSS+)</th>
-          </tr>
-          <tr>
-              <th>科目システム設計</th>
-              <th>DP　 :4</th>
-          </tr>
-          <tr>
-              <th>設計の課題を教えてください</th>
-              <th>被評　:4.5</th>
-          </tr>
-          <tr><th></th>
-              <th>与評　:3.3</th>
-          </tr>
-      </table>
-</div>
-</a>
