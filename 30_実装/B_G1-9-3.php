@@ -3,7 +3,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>ステータス</title>
+    <title>編集内容確認</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -35,7 +35,7 @@
 
                 <div class="row mt-4">
                     <div class="h4 text-center">
-                    ステータス
+                    編集内容確認
                     </div>
                 </div>
             </div>
@@ -45,30 +45,6 @@
         <div class="row justify-content-center"><!-- フォーム用コンテナ -->
 
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
-
-
-            <div class="row mb-3
-                            justify-content-between">
-
-                    <div class="col-3">
-                        <div>
-                            <label>　</label>
-                        </div>
-                        <div>
-                            <input type="button" value="ログアウト" onclick="location.href='A_LogOut.php'">
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <div>
-                            <label>　</label>
-                        </div>
-                        <div>
-                            <input type="button" onclick="location.href='B_G1-9-2.php'" value="編集">
-                        </div>
-                    </div>
-                    
-            </div>
 
             
             <div align="left"class="example">
@@ -121,13 +97,30 @@
                 <label for="txt" class="form-label">得意科目</label>
             </div>
             <input type="text" class="form-control" id="txt6" placeholder="得意科目">
-            <br>
 
 
-            <div align="left"class="example">
-                <label for="txt" class="form-label">ステータス</label>
+            <div class="row mb-3
+                            justify-content-between">
+
+                    <div class="col-3">
+                        <div>
+                            <label>　</label>
+                        </div>
+                        <div>
+                            <input type="button" value="戻る" onclick="location.href='B_G1-9-2.php'">
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div>
+                            <label>　</label>
+                        </div>
+                        <div>
+                            <input type="button" onclick="location.href=''" value="変更">
+                        </div>
+                    </div>
+                    
             </div>
-            <br>
 
 
             </div>
