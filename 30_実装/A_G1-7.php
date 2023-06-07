@@ -56,7 +56,7 @@
 <style>
     .tdiv{
         width: fit-content;
-        border: 1.5px solid #444;
+        border: 2px solid #444;
         border-radius: 8px;
         margin-bottom: 10px;
         background-color: #fafafa;

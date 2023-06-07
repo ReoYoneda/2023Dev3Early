@@ -3,7 +3,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>ログイン</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -22,21 +22,10 @@
 
             <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
 
-                <!-- ナビ -->
-                <div class="row nav">
-                    <a class="col" href="Af_G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="Af_G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="Af_G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="Af_G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="Af_G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="Af_G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
-                </div>
-                <!--/ナビ -->
-
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="ログインIDとパスワードを入力して [Login]を押してください">
-                        Login
+                        ログイン
                     </div>
                 </div>
                 <!--/見出し -->
@@ -78,7 +67,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="Login">
+                            <input type="submit" class="black" value="ログイン">
                         </div>
                     </div>
                     

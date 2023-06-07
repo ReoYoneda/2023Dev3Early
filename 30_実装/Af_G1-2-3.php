@@ -3,7 +3,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>Status</title>
+    <title>Check</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -39,12 +39,6 @@
     display: none;
     }
     /* /矢印消去 */
-
-    .status{
-        border: 1.5px solid;
-        border-radius: 4px;
-    }
-
 </style>
 
 <body>
@@ -58,7 +52,7 @@
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="情報をを入力して [Next]を押してください">
-                        ステータス
+                        登録内容確認
                     </div>
                 </div>
                 <!--/見出し -->
@@ -71,7 +65,8 @@
 
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
-                <!-- ステータス -->
+                <!-- フォーム -->
+                <form action="Af_G1-3.php" method="POST">
 
                 <div class="row mb-3">
                     <div>
@@ -150,44 +145,6 @@
                         <input type="text" name="Fsubject" id="Fsubject" value="favorite subject" disabled>
                     </div>
                 </div>
-                
-                <div class="row mb-3">
-                    <div>
-                        <label for="Fsubject">ステータス</label>
-                    </div>
-                    <div class="row ml-0 py-3 status">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>　　　 現在のレベル</td>    <td>：</td>     <td class="text-right">  50　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 要求レベル</td>      <td>：</td>     <td class="text-right">   6　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 累計獲得RP</td>      <td>：</td>     <td class="text-right"> 520　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 次のLvまで</td>      <td>：</td>     <td class="text-right">  15　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 ランキング</td>      <td>：</td>     <td class="text-right"> 100位　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 ユーザーレート</td>  <td>：</td>     <td class="text-right">  XX+ 　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 被評価平均</td>      <td>：</td>     <td class="text-right"> 4.5　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 与評価平均</td>      <td>：</td>     <td class="text-right"> 4.5　　　　　　　</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!--/ステータス -->
 
                 <div class="row mb-3
                             justify-content-between">
@@ -197,7 +154,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="ログアウト" onclick="location.href='Af_G1-1.php'">
+                            <input type="button" value="戻る" onclick="history.back()">
                         </div>
                     </div>
 
@@ -206,11 +163,14 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" class="black" value="皆の投稿" onclick="location.href='Af_G1-4-1.php'">
+                            <input type="submit" class="black" value="登録">
                         </div>
                     </div>
                     
                 </div>
+
+                </form>
+                <!--/フォーム -->
 
             </div>
 

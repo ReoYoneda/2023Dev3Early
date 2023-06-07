@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/style_test02.css">
 </head>
 
+<body>
 <style>
     input[type="text"],
     input[type="password"],
@@ -39,26 +40,28 @@
     display: none;
     }
     /* /矢印消去 */
-
-    .status{
-        border: 1.5px solid;
-        border-radius: 4px;
-    }
-
 </style>
-
-<body>
-
     <div class="container" style="min-width: 360px;"><!-- コンテナ　ディスプレイ幅360px以下の画面ではレイアウト比率を固定にする -->
             
         <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
 
             <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
 
+                <!-- ナビ -->
+                <div class="row nav">
+                    <a class="col" href="Af_G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="col" href="Af_G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="col" href="Af_G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="Af_G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="col" href="Af_G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="col" href="Af_G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                </div>
+                <!--/ナビ -->
+
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="情報をを入力して [Next]を押してください">
-                        ステータス
+                        Status
                     </div>
                 </div>
                 <!--/見出し -->
@@ -71,7 +74,8 @@
 
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
-                <!-- ステータス -->
+                <!-- フォーム -->
+                <form action="Af_G1-4-1.php" method="POST">
 
                 <div class="row mb-3">
                     <div>
@@ -150,44 +154,6 @@
                         <input type="text" name="Fsubject" id="Fsubject" value="favorite subject" disabled>
                     </div>
                 </div>
-                
-                <div class="row mb-3">
-                    <div>
-                        <label for="Fsubject">ステータス</label>
-                    </div>
-                    <div class="row ml-0 py-3 status">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>　　　 現在のレベル</td>    <td>：</td>     <td class="text-right">  50　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 要求レベル</td>      <td>：</td>     <td class="text-right">   6　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 累計獲得RP</td>      <td>：</td>     <td class="text-right"> 520　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 次のLvまで</td>      <td>：</td>     <td class="text-right">  15　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 ランキング</td>      <td>：</td>     <td class="text-right"> 100位　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 ユーザーレート</td>  <td>：</td>     <td class="text-right">  XX+ 　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 被評価平均</td>      <td>：</td>     <td class="text-right"> 4.5　　　　　　　</td>
-                                </tr>
-                                <tr>
-                                    <td>　　　 与評価平均</td>      <td>：</td>     <td class="text-right"> 4.5　　　　　　　</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!--/ステータス -->
 
                 <div class="row mb-3
                             justify-content-between">
@@ -197,7 +163,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="ログアウト" onclick="location.href='Af_G1-1.php'">
+                            <input type="button" value="Logout" onclick="location.href='Af_G1-1.php'">
                         </div>
                     </div>
 
@@ -206,11 +172,14 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" class="black" value="皆の投稿" onclick="location.href='Af_G1-4-1.php'">
+                            <input type="submit" class="black" value="Home">
                         </div>
                     </div>
                     
                 </div>
+
+                </form>
+                <!--/フォーム -->
 
             </div>
 

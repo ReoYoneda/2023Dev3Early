@@ -3,7 +3,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>ユーザ情報入力</title>
+    <title>User Info</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -22,21 +22,10 @@
 
             <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
 
-                <!-- ナビ -->
-                <div class="row nav">
-                    <a class="col" href="A_test02_00.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="test02_01.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="test02_02.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="test02_03.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="test02_04.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="test02_05.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
-                </div>
-                <!--/ナビ -->
-
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="情報をを入力して [Next]を押してください">
-                        User Info
+                        ユーザー情報
                     </div>
                 </div>
                 <!--/見出し -->
@@ -120,7 +109,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="Back" onclick="history.back()">
+                            <input type="button" value="戻る" onclick="history.back()">
                         </div>
                     </div>
 
@@ -129,7 +118,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="Next">
+                            <input type="submit" class="black" value="次へ">
                         </div>
                     </div>
                     
