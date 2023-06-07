@@ -143,9 +143,11 @@
                 $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
 
                 if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
-                    $row["user_rate"] .= "+";
+                    $row["user_rate"] .= " +　";
                 }else if($ratio%10 >= 7){
-                    $row["user_rate"] .= "-";
+                    $row["user_rate"] .= " - 　";
+                }else{
+                    $row["user_rate"] .= "　　";
                 }
 
                 if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加

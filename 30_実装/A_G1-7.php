@@ -25,28 +25,28 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>'.$user["user_name"].'</td>      <td class="rate">'.$user["user_rate"].'　</td>
+                        <td>'.$user["user_name"].'</td>      <td class="rate">'.$user["user_rate"].'</td>
                     </tr>
                 </tbody>
             </table>
             <table class="border">
                 <tbody>
                     <tr>
-                        <td>TRP: '.$user["evaluation_trp"].'</td><td>Lv : '.$user["user_lv"].'</td><td>DP : '.$user["user_dp"].'</td><td>被評: '.$user["user_Ravg"].'</td><td>与評: '.$user["user_Savg"].'</td>
+                        <td>TRP : '.$user["evaluation_trp"].'</td><td class="lv">Lv : '.$user["user_lv"].'</td><td class="dp">DP : '.$user["user_dp"].'</td><td class="avg">被評 : '.$user["user_Ravg"].'</td><td class="avg">与評 : '.$user["user_Savg"].'</td>
                     </tr>
                 </tbody>
             </table>
             <table>
                 <tbody>
                     <tr>
-                        <td>'.$user["user_course"].'</td>      <td>'.$user["user_major"].'</td>
+                        <td class="course">'.$user["user_course"].'</td>      <td>'.$user["user_major"].'</td>
                     </tr>
                 </tbody>
             </table>
             <table>
                 <tbody>
                     <tr>
-                        <td>'.$user["user_grade"].'年</td>      <td>'.$user["user_classname"].'</td>      <td>'.$user["user_Fsubject"].'</td>
+                        <td class="grade">'.$user["user_grade"].'年</td>      <td class="classname">'.$user["user_classname"].'</td>      <td>'.$user["user_Fsubject"].'</td>
                     </tr>
                 </tbody>
             </table>
@@ -56,62 +56,48 @@
 <style>
     .tdiv{
         width: fit-content;
-        border: 2px solid #444;
+        border: 2px solid #000;
         border-radius: 8px;
         margin-bottom: 10px;
-        background-color: #fafafa;
+        height: fit-content;
+    }
+    .tdiv,
+    td.rate{
+        background-color: #eef;
     }
     .rank{
         float: left;
         width: 70px;
-        height: 118px;
-        border-right: 1px solid;
+        height: 100%;
+        /*border-right: 1px solid;*/
         text-align: center;
         line-height: calc(118px);
     }
     table{
-        width: 500px;
+        width: 450px;
     }
-    table.border{
-        border-bottom:  1px solid;
-    }
+    
     td{
-        background-color: #fafafa;
+        background-color: #fff;
     }
     td.rate{
         text-align: right;
+        width: 80px;
+    }
+    td.avg,
+    td.lv{
+        width: 80px;
+    }
+    td.dp{
+        width: 65px;
+    }
+    td.course{
+        width: 160px;
+    }
+    td.grade{
+        width: 58px;
+    }
+    td.classname{
+        width: 98px;
     }
 </style>
-<!--
-<div class="tdiv">
-    <div class="rank">a</div>
-    <table>
-        <tbody>
-            <tr>
-                <td>a</td>      <td>a</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="border">
-        <tbody>
-            <tr>
-                <td>a</td>      <td>a</td>      <td>a</td>      <td>a</td>
-            </tr>
-        </tbody>
-    </table>
-    <table>
-        <tbody>
-            <tr>
-                <td>a</td>      <td>a</td>
-            </tr>
-        </tbody>
-    </table>
-    <table>
-        <tbody>
-            <tr>
-                <td>a</td>      <td>a</td>      <td class="tdf">a</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
--->

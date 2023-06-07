@@ -50,7 +50,7 @@
             <div align="left"class="example">
                 <label for="txt" class="form-label">ログインID</label>
             </div>
-            <input type="text" class="form-control" id="txt1" placeholder="loginID">
+            <input type="text" class="form-control" id="txt1" value="loginID" disabled style="border: none; background-color:transparent">
 
 
             <div align="left"class="example">
