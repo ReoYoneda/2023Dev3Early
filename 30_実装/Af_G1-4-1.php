@@ -6,7 +6,7 @@
     <title>Status</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.85" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style_test02.css">
 </head>
@@ -46,7 +46,7 @@
 
 <body>
 
-    <div class="container" style="min-width: 360px;"><!-- コンテナ　ディスプレイ幅360px以下の画面ではレイアウト比率を固定にする -->
+    <div class="container" style="min-width: 450px;"><!-- コンテナ　ディスプレイ幅360px以下の画面ではレイアウト比率を固定にする -->
             
         <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
 
@@ -62,7 +62,7 @@
                     <a class="col" href="Af_G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
                 </div>
                 <!--/ナビ -->
-                
+
                 <!-- 見出し -->
                 <div class="row mt-4">
                     <div class="h4 text-center" title="情報をを入力して [Next]を押してください">
@@ -77,7 +77,7 @@
 
         <div class="row justify-content-center"><!-- フォーム用コンテナ -->
 
-            <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
+            <div class="col-11 col-sm-9 col-md-8 col-lg-6 col-xl-5"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- ステータス -->
 
@@ -228,3 +228,129 @@
     
 </body>
 </html>
+
+<?php
+    session_start();
+    if(isset($_SESSION['userID'])==false){
+        header('Location:A_G1-1.php');
+    }
+?>
+
+<div class="tdiv">
+            <div class="rank">位</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>user_name</td>      <td class="rate">rate</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="border">
+                <tbody>
+                    <tr>
+                        <td>TRP : trp</td><td class="lv">Lv : lv</td><td class="dp">DP : dp</td><td class="avg">被評 : 8.8</td><td class="avg">与評 : 8.8</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="course">["user_course"]</td>      <td>["user_major"]</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="grade">8年</td>      <td class="classname">classname</td>      <td>["user_Fsubject"]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+<?php
+    require_once "A_DBManager.php";
+    $get = new DBManager();
+    $users = $get->get_users_info();
+    foreach($users as $user){
+        echo
+        '<div class="tdiv">
+            <div class="rank">'.$user["user_rank"].'位</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>'.$user["user_name"].'</td>      <td class="rate">'.$user["user_rate"].'</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="border">
+                <tbody>
+                    <tr>
+                        <td>TRP : '.$user["evaluation_trp"].'</td><td class="lv">Lv : '.$user["user_lv"].'</td><td class="dp">DP : '.$user["user_dp"].'</td><td class="avg">被評 : '.$user["user_Ravg"].'</td><td class="avg">与評 : '.$user["user_Savg"].'</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="course">'.$user["user_course"].'</td>      <td>'.$user["user_major"].'</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="grade">'.$user["user_grade"].'年</td>      <td class="classname">'.$user["user_classname"].'</td>      <td>'.$user["user_Fsubject"].'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>';
+    }
+?>
+<style>
+    .tdiv{
+        width: fit-content;
+        border: 2px solid #000;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        height: fit-content;
+    }
+    .tdiv,
+    td.rate{
+        background-color: #eef;
+    }
+    .rank{
+        float: left;
+        width: 70px;
+        height: 100%;
+        /*border-right: 1px solid;*/
+        text-align: center;
+        line-height: calc(118px);
+    }
+    table{
+        width: 450px;
+    }
+    
+    td{
+        background-color: #fff;
+    }
+    td.rate{
+        text-align: right;
+        width: 80px;
+    }
+    td.avg,
+    td.lv{
+        width: 80px;
+    }
+    td.dp{
+        width: 65px;
+    }
+    td.course{
+        width: 160px;
+    }
+    td.grade{
+        width: 58px;
+    }
+    td.classname{
+        width: 98px;
+    }
+</style>
