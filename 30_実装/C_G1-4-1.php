@@ -43,7 +43,7 @@
             </div>
             <!--投稿-->
             <div class="row mb-3 justify-content-center">
-            <div class="col-10 col-sm-8 col-md-7 col-lg-5">
+            <div class="col-3 col-sm-8 col-md-7 col-lg-5">
                 <button type="btn" onclick=location.href="C_G1-4-2.php">
                     <table width="500px">
                         <tr align="left">
