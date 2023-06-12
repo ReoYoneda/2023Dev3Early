@@ -48,7 +48,7 @@
                 <label>　</label>
               </div>
               <div>
-                <input type="button" value="Back" onclick="history.back()">
+                <input type="button" value="戻る" onclick="history.back()">
               </div>
             </div>
             <!--投稿-->
@@ -72,7 +72,7 @@
             <!--日付-->
             <div class="col-4">
               <div>
-                2023/05/31
+                2023/05/31 12:00
               </div>
             </div>
           </div>

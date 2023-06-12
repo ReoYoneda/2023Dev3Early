@@ -43,9 +43,8 @@
             </div>
             <!--投稿-->
             <div class="row mb-3 justify-content-center">
-            <div class="col-3 col-sm-8 col-md-7 col-lg-5">
                 <button type="btn" onclick=location.href="C_G1-4-2.php">
-                    <table width="500px">
+                    <table width="100%">
                         <tr align="left">
                             <th>2023/05/03 20:30</th>
                             <th>ニックネーム</th>
@@ -68,7 +67,7 @@
                     </table>
                 </button>
                 <button type="btn" onclick=location.href="C_G1-4-2.php">
-                    <table width="500px">
+                    <table width="100%">
                         <tr align="left">
                             <th>2023/05/03 20:30</th>
                             <th>ニックネーム</th>
@@ -91,7 +90,7 @@
                     </table>
                 </button>
                 <button type="btn" onclick=location.href="C_G1-4-2.php">
-                    <table width="500px">
+                    <table width="100%">
                         <tr align="left">
                             <th>2023/05/03 20:30</th>
                             <th>ニックネーム</th>
