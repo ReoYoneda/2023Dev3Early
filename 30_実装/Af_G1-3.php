@@ -6,7 +6,7 @@
     <title>Status</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=0.85" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style_test02.css">
 </head>
@@ -41,7 +41,6 @@
         border: 1.5px solid;
         border-radius: 4px;
     }
-
 </style>
 
 <body>
@@ -54,7 +53,7 @@
 
                 <!-- 見出し -->
                 <div class="row mt-4">
-                    <div class="h4 text-center" title="情報をを入力して [Next]を押してください">
+                    <div class="h4 text-center" title="ステータスを確認して [皆の投稿へ]を押してください">
                         ステータス
                     </div>
                 </div>
@@ -75,7 +74,7 @@
                         <label for="userID">ログインID</label>
                     </div>
                     <div>
-                        <input type="text" name="userID" id="userID" value="loginID" disabled>
+                        <input type="text" class="input-display" name="userID" id="userID" value="loginID" disabled>
                     </div>
                 </div>
 
@@ -84,7 +83,7 @@
                         <label for="password">パスワード</label>
                     </div>
                     <div>
-                        <input type="password" name="password" id="password" value="password" disabled>
+                        <input type="password" class="input-display" name="password" id="password" value="password" disabled>
                     </div>
                 </div>
 
@@ -93,7 +92,7 @@
                         <label for="nickname">ニックネーム</label>
                     </div>
                     <div>
-                        <input type="text" name="nickname" id="nickname" value="nickname" disabled>
+                        <input type="text" class="input-display" name="nickname" id="nickname" value="nickname" disabled>
                     </div>
                 </div>
 
@@ -120,7 +119,7 @@
                         <label for="grade">学年</label>
                     </div>
                     <div>
-                        <select class="select" name="grade" id="grade" disabled>
+                        <select name="grade" id="grade" disabled>
                             <option value="" style="color: #bbb">選択してください</option>
                             <option value=1 selected>１年生</option>
                             <option value=2>２年生</option>
@@ -154,32 +153,30 @@
                     </div>
                     <div class="row ml-0 py-3 status">
                         <table>
-                            <tbody>
                                 <tr>
-                                    <td>　　　 現在のレベル</td>    <td>：</td>     <td class="text-right">  50　　　　　　　</td>
+                                    <td>　　　 現在のレベル</td>    <td>：</td>     <td class="text-right">　  50　　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 要求レベル</td>      <td>：</td>     <td class="text-right">   6　　　　　　　</td>
+                                    <td>　　　 要求レベル</td>      <td>：</td>     <td class="text-right">　   6　　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 累計獲得RP</td>      <td>：</td>     <td class="text-right"> 520　　　　　　　</td>
+                                    <td>　　　 累計獲得RP</td>      <td>：</td>     <td class="text-right">　 520　　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 次のLvまで</td>      <td>：</td>     <td class="text-right">  15　　　　　　　</td>
+                                    <td>　　　 次のLvまで</td>      <td>：</td>     <td class="text-right">　  15　　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 ランキング</td>      <td>：</td>     <td class="text-right"> 100位　　　　　　</td>
+                                    <td>　　　 ランキング</td>      <td>：</td>     <td class="text-right">　 100位　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 ユーザーレート</td>  <td>：</td>     <td class="text-right">  XX+ 　　　　　　</td>
+                                    <td>　　　 ユーザーレート</td>  <td>：</td>     <td class="text-right">　  XX+ 　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 被評価平均</td>      <td>：</td>     <td class="text-right"> 4.5　　　　　　　</td>
+                                    <td>　　　 被評価平均</td>      <td>：</td>     <td class="text-right">　 4.5　　　　　　</td>
                                 </tr>
                                 <tr>
-                                    <td>　　　 与評価平均</td>      <td>：</td>     <td class="text-right"> 4.5　　　　　　　</td>
+                                    <td>　　　 与評価平均</td>      <td>：</td>     <td class="text-right">　 4.5　　　　　　</td>
                                 </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>

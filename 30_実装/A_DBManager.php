@@ -110,14 +110,14 @@
             user_Savg
             ---------------*/
             $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM users AS u 
-                    LEFT OUTER JOIN evaluation AS e
-                    ON u.user_id = e.user_id
-                    LEFT OUTER JOIN (SELECT RANK() over(ORDER BY evaluation_trp DESC) AS user_rank, user_id
-                                    FROM evaluation) AS r
-                    ON u.user_id = r.user_id
-                    ORDER BY evaluation_trp DESC";
+            $pdo = $this->dbConnect();
+            $sql = "SELECT u.*, e.*, 
+                           (SELECT COUNT(*) + 1 
+                            FROM evaluation AS e2 
+                            WHERE e2.evaluation_trp > e.evaluation_trp) AS user_rank
+                    FROM users AS u
+                    LEFT OUTER JOIN evaluation AS e ON u.user_id = e.user_id
+                    ORDER BY e.evaluation_trp DESC";
             $ps = $pdo->prepare($sql);
             $ps->execute();
             $search = $ps->fetchAll();
@@ -188,10 +188,14 @@
             user_Savg
             ---------------*/
             $pdo = $this->dbConnect();
-            $sql = "SELECT * 
-                    FROM users AS u LEFT OUTER JOIN evaluation AS e
-                    ON u.user_id = e.user_id
-                    WHERE u.user_id = ?";
+            $sql = "SELECT u.*, e.*, 
+                            (SELECT COUNT(*) + 1 
+                            FROM evaluation AS e2 
+                            WHERE e2.evaluation_trp > e.evaluation_trp) AS user_rank
+                    FROM users AS u
+                    LEFT OUTER JOIN evaluation AS e ON u.user_id = e.user_id
+                    WHERE u.user_id = ?
+                    ORDER BY e.evaluation_trp DESC";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$userID,PDO::PARAM_INT);
             $ps->execute();
