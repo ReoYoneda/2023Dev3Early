@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userID'])==false){
+        header('Location:A_G1-1.php');
+    }
+    
+    require_once "A_DBManager.php";
+    $get = new DBManager();
+    $users = $get->get_users_info();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -6,19 +16,20 @@
     <title>Status</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.85" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style_test02.css">
 </head>
 
 <style>
     .tdiv{
-        border: 2px solid #ddd;
+        border: 2px solid #f0f0f0;
         border-radius: 4px;
+        box-shadow: 0px 0px 4px 2px #ccc;
     }
     .rank{
         float: left;
-        width: 15%;
+        width: 13%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -31,8 +42,7 @@
         font-weight: bold;
     }
     table{
-        width: 85%;
-        
+        width: 87%;
     }
     .tdiv,
     td.rate{
@@ -42,12 +52,11 @@
         background-color: #fcfcfc;
         border: 2px solid #f0f0f0;
         border-radius: 2px;
-        box-shadow: 1px 1px 1px 1px #ccc inset;
+        box-shadow: 0px 0px 1.5px 1.5px #ccc inset;
     }
     td.rate{
         width: 18%;
-        text-align: center;
-        border: none;
+        text-align: right;
     }
     td.rate,
     td.avg,
@@ -102,42 +111,46 @@
             <div class="col-11 col-md-9 col-lg-6 col-xl-5"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- ステータス -->
-
-                <div class="row mt-3">
+                <?php
+                foreach($users as $user){
+                    echo
+                '<div class="row mt-3">
                     <div class="px-0 tdiv">
 
-                        <div class="rank">1000位</div>
+                        <div class="rank">'.$user["user_rank"].'位</div>
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>TRP : 12345678</td><td class="lv">Lv : 12345</td><td class="dp">DP : 1234</td><td class="rate">SSS+</td>
+                                    <td>TRP : '.$user["evaluation_trp"].'</td><td class="lv">Lv : '.$user["user_lv"].'</td><td class="dp">DP : '.$user["user_dp"].'</td><td class="rate">'.$user["user_rate"].'</td>
                                 </tr>
                             </tbody>
                         </table>
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>user_name</td>      <td class="avg">被評 : 8.8</td><td class="avg">与評 : 8.8</td>
+                                    <td>'.$user["user_name"].'</td>      <td class="avg">被評 : '.$user["user_Ravg"].'</td><td class="avg">与評 : '.$user["user_Savg"].'</td>
                                 </tr>
                             </tbody>
                         </table>
                         <table>
                             <tbody>
                                 <tr>
-                                    <td class="course">国際ITエンジニア科</td>      <td>高度ネットワーク・セキュリティ専攻</td>
+                                    <td class="course">'.$user["user_course"].'</td>      <td>'.$user["user_major"].'</td>
                                 </tr>
                             </tbody>
                         </table>
                         <table>
                             <tbody>
                                 <tr>
-                                    <td class="grade">8年</td>      <td class="classname">classname</td>      <td>["user_Fsubject"]</td>
+                                    <td class="grade">'.$user["user_grade"].'年</td>      <td class="classname">'.$user["user_classname"].'</td>      <td>'.$user["user_Fsubject"].'</td>
                                 </tr>
                             </tbody>
                         </table>
                     
                     </div>
-                </div>
+                </div>';
+                }
+                ?>
 
                 <!--/ステータス -->
 
