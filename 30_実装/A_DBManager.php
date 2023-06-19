@@ -2,6 +2,12 @@
     class DBManager{
 
         private function dbConnect(){
+            /*
+            xampp >> config.inc.php
+            >>
+            $cfg['Servers'][$i]  ['user']   = 'root';　phpmyAdminのユーザー名と
+            $cfg['Servers'][$i]['password'] = 'root';　パスワードの設定はここから
+            */
             $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root','root');
             return $pdo;
         }
@@ -90,15 +96,8 @@
 
         function get_users_info(){
             /*---------------
-            user_id
-            user_loginid
-            user_password
-            user_name
-            user_course
-            user_major
-            user_grade
-            user_classname
-            user_Fsubject
+            table[users]
+            table[evaluation]
             +++++++++++++++
             user_lv
             user_dp
@@ -143,11 +142,9 @@
                 $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
 
                 if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
-                    $row["user_rate"] .= " +　";
+                    $row["user_rate"] .= "+";
                 }else if($ratio%10 >= 7){
-                    $row["user_rate"] .= " - 　";
-                }else{
-                    $row["user_rate"] .= "　　";
+                    $row["user_rate"] .= "-";
                 }
 
                 if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加
@@ -168,15 +165,8 @@
 
         function get_user_info($userID){
             /*---------------
-            user_id
-            user_loginid
-            user_password
-            user_name
-            user_course
-            user_major
-            user_grade
-            user_classname
-            user_Fsubject
+            table[users]
+            table[evaluation]
             +++++++++++++++
             user_lv
             user_dp
@@ -233,9 +223,9 @@
             $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
 
             if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
-                $row["user_rate"] = $row["user_rate"]."+";
+                $row["user_rate"] = $row["user_rate"]." + ";
             }else if($ratio%10 >= 7){
-                $row["user_rate"] = $row["user_rate"]."-";
+                $row["user_rate"] = $row["user_rate"]." - ";
             }
 
             if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加

@@ -8,9 +8,20 @@ body{
     color: #000;
 }
 
+.container{
+    min-width: 360px;
+}
+
 .nav {
     border-bottom: 1px solid #ccc;
     padding-bottom: 8px;
+}
+
+.header-title{
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 input,
@@ -64,6 +75,46 @@ a.col{
 }
 
 
+
+
+
+
+.tdiv{
+    background-color: #f0f0f0;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 2px #ccc;
+    margin-bottom: 1rem;
+}
+
+.td{
+    background-color: #fcfcfc;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1.5px 1.5px #ccc inset;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.15rem;
+}
+
+.rank,
+.rate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 1px #ccc;
+    color: #83f;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 
 

@@ -1,0 +1,31 @@
+input[type="text"],
+input[type="password"],
+select{
+    border: none;
+    background-color: transparent;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+select:hover{
+    box-shadow: none;
+}
+
+/* 矢印消去 */
+select {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+/* ie対応 */
+select::-ms-expand {
+display: none;
+}
+/* /矢印消去 */
+
+.status{
+    border: 1.5px solid;
+    border-radius: 4px;
+    margin: 0;
+    padding: 15px 0;
+}

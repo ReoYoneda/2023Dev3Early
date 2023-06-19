@@ -28,7 +28,7 @@
         $user = $get->get_user_info($post["user_id"]);
         $postID = $post["post_id"];
         echo
-        '<div onclick="location.href='."'A_G1-4-2.php?postID=".$postID."'".'" method="POST">
+        '<div style="background-color: #eee; width: fit-content; margin: 10px" onclick="location.href='."'A_G1-4-2.php?postID=".$postID."'".'" method="POST">
         ----------------------------------------------------------------------------<br>'.
        '日時　　 : '.date('Y/m/d　H:i',strtotime($post["post_date"])).'<br>
         user　　 : '.$user["user_id"].'<br>
@@ -42,6 +42,6 @@
         DP 　 　 : '.$user["user_dp"].'<br>
         被評　　 : '.$user["user_Ravg"].'<br>
         与評　　 : '.$user["user_Savg"].'<br>
-        </div>';
+        ----------------------------------------------------------------------------</div>';
     }
 ?>
