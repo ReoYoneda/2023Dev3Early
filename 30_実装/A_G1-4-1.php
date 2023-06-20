@@ -28,7 +28,7 @@
         $user = $get->get_user_info($post["user_id"]);
         $postID = $post["post_id"];
         echo
-        '<div style="background-color: #eee; width: fit-content; margin: 10px" onclick="location.href='."'A_G1-4-2.php?postID=".$postID."'".'" method="POST">
+        '<div style="background-color: #eee; width: fit-content; margin: 10px" onclick="location.href='."'A_G1-4-2.php?postID=".$postID."'".'">
         ----------------------------------------------------------------------------<br>'.
        '日時　　 : '.date('Y/m/d　H:i',strtotime($post["post_date"])).'<br>
         user　　 : '.$user["user_id"].'<br>

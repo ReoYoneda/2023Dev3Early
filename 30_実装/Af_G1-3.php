@@ -116,47 +116,6 @@
                     </div>
                 </div>
                 
-                <div class="row mb-3">
-                    <div>
-                        <label for="Fsubject">ステータス</label>
-                    </div>
-                    <div class="row ml-0 py-3 status">
-                        <table>
-                            <tr>
-                                <td>　　　 現在のレベル</td>    <td>：</td>     <td class="text-right">　  50　　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 要求レベル</td>      <td>：</td>     <td class="text-right">　   6　　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 累計獲得RP</td>      <td>：</td>     <td class="text-right">　 520　　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 次のLvまで</td>      <td>：</td>     <td class="text-right">　  15　　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 ランキング</td>      <td>：</td>     <td class="text-right">　 100位　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 ユーザーレート</td>  <td>：</td>     <td class="text-right">　  XX+ 　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 被評価平均</td>      <td>：</td>     <td class="text-right">　 4.5　　　　　　</td>
-                            </tr>
-                            <tr>
-                                <td>　　　 与評価平均</td>      <td>：</td>     <td class="text-right">　 4.5　　　　　　</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <style>
-                    .td{
-                        padding: 0;
-                        box-shadow: none;
-                        background-color: transparent;
-                        border: none;
-                    }
-                </style>
                 <div class="row">
                     <div>
                         <label for="Fsubject">ステータス</label>

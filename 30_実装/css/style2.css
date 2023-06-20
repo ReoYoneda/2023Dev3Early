@@ -29,3 +29,11 @@ display: none;
     margin: 0;
     padding: 15px 0;
 }
+
+.td{
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    margin: 2px 0;
+}

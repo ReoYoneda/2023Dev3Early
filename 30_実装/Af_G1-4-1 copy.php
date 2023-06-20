@@ -1,16 +1,3 @@
-<?php
-    session_start();
-    if(isset($_SESSION['userID'])==false){
-        header('Location:A_G1-1.php');
-    }
-?>
-<?php
-    require_once "A_DBManager.php";
-    $get = new DBManager();
-    $posts = array_reverse($get->get_posts());
-    $users = $get->get_users();
-    
-?>
 <!DOCTYPE html>
 <html>
 
@@ -60,39 +47,52 @@
             <div class="col-11 col-md-10 col-lg-9 col-xl-7"><!-- 用のコンテナサイズ -->
             
                 <!-- 投稿情報 -->
-                <?php 
-                foreach($posts as $post){
-                    if($post["post_flag"] == 0){
-                        continue;
-                    }
-                    $user = $get->get_user_info($post["user_id"]);
-                    $postID = $post["post_id"];
-                    echo 
-                    '<div class="row tdiv" onclick="location.href='."'A_G1-4-2.php?postID=".$postID."'".'">
+                <div class="row tdiv" onclick="location.href='Af_G1-4-2.php'">
 
-                        <div class="td col-md-6">'.date('Y/m/d　H:i',strtotime($post["post_date"])).'</div>
-                        <div class="td col-md-6 d-none d-md-block">'.$user["user_name"].'</div>
-                    
-                        <div class="td col-6 col-md-4">'.$user["user_course"].'</div>
-                        <div class="td col-2 col-md-2">'.$user["user_grade"].'年</div>
-                        <div class="td col-4 col-md-3">'.$user["user_classname"].'</div>
-                        <div class="td col-md-3 d-none d-md-block">　L v　:　'.$user["user_lv"].'</div>
-                    
-                        <div class="td col-md-9">科目 : '.$post["post_subject"].'</div>
-                        <div class="td col-md-3 d-none d-md-block">　DP　:　'.$user["user_dp"].'</div>
-                    
-                        <div class="td title col-md-9">'.$post["post_title"].'</div>
-                        <div class="col-md-3 d-none d-md-block">
-                            <div class="row">
-                                <div class="td m-0">　被評 :　'.$user["user_Ravg"].'</div>
-                                <div class="td m-0">　与評 :　'.$user["user_Savg"].'</div>
-                            </div>
+                    <div class="td col-md-6">2023/05/01 20:20</div>
+                    <div class="td col-md-6 d-none d-md-block">（ここはニックネームです）</div>
+                
+                    <div class="td col-6 col-md-4">情報システム専攻科</div>
+                    <div class="td col-2 col-md-2">2年</div>
+                    <div class="td col-4 col-md-3">SD2D</div>
+                    <div class="td col-md-3 d-none d-md-block">　L v　:　999</div>
+                
+                    <div class="td col-md-9">科目 : システム設計</div>
+                    <div class="td col-md-3 d-none d-md-block">　DP　:　100</div>
+                
+                    <div class="td title col-md-9">設計の課題を教えてください</div>
+                    <div class="col-md-3 d-none d-md-block">
+                        <div class="row">
+                            <div class="td m-0">　被評 :　4.5</div>
+                            <div class="td m-0">　与評 :　4.5</div>
                         </div>
-                                
-                    </div>';
-                }
+                    </div>
+                            
+                </div>
 
-                ?>
+                <div class="row tdiv">
+
+                    <div class="td col-md-6">2023/05/01 20:20</div>
+                    <div class="td col-md-6 d-none d-md-block">（ここはニックネームです）</div>
+                
+                    <div class="td col-6 col-md-4">情報システム専攻科</div>
+                    <div class="td col-2 col-md-2">2年</div>
+                    <div class="td col-4 col-md-3">SD2D</div>
+                    <div class="td col-md-3 d-none d-md-block">　L v　:　999</div>
+                
+                    <div class="td col-md-9">科目 : システム設計</div>
+                    <div class="td col-md-3 d-none d-md-block">　DP　:　100</div>
+                
+                    <div class="td title col-md-9">設計の課題を教えてください</div>
+                    <div class="col-md-3 d-none d-md-block">
+                        <div class="row">
+                            <div class="td m-0">　被評 :　4.5</div>
+                            <div class="td m-0">　与評 :　4.5</div>
+                        </div>
+                    </div>
+                            
+                </div>
+
 
             </div>
 
