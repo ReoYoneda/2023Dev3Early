@@ -39,8 +39,11 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="Af_G1-2-3.php" method="POST">
+                <form action="G1-2-3.php" method="POST">
 
+                <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
+                <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
+                
                 <div class="row mb-3">
                     <div>
                         <label for="nickname">ニックネーム</label>

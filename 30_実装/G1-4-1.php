@@ -68,7 +68,7 @@
                     $user = $get->get_user_info($post["user_id"]);
                     $postID = $post["post_id"];
                     echo 
-                    '<div class="row tdiv" onclick="location.href='."'A_G1-4-2.php?postID=".$postID."'".'">
+                    '<div class="row tdiv" onclick="location.href='."'G1-4-2.php?postID=".$postID."'".'">
 
                         <div class="td col-md-6">'.date('Y/m/d　H:i',strtotime($post["post_date"])).'</div>
                         <div class="td col-md-6 d-none d-md-block">'.$user["user_name"].'</div>

@@ -39,14 +39,14 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="Af_G1-2-2.php" method="POST">
+                <form action="G1-2-2.php" method="POST">
 
                 <div class="row mb-3">
                     <div>
-                        <label for="userID">ログインID</label>
+                        <label for="loginID">ログインID</label>
                     </div>
                     <div>
-                        <input type="text" name="userID" id="userID" placeholder="loginID" required>
+                        <input type="text" name="loginID" id="loginID" placeholder="loginID" required>
                     </div>
                 </div>
 

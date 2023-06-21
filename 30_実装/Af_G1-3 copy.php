@@ -40,10 +40,10 @@
 
                 <div class="row mb-3">
                     <div>
-                        <label for="userID">ログインID</label>
+                        <label for="loginID">ログインID</label>
                     </div>
                     <div>
-                        <input type="text" class="input-display" name="userID" id="userID" value="loginID" disabled>
+                        <input type="text" class="input-display" name="loginID" id="loginID" value="loginID" disabled>
                     </div>
                 </div>
 
