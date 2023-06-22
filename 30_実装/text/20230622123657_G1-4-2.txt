@@ -81,7 +81,7 @@
                 <div class="row mb-3
                             justify-content-between">
 
-                    <div class="col-4 col-md-3">
+                    <div class="col-4">
                         <div>
                             <label>　</label>
                         </div>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
 
-                    <div class="col-4 col-md-3">
+                    <div class="col-4">
                         <div>
                             <label>　</label>
                         </div>
@@ -134,7 +134,7 @@
                             }
                             if($post["post_file_path"]!=null){
                                 echo 
-                            '<div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
+                            '<div class="td source-box col-10" onclick="openText('."'".$post['post_file_path']."'".')">
                                 '.substr($post["post_file_path"],20).'
                             </div>';
                             }
@@ -168,7 +168,7 @@
                             }
                             if($reply["reply_file_path"]!=null){
                                 echo 
-                            '<div class="td black source-box py-2 col-10" onclick="openText('."'".$reply["reply_file_path"]."'".')">
+                            '<div class="td source-box col-10" onclick="openText('."'".$reply["reply_file_path"]."'".')">
                                 '.substr($reply["reply_file_path"],20).'
                             </div>';
                             }

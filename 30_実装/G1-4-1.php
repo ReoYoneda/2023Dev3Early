@@ -57,7 +57,7 @@
 
         <div class="row justify-content-center"><!-- フォーム用コンテナ -->
 
-            <div class="col-11 col-md-10 col-lg-9 col-xl-7"><!-- 用のコンテナサイズ -->
+            <div class="col-11 col-lg-10 col-xl-9"><!-- 用のコンテナサイズ -->
             
                 <!-- 投稿情報 -->
                 <?php 
@@ -70,8 +70,8 @@
                     echo 
                     '<div class="row tdiv" onclick="location.href='."'G1-4-2.php?postID=".$postID."'".'">
 
-                        <div class="td col-md-6">'.date('Y/m/d　H:i',strtotime($post["post_date"])).'</div>
-                        <div class="td col-md-6 d-none d-md-block">'.$user["user_name"].'</div>
+                        <div class="td col-6 col-md-9">'.$user["user_name"].'</div>
+                        <div class="td text-center col-6 col-md-3">'.date('Y/m/d　H:i',strtotime($post["post_date"])).'</div>
                     
                         <div class="td col-6 col-md-4">'.$user["user_course"].'</div>
                         <div class="td col-2 col-md-2">'.$user["user_grade"].'年</div>
@@ -81,7 +81,7 @@
                         <div class="td col-md-9">科目 : '.$post["post_subject"].'</div>
                         <div class="td col-md-3 d-none d-md-block">　DP　:　'.$user["user_dp"].'</div>
                     
-                        <div class="td title col-md-9">'.$post["post_title"].'</div>
+                        <div class="td post-title col-md-9">'.$post["post_title"].'</div>
                         <div class="col-md-3 d-none d-md-block">
                             <div class="row">
                                 <div class="td m-0">　被評 :　'.$user["user_Ravg"].'</div>

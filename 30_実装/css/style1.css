@@ -1,9 +1,11 @@
-/* 「ホバー、　フレームアウト！！」 */
-
-/*:hover {
+/* 
+「階層チェック」
+:hover {
     box-shadow: 0px 0px 3px 2px #999;
-}*/
+}
+*/
 
+/*----- section1-1 -----*/
 body{
     color: #000;
 }
@@ -36,14 +38,18 @@ select{
 a.col:hover,
 input:hover,
 textarea:hover,
-select:hover{
+select:hover,
+
+.source-box:hover{
     box-shadow: 0px 0px 4px 1px #40f;
 }
 
 a.col:focus,
 input:focus,
 textarea:focus,
-select:focus{
+select:focus,
+
+.source-box:active{
     outline: 4px solid #86f;
 }
 
@@ -56,13 +62,10 @@ input[type="button"]{
     color: #000;
 }
 
-input[type="submit"]:active,
-input[type="button"]:active {
-    box-shadow: none;
-}
-
 input[type="submit"].black,
-input[type="button"].black{
+input[type="button"].black,
+
+.td .black{
     background-color: #000;
     color: #fff;
 }
@@ -73,29 +76,29 @@ a.col{
     color: #000;
     border-radius: 4px;
 }
+/*----- /section1-1 -----*/
 
 
 
 
-/*
+
+/*----- section1-2 -----*/
 .tdiv{
-    background-color: #f0f0f0;
-    border: 2px solid #f0f0f0;
+    background-color: #000;
+    border: 1.5px solid #000;
     border-radius: 4px;
-    box-shadow: 0px 0px 4px 2px #ccc;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .td{
     background-color: #fcfcfc;
-    border: 2px solid #f0f0f0;
+    border: 1.5px solid #000;
     border-radius: 4px;
-    box-shadow: 0px 0px 1.5px 1.5px #ccc inset;
     white-space: nowrap;
     overflow: hidden;
 }
 
-.title{
+.post-title{
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -104,50 +107,82 @@ a.col{
 
 .rank,
 .rate{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 1px 1px 1px #ccc;
-    color: #83f;
-    font-weight: bold;
-    background-color: #f0f0f0;
-    white-space: nowrap;
-    overflow: hidden;
-}
-*/
-.tdiv{
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.td{
-    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
     border-radius: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.title{
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    padding: 0.85rem 1.15rem;
-}
-
-.rank,
-.rate{
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
     font-weight: bold;
-    
     white-space: nowrap;
     overflow: hidden;
 }
+/*----- /section1-2 -----*/
 
 
+
+
+
+/*----- section1-3 -----*/
+/*----- モーダル用スタイル (G1-4-2, G1-4-3, G1-6-1-1, G1-6-1-2, G1-6-2) -----*/
+
+/* ファイル表示 */
+.source-box{
+    margin-bottom: 0.5rem;
+    padding: 0;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.source-box>img{
+    width: 100%;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+/* モーダルを非表示にする */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* モーダルのコンテンツ */
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #eee;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-height: 85%;
+    height: fit-content;
+    text-align: center;
+}
+
+.modal-source{
+    width: 95%;
+    margin: 0 auto 2%;
+    overflow: scroll;
+}
+
+.modal-source>img{
+    width: 100%;
+    object-fit: contain;
+}
+.modal-source>object{
+    min-height: 700px;
+    width: 100%;
+}
+/*----- /モーダル用スタイル -----*/
+/*----- /section1-3 -----*/
 
 
 

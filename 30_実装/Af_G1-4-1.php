@@ -60,7 +60,7 @@
                     <div class="td col-md-9">科目 : システム設計</div>
                     <div class="td col-md-3 d-none d-md-block">　DP　:　100</div>
                 
-                    <div class="td title col-md-9">設計の課題を教えてください</div>
+                    <div class="td post-title col-md-9">設計の課題を教えてください</div>
                     <div class="col-md-3 d-none d-md-block">
                         <div class="row">
                             <div class="td m-0">　被評 :　4.5</div>
@@ -83,7 +83,7 @@
                     <div class="td col-md-9">科目 : システム設計</div>
                     <div class="td col-md-3 d-none d-md-block">　DP　:　100</div>
                 
-                    <div class="td title col-md-9">設計の課題を教えてください</div>
+                    <div class="td post-title col-md-9">設計の課題を教えてください</div>
                     <div class="col-md-3 d-none d-md-block">
                         <div class="row">
                             <div class="td m-0">　被評 :　4.5</div>
