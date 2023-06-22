@@ -34,12 +34,12 @@
 
                 <!-- ナビ -->
                 <div class="row nav">
-                    <a class="col" href="Af_G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="Af_G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="Af_G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="Af_G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="Af_G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="Af_G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                    <a class="col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
                 </div>
                 <!--/ナビ -->
 
