@@ -18,7 +18,7 @@
 
 <form action="A_G1-5(b).php" method="post" enctype="multipart/form-data">
     タイトル : 
-    <input type="post_title" name="title" maxlength="30" required><br>
+    <input type="text" name="postTitle" maxlength="30" required><br>
     授業科目 : 
     <input type="text" name="subject" required><br>
     質問内容 : 

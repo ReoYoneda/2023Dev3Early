@@ -24,7 +24,7 @@
 
                 <!-- 見出し -->
                 <div class="row">
-                    <div class="header-title" title="ログインIDとパスワードを入力して [Next]を押してください">
+                    <div class="header-title" title="ログインIDとパスワードを入力して [次へ] を押してください">
                         新規登録
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <!-- フォーム -->
                 <form action="G1-2-2.php" method="POST">
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="loginID">ログインID</label>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="password">パスワード</label>
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3
+                <div class="row mb
                             justify-content-between">
 
                     <div class="col-4">
@@ -81,6 +81,8 @@
                     </div>
                     
                 </div>
+
+                </form>
 
                 <!--/フォーム -->
 

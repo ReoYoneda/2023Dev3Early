@@ -24,7 +24,7 @@
 
                 <!-- 見出し -->
                 <div class="row">
-                    <div class="header-title" title="情報をを入力して [Next]を押してください">
+                    <div class="header-title" title="ユーザ情報をを入力して [確認] を押してください">
                         ユーザー情報
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
                 <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
                 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="nickname">ニックネーム</label>
                     </div>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="course">学科</label>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="major">専攻</label>
                     </div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="grade">学年</label>
                     </div>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="classname">クラス</label>
                     </div>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="Fsubject">得意科目</label>
                     </div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3
+                <div class="row mb
                             justify-content-between">
 
                     <div class="col-4">
@@ -121,7 +121,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="次へ">
+                            <input type="submit" class="black" value="確認">
                         </div>
                     </div>
                     

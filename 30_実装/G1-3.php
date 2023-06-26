@@ -33,7 +33,7 @@
 
                 <!-- 見出し -->
                 <div class="row">
-                    <div class="header-title" title="ステータスを確認して [皆の投稿へ]を押してください">
+                    <div class="header-title" title="ステータスを確認して [皆の投稿] を押してください">
                         ステータス
                     </div>
                 </div>
@@ -49,7 +49,7 @@
 
                 <!-- ステータス -->
                 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="loginID">ログインID</label>
                     </div>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="password">パスワード</label>
                     </div>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="nickname">ニックネーム</label>
                     </div>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="course">学科</label>
                     </div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="major">専攻</label>
                     </div>
@@ -94,22 +94,22 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="grade">学年</label>
                     </div>
                     <div>
                         <select name="grade" id="grade" disabled>
                             <option value="" style="color: #bbb">選択してください</option>
-                            <option value=1 <?php if($user["user_grade"]==1){echo "selected";} ?>>１年生</option>
-                            <option value=2 <?php if($user["user_grade"]==2){echo "selected";} ?>>２年生</option>
-                            <option value=3 <?php if($user["user_grade"]==3){echo "selected";} ?>>３年生</option>
-                            <option value=4 <?php if($user["user_grade"]==4){echo "selected";} ?>>４年生</option>
+                            <option value=1 <?php if($row["user_grade"]==1){echo "selected";} ?>>１年生</option>
+                            <option value=2 <?php if($row["user_grade"]==2){echo "selected";} ?>>２年生</option>
+                            <option value=3 <?php if($row["user_grade"]==3){echo "selected";} ?>>３年生</option>
+                            <option value=4 <?php if($row["user_grade"]==4){echo "selected";} ?>>４年生</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="classname">クラス</label>
                     </div>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="Fsubject">得意科目</label>
                     </div>
@@ -132,12 +132,12 @@
                         <label for="Fsubject">ステータス</label>
                     </div>
                     <div class="row status">
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">現在のレベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_lv'] ?>　　</div><div class="td col-2"></div>
+                        <div class="col-1 col-sm-2"></div><div class="td col-4 col-sm-3">現在のレベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_lv'] ?>　　</div><div class="td col-2"></div>
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">要求レベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_dp'] ?>　　</div><div class="td col-2"></div>
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">累計獲得RP</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['evaluation_trp'] ?>　　</div><div class="td col-2"></div>
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">次のLvまで</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_nrp'] ?>　　</div><div class="td col-2"></div>
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ランキング</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rank'] ?>位　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ユーザーレート</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rate'] ?>　　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ユーザーレート</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rate'] ?>　</div><div class="td col-2"></div>
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">被評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Ravg'] ?>　　</div><div class="td col-2"></div>
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">与評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Savg'] ?>　　</div><div class="td col-2"></div>
                     </div>
@@ -145,7 +145,7 @@
 
                 <!--/ステータス -->
 
-                <div class="row mb-3
+                <div class="row mb
                             justify-content-between">
 
                     <div class="col-4">
@@ -153,7 +153,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="ログアウト" onclick="location.href='G1-1.php'">
+                            <input type="button" value="ログアウト" onclick="location.href='G1-LogOut.php'">
                         </div>
                     </div>
 

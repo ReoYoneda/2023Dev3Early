@@ -1,3 +1,5 @@
+// xampp > my.ini > max_allowed_pachet= 1M~1G
+
 package A_sql;
 
 import java.io.BufferedWriter;

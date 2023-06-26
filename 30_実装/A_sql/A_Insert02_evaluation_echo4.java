@@ -9,11 +9,11 @@ public class A_Insert02_evaluation_echo4 {
     public static void main(String[] args) {
         String s = "INSERT INTO `evaluation`(`user_id`, `evaluation_trp`, `evaluation_receivednum`, `evaluation_receivedvalue`, `evaluation_sentnum`, `evaluation_sentvalue`)\nVALUES\n";
         double id, id3, trp, num, Rvalue, Svalue;
-        for(int x=1; x<=16; x++){
-            for(int y=1; y<=16; y++){
-                for(int z=1; z<=16; z++){
-                    id = (x-1)*16*16+(y-1)*16+z;
-                    id3 = id/64;
+        for(int x=1; x<=13; x++){
+            for(int y=1; y<=13; y++){
+                for(int z=1; z<=13; z++){
+                    id = (x-1)*13*13+(y-1)*13+z;
+                    id3 = id/32;
                     trp = id3*id3*id3*id3*id3*id3*id3*id3*id3/1024/1024/1024/4+id/2;
                     
                     num = (int)Math.sqrt(trp*5-9);

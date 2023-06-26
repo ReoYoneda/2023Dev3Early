@@ -28,7 +28,7 @@
         }
         $postID = $post["post_id"];
         echo
-        '<div onclick="location.href='."'A_G1-6-1-2.php?postID=".$postID."'".'" method="POST">
+        '<div onclick="location.href='."'A_G1-6-1-2.php?postID=".$postID.'\'">
         ----------------------------------------------------------------------------<br>'.
        '日時　　 : '.date('Y/m/d　H:i',strtotime($post["post_date"])).'<br>
         授業科目 : '.$post["post_subject"].'<br>

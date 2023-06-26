@@ -6,8 +6,20 @@
 */
 
 /*----- section1-1 -----*/
+/*----- 全体共通 -----*/
+
 body{
+    /*background-image: url("../A_img/overlord04.jpg"), url("../A_img/overlord02.jpg");
+    background-color:rgba(255,255,255,0.45);
+    background-blend-mode: hard-light;
+    background-blend-mode: overlay;
+    background-size: 50% auto, 50% auto;
+    background-position: 0 0, 100% 0;
+    background-repeat: repeat-y, repeat-y;*/
+    font-family: 'Times New Roman';
     color: #000;
+    overflow: auto;
+    padding-bottom: 15vh;
 }
 
 .container{
@@ -26,6 +38,10 @@ body{
     text-align: center;
 }
 
+.mb{
+    margin-bottom: 2rem;
+}
+
 input,
 textarea,
 select{
@@ -35,29 +51,35 @@ select{
     border-radius: 4px;
 }
 
-a.col:hover,
+.nav>a:hover,
 input:hover,
 textarea:hover,
 select:hover,
 
+.G1-4-1 .tdiv:hover,
+.G1-6-1-1 .tdiv:hover,
+.G1-6-2-1 .tdiv:hover,
+
 .source-box:hover{
     box-shadow: 0px 0px 4px 1px #40f;
+    z-index: 3;
 }
 
-a.col:focus,
+.nav>a:focus,
 input:focus,
 textarea:focus,
 select:focus,
 
+.G1-4-1 .tdiv:active,
+
 .source-box:active{
-    outline: 4px solid #86f;
+    outline: 4px solid #74f;
+    z-index: 3;
 }
 
 input[type="submit"],
 input[type="button"]{
-    padding: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     background-color: #fff;
     color: #000;
 }
@@ -68,9 +90,11 @@ input[type="button"].black,
 .td .black{
     background-color: #000;
     color: #fff;
+
 }
 
-a.col{
+.nav>a{
+    padding: 0;
     font-size: 1.7rem;
     text-align: center;
     color: #000;
@@ -83,6 +107,8 @@ a.col{
 
 
 /*----- section1-2 -----*/
+/*----- テーブル用スタイル (G1-4, G1-5, G1-6, G1-7,) -----*/
+
 .tdiv{
     background-color: #000;
     border: 1.5px solid #000;
@@ -102,7 +128,7 @@ a.col{
     font-weight: bold;
     display: flex;
     align-items: center;
-    padding: 0.85rem 1.15rem;
+    padding: 0.75rem 1.2rem;
 }
 
 .rank,
@@ -145,7 +171,7 @@ a.col{
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
@@ -161,16 +187,19 @@ a.col{
     left: 50%;
     background-color: #eee;
     transform: translate(-50%, -50%);
-    width: 90%;
-    max-height: 85%;
+    width: 75%;
+    max-height: 90%;
     height: fit-content;
     text-align: center;
 }
 
+.modal-name{
+    padding: 0.25rem 0;
+}
+
 .modal-source{
-    width: 95%;
-    margin: 0 auto 2%;
-    overflow: scroll;
+    margin: 0 1% 1%;
+    overflow: auto;
 }
 
 .modal-source>img{
@@ -178,10 +207,9 @@ a.col{
     object-fit: contain;
 }
 .modal-source>object{
-    min-height: 700px;
-    width: 100%;
+    height: 70vh;
+    min-width: 1000px;
 }
-/*----- /モーダル用スタイル -----*/
 /*----- /section1-3 -----*/
 
 

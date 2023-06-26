@@ -24,19 +24,20 @@
     <link rel="stylesheet" href="css/style1.css">
 </head>
 
-<body>
+<body class="G1-4-1">
 
     <div class="container">
             
         <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
 
-            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
                 <!-- ナビ -->
-                <div class="row nav">
+                <div class="row nav justify-content-between">
                     <a class="col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
                     <a class="col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
                     <a class="col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
                     <a class="col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
                     <a class="col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
                     <a class="col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>

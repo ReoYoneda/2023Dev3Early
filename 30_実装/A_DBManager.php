@@ -109,7 +109,6 @@
             user_Savg
             ---------------*/
             $pdo = $this->dbConnect();
-            $pdo = $this->dbConnect();
             $sql = "SELECT u.*, e.*, 
                            (SELECT COUNT(*) + 1 
                             FROM evaluation AS e2 
@@ -141,10 +140,12 @@
 
                 $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
 
-                if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
-                    $row["user_rate"] .= "+";
+                if($ratio == 100){
+                    $row["user_rate"] .= "－";
+                }else if($ratio%10 < 3){                                            # $row["user_rate"]に「+」,「-」を追加
+                    $row["user_rate"] .= "✛";
                 }else if($ratio%10 >= 7){
-                    $row["user_rate"] .= "-";
+                    $row["user_rate"] .= "－";
                 }
 
                 if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加
@@ -222,12 +223,16 @@
 
             $row["user_rate"] = $user_rate;                                     # $rowに「user_rate」を追加
 
-            if($ratio%10 < 3){                                                  # $row["user_rate"]に「+」,「-」を追加
-                $row["user_rate"] = $row["user_rate"]." + ";
+            if($ratio == 100){
+                $row["user_rate"] .= "－";
+            }else if($ratio%10 < 3){                                            # $row["user_rate"]に「+」,「-」を追加
+                $row["user_rate"] .= "✛";
             }else if($ratio%10 >= 7){
-                $row["user_rate"] = $row["user_rate"]." - ";
+                $row["user_rate"] .= "－";
+            }else{
+                $row["user_rate"] = $row["user_rate"]."　";
             }
-
+           
             if($row['evaluation_receivednum']!=0){                              # $rowに「user_Ravg」を追加
                 $row["user_Ravg"] = number_format($row['evaluation_receivedvalue']/$row['evaluation_receivednum'],1);
             }else{
@@ -329,7 +334,8 @@
         function get_replies($postID){
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM replies
-                    WHERE post_id = ?";
+                    WHERE post_id = ?
+                    ORDER BY reply_id ASC";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$postID,PDO::PARAM_STR);
             $ps->execute();
@@ -362,7 +368,8 @@
                     ON p.post_id = p_i.post_id
                     LEFT OUTER JOIN post_files AS p_f
                     ON p.post_id = p_f.post_id
-                    WHERE user_id = ?";
+                    WHERE user_id = ?
+                    ORDER BY p.post_id ASC";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$userID,PDO::PARAM_INT);
             $ps->execute();

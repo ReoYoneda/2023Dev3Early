@@ -11,7 +11,7 @@
     $userID = $post["user_id"];
 
     if($userID == $_SESSION["userID"]){
-        header('Location:A_G1-6-1-2.php?postID='.$postID);
+        header('Location:G1-6-1-2.php?postID='.$postID);
     }
 
     $user = $get->get_user_info($userID);
@@ -36,7 +36,7 @@
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <div id="modalContentName" class="py-2">モーダルコンテンツ名</div>
+            <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
             
             <div class="modal-source">
                 <img id="imgModal">
@@ -49,13 +49,14 @@
             
         <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
 
-            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
                 <!-- ナビ -->
-                <div class="row nav">
+                <div class="row nav justify-content-between">
                     <a class="col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
                     <a class="col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
                     <a class="col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a class="col" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
                     <a class="col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
                     <a class="col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
                     <a class="col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
@@ -64,7 +65,7 @@
 
                 <!-- 見出し -->
                 <div class="row">
-                    <div class="header-title" title="回答するときは[回答]を押してください">
+                    <div class="header-title" title="回答するときは [回答] を押してください">
                         回答一覧
                     </div>
                 </div>
@@ -78,7 +79,7 @@
 
             <div class="col-11 col-lg-10 col-xl-9"><!-- 用のコンテナサイズ -->
 
-                <div class="row mb-3
+                <div class="row mb
                             justify-content-between">
 
                     <div class="col-4 col-md-3">
@@ -95,7 +96,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                        <input type="button" class="black" onclick="location.href='A_G1-4-3.php?postID=<?php echo $_GET['postID'] ?>'" value="回答">
+                        <input type="button" class="black" onclick="location.href='G1-4-3.php?postID=<?php echo $_GET['postID'] ?>'" value="回答">
                         </div>
                     </div>
                     
@@ -176,9 +177,9 @@
                     echo '
                         </div>
                     </div>
-                    <div class="td col-9" style="white-space: wrap; overflow: hidden;">
-                        '.$reply["reply_text"].'
-                    </div>
+
+                    <div class="td col-9" style="white-space: nowrap; overflow: auto; white-space: pre; max-height: 100vh;">'.$reply["reply_text"].'</div>
+
                 </div>';
                 }
                 ?>

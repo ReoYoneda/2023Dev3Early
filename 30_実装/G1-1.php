@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/style1.css">
 </head>
 
-<body>
+<body class="G1-1">
 
     <div class="container">
             
@@ -24,7 +24,7 @@
 
                 <!-- 見出し -->
                 <div class="row">
-                    <div class="header-title" title="ログインIDとパスワードを入力して [Login]を押してください">
+                    <div class="header-title" title="ログインIDとパスワードを入力して [ログイン] を押してください">
                         ログイン
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <!-- フォーム -->
                 <form action="G1-1(b).php" method="POST">
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="loginID">ログインID</label>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label for="password">パスワード</label>
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-3
+                <div class="row mb
                             justify-content-end">
 
                     <div class="col-4">
@@ -74,12 +74,12 @@
                 </div>
                 <!--/フォーム -->
 
-                <div class="row mb-3">
+                <div class="row mb">
                     <div>
                         <label>　</label>
                     </div>
                     <div class="text-center">
-                        <a href="Af_G1-2-1.php" style="color: #63f">新規登録はこちら</a>
+                        <a href="G1-2-1.php" style="color: #63f">新規登録はこちら</a>
                     </div>
                 </div>
 
