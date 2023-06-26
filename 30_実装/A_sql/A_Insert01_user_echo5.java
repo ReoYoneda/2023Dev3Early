@@ -13,7 +13,7 @@ public class A_Insert01_user_echo5 {
         // users = { [ログインID] [パスワード] [名前] [学科] [専攻] [学年] [クラス] [得意科目] }
         String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
         // ログインID = アルファベット[a~h] ３文字
-        String[] ary = {"a","b","c","d","e","f","g","h"};
+        String[] ary = {"0","1","2","3","4","5","6","7","8","9"};
         // 名前 = 苗字38パターン × 名前38パターン
         String[] Ary1 = {"佐藤","佐藤","佐藤", "鈴木", "高橋", "田中","田中", "渡辺", "佐藤","伊藤", "山本", "中村","中村", "小林", "加藤","斎藤","本田","石川","松丸","比嘉","近藤","秋月","東","山西","堀","七海","石松","村上","中野","志水","田中","桐生","寺井","神戸","諸橋","斎木","米田","佐々木"};
         String[] Ary2 = {"慎吾","朱莉","次郎", "美紀", "健太", "麻衣", "剛", "真理子", "康介", "亜美", "大地", "楓", "胡桃", "恵那", "竜也", "孝行", "聖樹", "凛太郎", "凛", "アイ", "水湖樹", "翔希", "玲央", "波瑠", "啓喜", "大也", "夏月", "八重子", "佳道","颯太","明由美","文徳","糸一","壱成","美由紀","隆二","正則","翔馬"};
@@ -30,7 +30,7 @@ public class A_Insert01_user_echo5 {
 
 
         Random rand = new Random();
-        int[] cAry = {0,0,1,1,1,1,1,1,2,2,2,2,3,3};
+        int[] cAry = {0,0,1,1,1,1,1,1,2,2,2,2,3,3,3};
         int grade,n;
         String c;
         String m = "";
@@ -38,14 +38,14 @@ public class A_Insert01_user_echo5 {
         String[] cls2ary = {"A","B","C","D","E","F","G"};
         String fsub = "";
 
-        for(int x=0;x<8;x++){
-            for(int y=0;y<8;y++){
-                for(int z=0;z<8;z++){
+        for(int x=0;x<10;x++){
+            for(int y=0;y<10;y++){
+                for(int z=0;z<10;z++){
 
                     grade = n = 0;
                     m = c = cls1 = cls2 = fsub = "";
                     
-                    c = course[cAry[rand.nextInt(14)]];
+                    c = course[cAry[rand.nextInt(15)]];
 
                     if(c == course[0]){
                         grade = rand.nextInt(2)+1;
@@ -101,7 +101,7 @@ public class A_Insert01_user_echo5 {
                         cls2 = cls2ary[rand.nextInt(2)+5];
                     }
 
-                    s += "('"+ary[x]+ary[y]+ary[z]+"','"+ary[x]+ary[y]+ary[z]+"','"+Ary1[rand.nextInt(38)]+" "+Ary2[rand.nextInt(38)]+"','"+c+"','"+m+"',"+grade+",'"+cls1+grade+cls2+"','"+fsub+"'),\n";
+                    s += "('"+ary[x]+ary[y]+ary[z]+"','"+ary[x]+ary[y]+ary[z]+"','"+Ary1[rand.nextInt(38)]+" "+Ary2[rand.nextInt(38)]+"("+ary[x]+ary[y]+ary[z]+")','"+c+"','"+m+"',"+grade+",'"+cls1+grade+cls2+"','"+fsub+"'),\n";
                 
                 }
             }

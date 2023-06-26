@@ -1,3 +1,5 @@
+// xampp > my.ini > max_allowed_pachet= 1M~1G
+
 package A_sql;
 
 import java.io.BufferedWriter;
@@ -10,7 +12,7 @@ public class A_Insert01_user_echo4 {
     public static void main(String[] args) {
         String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
         
-        String[] ary = {"a","b","c","d","e","f","g","h","i","j","k","l","m"};
+        String[] ary = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
         String[] Ary1 = {"佐藤","佐藤","佐藤", "鈴木", "高橋", "田中","田中", "渡辺", "佐藤","伊藤", "山本", "中村","中村", "小林", "加藤","斎藤","本田","石川","松丸","比嘉","近藤","秋月","東","山西","堀","七海","石松","村上","中野","志水","田中","桐生","寺井","神戸","諸橋","斎木","米田","佐々木"};
         String[] Ary2 = {"慎吾","朱莉","次郎", "美紀", "健太", "麻衣", "剛", "真理子", "康介", "亜美", "大地", "楓", "胡桃", "恵那", "竜也", "孝行", "聖樹", "凛太郎", "凛", "アイ", "水湖樹", "翔希", "玲央", "波瑠", "啓喜", "大也", "夏月", "八重子", "佳道","颯太","明由美","文徳","糸一","壱成","美由紀","隆二","正則","翔馬"};
         String[] course = {"情報システム科","情報システム専攻科","情報工学科","国際ITエンジニア科"};
@@ -29,9 +31,9 @@ public class A_Insert01_user_echo4 {
         String[] cls2ary = {"A","B","C","D","E","F","G"};
         String fsub = "";
 
-        for(int x=0;x<13;x++){
-            for(int y=0;y<13;y++){
-                for(int z=0;z<13;z++){
+        for(int x=0;x<26;x++){
+            for(int y=0;y<26;y++){
+                for(int z=0;z<26;z++){
 
                     grade = n = 0;
                     m = c = cls1 = cls2 = fsub = "";

@@ -9,7 +9,7 @@
     $create_post = new DBManager();
     $text = str_replace('<', '&lt;', $_POST["text"]);
     $text = str_replace('>', '&gt;', $text);
-    $text = nl2br($text);
+    
     $create_post->create_reply($_POST["postID"],$_SESSION["userID"],$text);
 
     $target = array('\'', '"');

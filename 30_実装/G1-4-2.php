@@ -124,28 +124,36 @@
                         </div>
                     </div>
                     
-                    <div class="td col-3">
+                    <div class="td col-md-3">
                         <div class="row justify-content-center pt-2">
                             <?php 
                             if($post["post_image_path"]!=null){
                                 echo 
-                            '<div class="td source-box col-10" onclick="openImg('."'".$post['post_image_path']."'".')">
-                                <img src="'.$post["post_image_path"].'">
+                            '<div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+                                    <div class="td source-box col-10" onclick="openImg('."'".$post['post_image_path']."'".')">
+                                        <img src="'.$post["post_image_path"].'">
+                                    </div>
+                                </div>
                             </div>';
                             }
                             if($post["post_file_path"]!=null){
                                 echo 
-                            '<div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
-                                '.substr($post["post_file_path"],20).'
+                            '<div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+                                    <div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
+                                        '.substr($post["post_file_path"],20).'
+                                    </div>
+                                </div>
                             </div>';
                             }
                             ?>
 
                         </div>
                     </div>
-                    <div class="td col-9" style="white-space: wrap; overflow: hidden;">
-                        <?php echo $post["post_text"] ?>
-                    </div>
+
+                    <div class="td text-display col-md-9"><?php echo $post["post_text"] ?></div>
+                    
                 </div>
 
                 <?php 
@@ -158,19 +166,27 @@
                     <div class="td col-6 col-md-9">'.$user["user_name"].'</div>
                     <div class="td text-center col-6 col-md-3">'.date('Y/m/d　H:i',strtotime($reply["reply_date"])).'</div>
 
-                    <div class="td col-3">
+                    <div class="td col-md-3">
                         <div class="row justify-content-center pt-2">';
-
+                            
                             if($reply["reply_image_path"]!=null){
                                 echo 
-                            '<div class="td source-box col-10" onclick="openImg('."'".$reply["reply_image_path"]."'".')">
-                                <img src="'.$reply["reply_image_path"].'">
+                            '<div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+                                    <div class="td source-box col-10" onclick="openImg('."'".$reply["reply_image_path"]."'".')">
+                                        <img src="'.$reply["reply_image_path"].'">
+                                    </div>
+                                </div>
                             </div>';
                             }
                             if($reply["reply_file_path"]!=null){
                                 echo 
-                            '<div class="td black source-box py-2 col-10" onclick="openText('."'".$reply["reply_file_path"]."'".')">
-                                '.substr($reply["reply_file_path"],20).'
+                            '<div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+                                    <div class="td black source-box py-2 col-10" onclick="openText('."'".$reply["reply_file_path"]."'".')">
+                                    '.substr($reply["reply_file_path"],20).'
+                                    </div>
+                                </div>
                             </div>';
                             }
                             
@@ -178,7 +194,7 @@
                         </div>
                     </div>
 
-                    <div class="td col-9" style="white-space: nowrap; overflow: auto; white-space: pre; max-height: 100vh;">'.$reply["reply_text"].'</div>
+                    <div class="td text-display col-md-9">'.$reply["reply_text"].'</div>
 
                 </div>';
                 }

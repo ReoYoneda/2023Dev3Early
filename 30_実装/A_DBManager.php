@@ -203,18 +203,6 @@
             $row["user_lv"] = $Lv = floor(sqrt(($row['evaluation_trp']+2)*5-9));     # $rowに「user_lv」を追加
             $row["user_dp"] = (INT)($Lv/10)+1;                                       # $rowに「user_dp」を追加
             $row["user_nrp"] = (INT)((($Lv+1)*($Lv+1)+3)/5)-$row['evaluation_trp'];  # $rowに「user_nrp」を追加
-            
-            $sql = "SELECT *
-                    FROM (SELECT RANK() over(ORDER BY evaluation_trp DESC) AS userRank, user_id
-                    FROM evaluation) AS RANK
-                    WHERE user_id = ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$userID,PDO::PARAM_INT);
-            $ps->execute();
-            $search = $ps->fetch();
-            $rank = $search;
-
-            $row["user_rank"] = $rank["userRank"];                              # $rowに「user_rank」を追加
 
             $row["user_ratio"] = (int)($row["user_rank"]/$row["user_cnt"]*100); # $rowに「user_ratio」を追加
             $ratio = $row["user_ratio"];

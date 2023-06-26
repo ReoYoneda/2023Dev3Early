@@ -1,18 +1,31 @@
+/* 以下、MySQLにユーザ情報を入力するINSERT分をtxtに条件内でランダムに出力するJavaプログラムです。 */
+
 package A_sql;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Random;
 
 public class A_Insert01_user_echo2 {
     public static void main(String[] args) {
-        String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES ";
-        
+        // users = { [ログインID] [パスワード] [名前] [学科] [専攻] [学年] [クラス] [得意科目] }
+        String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
+        // ログインID = アルファベット[a~h] ３文字
         String[] ary = {"a","b","c","d","e","f","g","h"};
+        // 名前 = 苗字38パターン × 名前38パターン
         String[] Ary1 = {"佐藤","佐藤","佐藤", "鈴木", "高橋", "田中","田中", "渡辺", "佐藤","伊藤", "山本", "中村","中村", "小林", "加藤","斎藤","本田","石川","松丸","比嘉","近藤","秋月","東","山西","堀","七海","石松","村上","中野","志水","田中","桐生","寺井","神戸","諸橋","斎木","米田","佐々木"};
         String[] Ary2 = {"慎吾","朱莉","次郎", "美紀", "健太", "麻衣", "剛", "真理子", "康介", "亜美", "大地", "楓", "胡桃", "恵那", "竜也", "孝行", "聖樹", "凛太郎", "凛", "アイ", "水湖樹", "翔希", "玲央", "波瑠", "啓喜", "大也", "夏月", "八重子", "佳道","颯太","明由美","文徳","糸一","壱成","美由紀","隆二","正則","翔馬"};
+        // 学科 = 年制別（2年、3年、4年、国際2年）
         String[] course = {"情報システム科","情報システム専攻科","情報工学科","国際ITエンジニア科"};
+        // 専攻 = 二次元配列[学科][専攻]
         String[][] major = {{"AIプログラミング専攻","ネットワーク専攻","プログラミング専攻"},{"AIエンジニア専攻","ネットワークエンジニア専攻","システムエンジニア専攻"},{"AI＆Iot専攻","高度ネットワーク・セキュリティ専攻","高度ITシステム専攻"}};
+        // 得意科目 = 学科[国際]以外の1年生共通
         String[] fsub1 = {"情報処理試験対策","ネットワークⅠ","コンピュータシステムⅠ","プログラミング演習Ⅰ","ビジネスソフトウェアⅠ","コンピュータオペレーションⅠ"};
+        // 得意科目 = 二次元配列[学科][科目]
         String[][] fsub2 = {{"AIプログラミング演習","Webプログラミング演習","ディープラーニング演習","システム開発演習","電子回路","制御プログラミング演習"},{"ネットワーク構築演習","クラウド演習","Webアプリケーション","ネットワーク設計演習","セキュリティ","スクリプト基礎"},{"Webプログラミング演習","Webフロントエンド演習","システム設計","システム開発演習","テスト技法","情報処理試験対策"}};
+        // 得意科目 = 学科[国際]の科目
         String[] nsub = {"ITシステム基礎","言語基礎","比較文化論","ビジネスコミュニケーション","プログラミング演習","組み込みソフトウェア開発演習"};
 
 
@@ -93,7 +106,27 @@ public class A_Insert01_user_echo2 {
                 }
             }
         }
-        System.out.println(Ary1.length+" "+Ary2.length);
-        System.out.println(s.substring(0,s.length()-2));
+
+        s = s.substring(0,s.length()-2);
+
+        String filePath = "A_sql/A_Insert_users.txt";
+
+        try {
+            // 文字エンコーディングを指定してファイルに書き込む
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(new FileOutputStream(filePath), "UTF-8"));
+
+            String text = s; // 出力するテキスト
+
+            // ファイルにテキストを書き込む
+            writer.write(text);
+
+            // ファイルを閉じる
+            writer.close();
+
+            System.out.println("ファイルに書き込みが完了しました。");
+        } catch (IOException e) {
+            System.out.println("ファイル書き込みエラー: " + e.getMessage());
+        }
     }
 }

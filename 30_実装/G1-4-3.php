@@ -112,29 +112,36 @@
                         </div>
                     </div>
                     
-                    <div class="td col-3">
+                    <div class="td col-md-3">
                         <div class="row justify-content-center pt-2">
                             <?php 
                             if($post["post_image_path"]!=null){
                                 echo 
-                            '<div class="td source-box col-10" onclick="openImg('."'".$post['post_image_path']."'".')">
-                                <img src="'.$post["post_image_path"].'">
+                            '<div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+                                    <div class="td source-box col-10" onclick="openImg('."'".$post['post_image_path']."'".')">
+                                        <img src="'.$post["post_image_path"].'">
+                                    </div>
+                                </div>
                             </div>';
                             }
                             if($post["post_file_path"]!=null){
                                 echo 
-                            '<div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
-                                '.substr($post["post_file_path"],20).'
+                            '<div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+                                    <div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
+                                        '.substr($post["post_file_path"],20).'
+                                    </div>
+                                </div>
                             </div>';
                             }
                             ?>
 
                         </div>
                     </div>
-                    <div class="td col-9" style="white-space: wrap; overflow: hidden;">
-                        <?php echo $post["post_text"] ?>
-                    </div>
 
+                    <div class="td text-display col-md-9"><?php echo $post["post_text"] ?></div>
+                    
                 </div>
 
 
@@ -149,27 +156,42 @@
                 </div>
                 <div class="row tdiv">
                     
-                    <div class="td col-3">
-                        <div class="row justify-content-center pt-2">
+                    <div class="td col-md-3">
+                        <div class="row pt-2">
 
-                            <label class="td source-box py-2 col-10">
-                                    <input type="file" id="img" name="reply_image" accept="image/*" style="display: none;" onchange="viewImg(this)">
-                                <i class="bi bi-image"></i> IMG <i class="bi bi-upload"></i>
-                            </label>
-                            <div id="imgBox" class="td source-box col-10" style="display: none;" onclick="previewImg()">
-                                <img id="preview">
+                            <div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+
+                                    <label class="td source-box py-2 col-10">
+                                            <input type="file" id="img" name="reply_image" accept="image/*" style="display: none;" onchange="viewImg(this)">
+                                        <i class="bi bi-image"></i> IMG <i class="bi bi-upload"></i>
+                                    </label>
+                                    <div id="imgBox" class="td source-box col-10" style="display: none;" onclick="previewImg()">
+                                        <img id="preview">
+                                    </div>
+
+                                </div>
                             </div>
-                            <label class="td source-box py-2 col-10">
-                                    <input type="file" id="src" name="reply_file" accept="text/*, .java, .php, .sql" style="display: none;" onchange="viewSrc(this)">
-                                    <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
-                            </label>
-                            <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">
+
+                            <div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+
+                                    <label class="td source-box py-2 col-10">
+                                            <input type="file" id="src" name="reply_file" accept="text/*, .java, .php, .sql" style="display: none;" onchange="viewSrc(this)">
+                                            <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
+                                    </label>
+                                    <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">
+                                    
+                                    </div>
+
+                                </div>
+                            </div>
                             
-                            </div>
-                        
                         </div>
                     </div>
-                    <textarea class="td col-9" id="textarea" name="text" required style="overflow: auto;"></textarea>
+
+                    <textarea class="td col-md-9" name="text" rows="10" required style="overflow: auto;"></textarea>
+                    
                 </div>
 
                 <div class="row mb justify-content-end">

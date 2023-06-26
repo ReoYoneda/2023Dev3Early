@@ -158,7 +158,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" value="確認">
+                            <input type="submit" class="black" value="確認">
                         </div>
                     </div>
                 </div>

@@ -9,17 +9,17 @@ public class A_Insert02_evaluation_echo3 {
     public static void main(String[] args) {
         String s = "INSERT INTO `evaluation`(`user_id`, `evaluation_trp`, `evaluation_receivednum`, `evaluation_receivedvalue`, `evaluation_sentnum`, `evaluation_sentvalue`)\nVALUES\n";
         double id, id3, trp, num, Rvalue, Svalue;
-        for(int x=1; x<=26; x++){
-            for(int y=1; y<=26; y++){
-                for(int z=1; z<=26; z++){
-                    id = (x-1)*26*26+(y-1)*26+z;
-                    id3 = id/100;
-                    trp = id3*id3*id3*id3*id3*id3*id3*id3/1024/1024/1024/4+id/2;
+        for(int x=1; x<=13; x++){
+            for(int y=1; y<=13; y++){
+                for(int z=1; z<=13; z++){
+                    id = (x-1)*13*13+(y-1)*13+z;
+                    id3 = id/26;
+                    trp = id3*id3*id3*id3*id3*id3*id3*id3*id3/1024/1024/1024/4+id/2;
                     
                     num = (int)Math.sqrt(trp*5-9);
                     if(num!=0){
-                        Rvalue = num*num/(num/2)*(id/35152)+num*3.5;
-                        Svalue = -num*num/(num/2)*(id/35152)+num*4.5;
+                        Rvalue = num*num/(num/2)*(id/4394)+num*3.5;
+                        Svalue = -num*num/(num/2)*(id/4394)+num*4.5;
                     }else{
                         Rvalue = 0;
                         Svalue = 0;

@@ -15,12 +15,12 @@
     foreach($users as $user){
         $num = $_POST["radio".$user['user_id']];
         $userInfo = $get->get_user_info($user["user_id"]);
-        echo $userInfo["evaluation_trp"];
-        echo '<br>'.$dp*$num.'<br>';
+        /*echo $userInfo["evaluation_trp"];                 header location前のechoはエラーになる
+        echo '<br>'.$dp*$num.'<br>';*/                      
         $get->evaluate($postUser["user_id"],$user["user_id"],$dp,$num);
-        $userInfo = $get->get_user_info($user["user_id"]);
-        echo $userInfo["evaluation_trp"];
-        echo '<br>---------------<br>';
+        /*$userInfo = $get->get_user_info($user["user_id"]);
+        echo $userInfo["evaluation_trp"];                   ヘッダー情報は、コンテンツの前に送信せよ
+        echo '<br>---------------<br>';*/
     }
     if(count($users) == 0){
         $dp = 0;

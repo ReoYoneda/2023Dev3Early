@@ -89,28 +89,41 @@
 
                 <div class="row tdiv">
 
-                    <div class="td col-3">
-                        <div class="row justify-content-center pt-2">
+                <div class="td col-md-3">
+                        <div class="row pt-2">
 
-                            <label class="td source-box py-2 col-10">
-                                    <input type="file" id="img" name="post_image" accept="image/*" style="display: none;" onchange="viewImg(this)">
-                                <i class="bi bi-image"></i> IMG <i class="bi bi-upload"></i>
-                            </label>
-                            <div id="imgBox" class="td source-box col-10" style="display: none;" onclick="previewImg()">
-                                <img id="preview">
+                            <div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+
+                                    <label class="td source-box py-2 col-10">
+                                            <input type="file" id="img" name="post_image" accept="image/*" style="display: none;" onchange="viewImg(this)">
+                                        <i class="bi bi-image"></i> IMG <i class="bi bi-upload"></i>
+                                    </label>
+                                    <div id="imgBox" class="td source-box col-10" style="display: none;" onclick="previewImg()">
+                                        <img id="preview">
+                                    </div>
+
+                                </div>
                             </div>
-                            <label class="td source-box py-2 col-10">
-                                    <input type="file" id="src" name="post_file" accept="text/*, .java, .php, .sql" style="display: none;" onchange="viewSrc(this)">
-                                    <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
-                            </label>
-                            <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">
+
+                            <div class="col-6 col-md-12">
+                                <div class="row justify-content-center">
+
+                                    <label class="td source-box py-2 col-10">
+                                            <input type="file" id="src" name="post_file" accept="text/*, .java, .php, .sql" style="display: none;" onchange="viewSrc(this)">
+                                            <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
+                                    </label>
+                                    <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">
+                                    
+                                    </div>
+
+                                </div>
+                            </div>
                             
-                            </div>
-                        
                         </div>
                     </div>
 
-                    <textarea class="td col-9" id="textarea" name="text"  required style="white-space: wrap; overflow-y: auto;"></textarea>
+                    <textarea class="td col-md-9" id="textarea" name="text"  required style="white-space: wrap; overflow-y: auto;"></textarea>
                     
                 </div>
 
