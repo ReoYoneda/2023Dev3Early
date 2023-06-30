@@ -16,7 +16,7 @@
 
     <div class="container">
             
-        <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
+        <div class="row justify-content-center"><!-- ヘッダー用コンテナ -->
 
         <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 

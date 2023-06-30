@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['userID'])==false){
-        header('Location:A_G1-1.php');
+        header('Location:G1-1.php');
     }
 
     require_once "A_DBManager.php";
@@ -26,7 +26,7 @@
 
     <div class="container">
             
-        <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
+        <div class="row justify-content-center"><!-- ヘッダー用コンテナ -->
 
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 

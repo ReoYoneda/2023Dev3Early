@@ -14,29 +14,57 @@ var modalTextElem = document.getElementById("textModal");
 
 // 画像をクリックしたときにモーダルを表示する
 function openImg(path) {
+    // 再生成したオブジェクトの取得
+    var modalTextElem = document.getElementById("textModal");
 
+    // body要素のスクロールを禁止し、スクロールチェーンを防止する。
     body.style.overflow = "hidden";
 
+    // imgタグを表示する
     modalImgElem.style.display = "block";
+    // objectタグを非表示にする
     modalTextElem.style.display = "none";
 
+    // リソースの名前を出力する
     modalContentName.innerHTML = path.substring(21);
+    // imgタグのsrc属性を書き換える
     modalImgElem.setAttribute("src", path);
 
+    // モーダルを表示する
     modal.style.display = "block";
 };
 
-// ファイルをクリックしたときにモーダルを表示する
+/* ファイルをクリックしたときにモーダルを表示する
+   objectタグはdata属性を書き換えるだけでは中身が書き変わらない。
+   よって、objectタグのオブジェクト(id取得)を削除して再び生成する手法で中身を更新する。 */
 function openText(path) {
+    // 再生成したオブジェクトの取得
+    var modalTextElem = document.getElementById("textModal");
+    // オブジェクトの親ノードの取得
+    var parentElement = modalTextElem.parentNode;
+    // 親ノードに対する子ノードを削除
+    parentElement.removeChild(modalTextElem);
+    // objectのオブジェクトを生成
+    var newModalTextElem = document.createElement('object');
+    // 生成したオブジェクトにidを付与
+    newModalTextElem.id = "textModal";
+    // 親ノードに対する子ノードに生成したオブジェクトを配置
+    parentElement.appendChild(newModalTextElem);
 
+    // body要素のスクロールを禁止し、スクロールチェーンを防止する。
     body.style.overflow = "hidden";
 
+    // imgタグを非表示にする
     modalImgElem.style.display = "none";
-    modalTextElem.style.display = "block";
+    // objectタグを表示する
+    newModalTextElem.style.display = "block";
 
+    // リソースの名前を出力する
     modalContentName.innerHTML = path.substring(20);
-    modalTextElem.setAttribute("data", path);
+    // objectタグのdata属性を書き換える
+    newModalTextElem.setAttribute("data", path);
 
+    // モーダルを表示する
     modal.style.display = "block";
 };
 

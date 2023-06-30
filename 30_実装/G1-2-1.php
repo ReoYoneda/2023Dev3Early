@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userID'])==true){
+        header('Location:G1-4-1.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +25,7 @@
 
     <div class="container">
             
-        <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
+        <div class="row justify-content-center"><!-- ヘッダー用コンテナ -->
 
             <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><!-- ヘッダー用のコンテナサイズ -->
 
@@ -39,7 +46,7 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="G1-2-2.php" method="POST">
+                <form action="G1-2-1(b).php" method="POST">
 
                 <div class="row mb">
                     <div>
@@ -67,7 +74,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="戻る" onclick="history.back()">
+                            <input type="button" value="戻る" onclick="location.href='G1-1.php'">
                         </div>
                     </div>
 

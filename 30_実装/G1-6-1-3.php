@@ -2,7 +2,7 @@
 
     session_start();
     if(isset($_SESSION['userID'])==false){
-        header('Location:A_G1-1.php');
+        header('Location:G1-1.php');
     }
 
     require_once "A_DBManager.php";
@@ -41,7 +41,7 @@
 
     <div class="container">
             
-        <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
+        <div class="row justify-content-center"><!-- ヘッダー用コンテナ -->
 
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
@@ -105,24 +105,24 @@
                                 thanks :
                             </div>
                             <div class="col-9">
-                                <div class="row justify-content-between">
-                                    <div class="col">
+                                <div class="row">
+                                    <div class="col-2">
                                         <input type="radio" name="radio'.$user['user_id'].'" id="r1'.$user['user_id'].'" value="1" onchange="changeLabel1('."'".$user['user_id']."'".')">
-                                        <label for="r1'.$user['user_id'].'" id="L1'.$user['user_id'].'">★</label>
+                                        <label for="r1'.$user['user_id'].'" id="L1'.$user['user_id'].'" style="text-shadow: 0 0 10px;">★</label>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-2">
                                         <input type="radio" name="radio'.$user['user_id'].'" id="r2'.$user['user_id'].'" value="2" onchange="changeLabel2('."'".$user['user_id']."'".')">
-                                        <label for="r2'.$user['user_id'].'" id="L2'.$user['user_id'].'">★</label>
+                                        <label for="r2'.$user['user_id'].'" id="L2'.$user['user_id'].'"style="text-shadow: 0 0 10px;">★</label>
                                         </div>
-                                    <div class="col">
+                                    <div class="col-2">
                                         <input type="radio" name="radio'.$user['user_id'].'" id="r3'.$user['user_id'].'" value="3" checked onchange="changeLabel3('."'".$user['user_id']."'".')">
-                                        <label for="r3'.$user['user_id'].'" id="L3'.$user['user_id'].'">★</label>
+                                        <label for="r3'.$user['user_id'].'" id="L3'.$user['user_id'].'" style="text-shadow: 0 0 10px;">★</label>
                                         </div>
-                                    <div class="col">
+                                    <div class="col-2">
                                         <input type="radio" name="radio'.$user['user_id'].'" id="r4'.$user['user_id'].'" value="4" onchange="changeLabel4('."'".$user['user_id']."'".')">
                                         <label for="r4'.$user['user_id'].'" id="L4'.$user['user_id'].'">☆</label>
                                         </div>
-                                    <div class="col">
+                                    <div class="col-2">
                                         <input type="radio" name="radio'.$user['user_id'].'" id="r5'.$user['user_id'].'" value="5" onchange="changeLabel5('."'".$user['user_id']."'".')">
                                         <label for="r5'.$user['user_id'].'" id="L5'.$user['user_id'].'">☆</label>
                                     </div>
@@ -160,71 +160,124 @@
 
 </body>
 <script>
-    function changeLabel1(id){
+<?php
+for($i=1;$i<=5;$i++){
+    echo
+'function changeLabel'.$i.'(id){
+    var label;
+';
+    for($j=1;$j<=5;$j++){
+        echo
+'    label = document.getElementById("L'.$j.'"+id);
+    ';
+        if($j<=$i){
+            echo
+    'label.textContent = "★";
+    label.style.textShadow = "0 0 10px";
+';
+        }else{
+            echo
+    'label.textContent = "☆";
+    label.style.textShadow = "0 0 0px";
+';
+        }
+    }
+    echo 
+'}
+
+';
+}
+?>
+    /*function changeLabel1(id){
         var label;
         label = document.getElementById("L1"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L2"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
         label = document.getElementById("L3"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
         label = document.getElementById("L4"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
         label = document.getElementById("L5"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
     }
     function changeLabel2(id){
         var label;
         label = document.getElementById("L1"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L2"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L3"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
         label = document.getElementById("L4"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
         label = document.getElementById("L5"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
     }
     function changeLabel3(id){
         var label;
         label = document.getElementById("L1"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L2"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L3"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L4"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
         label = document.getElementById("L5"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
     }
     function changeLabel4(id){
         var label;
         label = document.getElementById("L1"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L2"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L3"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L4"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L5"+id);
         label.textContent = "☆";
+        label.style.textShadow = "0 0 0px";
     }
     function changeLabel5(id){
         var label;
         label = document.getElementById("L1"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L2"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L3"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L4"+id);
         label.textContent = "★";
+        label.style.textShadow = "0 0 15px";
         label = document.getElementById("L5"+id);
         label.textContent = "★";
-    }
+        label.style.textShadow = "0 0 15px";
+    }*/
 </script>
 <style>
     input[type=radio]{
@@ -233,13 +286,12 @@
     .td label{
         color: #74f;
         padding: 0;
-        margin:  10px 0;
+        margin:  5px 0;
         text-align: center;
-        font-size: clamp(24px, 28px, 32px);
-        font-weight: bold;
+        font-size: min(8vw, 2.25rem);
         width: 100%;
     }
-    .col{
+    .col-2{
         padding: 0;
     }
 </style>

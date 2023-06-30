@@ -17,7 +17,7 @@ body{
     background-position: 0 0, 100% 0;
     background-repeat: repeat-y, repeat-y;*/
     font-family: 'Times New Roman';
-    color: #000;
+    /*color: #ff5;*/
     overflow: auto;
     padding-bottom: 15vh;
 }
@@ -26,9 +26,17 @@ body{
     min-width: 360px;
 }
 
-.nav {
+.nav{
     border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
+    padding: 8px 0;
+}
+
+.nav>a{
+    padding: 2px 0 0;
+    font-size: 1.7rem;
+    text-align: center;
+    color: #000;
+    border-radius: 4px;
 }
 
 .header-title{
@@ -91,14 +99,6 @@ input[type="button"].black,
     background-color: #000;
     color: #fff;
 
-}
-
-.nav>a{
-    padding: 0;
-    font-size: 1.7rem;
-    text-align: center;
-    color: #000;
-    border-radius: 4px;
 }
 /*----- /section1-1 -----*/
 
@@ -216,6 +216,7 @@ input[type="button"].black,
 .modal-source>object{
     height: 70vh;
     min-width: 1000px;
+    width: 100%;
 }
 /*----- /section1-3 -----*/
 

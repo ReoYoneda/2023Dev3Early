@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['userID'])==false){
-        header('Location:A_G1-1.php');
+        header('Location:G1-1.php');
     }
 ?>
 
@@ -33,7 +33,7 @@
 
     <div class="container">
             
-        <div class="row py-2 justify-content-center"><!-- ヘッダー用コンテナ -->
+        <div class="row justify-content-center"><!-- ヘッダー用コンテナ -->
 
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
@@ -123,7 +123,7 @@
                         </div>
                     </div>
 
-                    <textarea class="td col-md-9" id="textarea" name="text"  required style="white-space: wrap; overflow-y: auto;"></textarea>
+                    <textarea class="td text-display col-md-9" name="text" rows="10" required></textarea>
                     
                 </div>
 
