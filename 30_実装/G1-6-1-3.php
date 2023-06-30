@@ -8,6 +8,11 @@
     require_once "A_DBManager.php";
     $get = new DBManager();
     $postID = $_GET["postID"];
+    
+    $post = $get->get_post($_GET["postID"]);
+    if($post["post_flag"] == 0){
+        header("Location:G1-6-2-2.php?postID=$postID");
+    }
 
     $users = $get->get_evaluate_users($postID);
 
@@ -88,7 +93,7 @@
 
                 <!-- 投稿情報 -->
 
-                <form action="G1-6-1-3(b).php?postID=<?php echo $_GET['postID'] ?>" method="POST">
+                <form>
 
                 <?php
                 foreach($users as $user){
@@ -144,7 +149,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="送信">
+                            <input type="button" class="black" value="送信" onclick="sendFormData('G1-6-1-3(b).php?postID=<?php echo $_GET['postID'] ?>'); history.back();">
                         </div>
                     </div>
 

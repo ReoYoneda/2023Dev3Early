@@ -40,6 +40,4 @@
 
     }
 
-    header('Location:G1-4-2.php?postID='.$_POST["postID"]);
-
 ?>

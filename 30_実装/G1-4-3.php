@@ -201,7 +201,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="送信">
+                            <input type="button" class="black" value="送信" onclick="sendFormData('G1-4-3(b).php')">
                         </div>
                     </div>
 

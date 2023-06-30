@@ -113,3 +113,32 @@ function previewImg(){
     openImg(url);
     document.getElementById("modalContentName").innerHTML = img.value.substring(12);
 }
+
+
+// G1-4-3, G1-6-1-3
+// フォームAJAX通信用関数
+function sendFormData(url) {
+    var form = document.querySelector('form');
+    var formData = new FormData(form);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+        // リクエストが成功した場合の処理
+        console.log('成功:', xhr.responseText);
+        // 応答を処理するコードを追加します
+        } else {
+        // リクエストが失敗した場合の処理
+        console.log('エラー:', xhr.status);
+        }
+    };
+    xhr.onerror = function() {
+        // リクエストが失敗した場合の処理
+        console.log('ネットワークエラー');
+    };
+    xhr.send(formData);
+
+    history.back();
+
+}

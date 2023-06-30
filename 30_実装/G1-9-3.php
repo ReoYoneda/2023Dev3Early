@@ -61,7 +61,7 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="G1-9-3(b).php" method="POST">
+                <form>
 
                 <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
                 <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
@@ -171,7 +171,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="submit" class="black" value="変更">
+                            <input type="button" class="black" value="変更" onclick="sendFormData('G1-9-3(b).php'); history.back();">
                         </div>
                     </div>
                     
@@ -187,4 +187,7 @@
     </div>
     
 </body>
+
+<script src="script/script.js"></script>
+
 </html>
