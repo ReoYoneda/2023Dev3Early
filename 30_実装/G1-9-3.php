@@ -4,6 +4,8 @@
         header('Location:G1-1.php');
     }
 
+    $_SESSION['num'] = 0;
+
     require_once "A_DBManager.php";
     $get = new DBManager();
     $row = $get->get_user_info($_SESSION['userID']);
@@ -61,7 +63,7 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form>
+                <form action="G1-9-3(b).php" method="post">
 
                 <input type="hidden" name="loginID" value="<?php echo $_POST["loginID"] ?>">
                 <input type="hidden" name="password" value="<?php echo $_POST["password"] ?>">
@@ -171,7 +173,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" class="black" value="変更" onclick="sendFormData('G1-9-3(b).php'); history.back();">
+                            <input type="submit" class="black" value="変更">
                         </div>
                     </div>
                     

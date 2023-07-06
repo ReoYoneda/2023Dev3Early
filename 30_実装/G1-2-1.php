@@ -3,6 +3,10 @@
     if(isset($_SESSION['userID'])==true){
         header('Location:G1-4-1.php');
     }
+
+    require_once "A_DBManager.php";
+    $pass = new DBManager();
+    $users = $pass->get_users();
 ?>
 
 <!DOCTYPE html>
@@ -46,14 +50,14 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="G1-2-1(b).php" method="POST">
+                <form action="G1-2-1(b).php" method="POST" name="pass" onsubmit="return checkPass([<?php $count = 0; foreach($users as $user){ $count++; echo '\''.$user['user_loginid'].'\''; if($count!=count($users)){ echo ','; } if($count%10==0){echo ' ';}} ?>])">
 
                 <div class="row mb">
                     <div>
                         <label for="loginID">ログインID</label>
                     </div>
                     <div>
-                        <input type="text" name="loginID" id="loginID" placeholder="loginID" required>
+                        <input type="text" name="loginID" id="loginID" placeholder="loginID" value="<?php if(isset($_SESSION["loginID"])){ echo $_SESSION["loginID"]; } ?>" autocomplete="off" required>
                     </div>
                 </div>
 
@@ -62,7 +66,7 @@
                         <label for="password">パスワード</label>
                     </div>
                     <div>
-                        <input type="password" name="password" id="password" placeholder="password" required>
+                        <input type="password" name="password" id="password" placeholder="password" value="<?php if(isset($_SESSION["password"])){ echo $_SESSION["password"]; } ?>" required>
                     </div>
                 </div>
 
@@ -74,7 +78,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="戻る" onclick="location.href='G1-1.php'">
+                            <input type="button" value="戻る" onclick="history.back()">
                         </div>
                     </div>
 
@@ -100,4 +104,7 @@
     </div>
     
 </body>
+
+<script src="script/script.js"></script>
+
 </html>

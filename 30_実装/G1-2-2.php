@@ -55,7 +55,7 @@
                         <label for="nickname">ニックネーム</label>
                     </div>
                     <div>
-                        <input type="text" name="nickname" id="nickname" placeholder="nickname" required>
+                        <input type="text" name="nickname" id="nickname" placeholder="nickname" value="<?php if(isset($_SESSION["nickname"])){ echo $_SESSION["nickname"]; } ?>" required>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                         <label for="course">学科</label>
                     </div>
                     <div>
-                        <input type="text" name="course" id="course" placeholder="course" required>
+                        <input type="text" name="course" id="course" placeholder="course" value="<?php if(isset($_SESSION["course"])){ echo $_SESSION["course"]; } ?>" required>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                         <label for="major">専攻</label>
                     </div>
                     <div>
-                        <input type="text" name="major" id="major" placeholder="major">
+                        <input type="text" name="major" id="major" placeholder="major" value="<?php if(isset($_SESSION["major"])){ echo $_SESSION["major"]; } ?>">
                     </div>
                 </div>
 
@@ -84,10 +84,10 @@
                     <div>
                         <select class="select" name="grade" id="grade" required>
                             <option value="" style="color: #bbb">選択してください</option>
-                            <option value=1>１年生</option>
-                            <option value=2>２年生</option>
-                            <option value=3>３年生</option>
-                            <option value=4>４年生</option>
+                            <option value=1 <?php if(isset($_SESSION["grade"]) && $_SESSION["grade"] == 1){ echo "selected"; } ?>>１年生</option>
+                            <option value=2 <?php if(isset($_SESSION["grade"]) && $_SESSION["grade"] == 2){ echo "selected"; } ?>>２年生</option>
+                            <option value=3 <?php if(isset($_SESSION["grade"]) && $_SESSION["grade"] == 3){ echo "selected"; } ?>>３年生</option>
+                            <option value=4 <?php if(isset($_SESSION["grade"]) && $_SESSION["grade"] == 4){ echo "selected"; } ?>>４年生</option>
                         </select>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <label for="classname">クラス</label>
                     </div>
                     <div>
-                        <input type="text" name="classname" id="classname" placeholder="classname">
+                        <input type="text" name="classname" id="classname" placeholder="classname" value="<?php if(isset($_SESSION["classname"])){ echo $_SESSION["classname"]; } ?>">
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                         <label for="Fsubject">得意科目</label>
                     </div>
                     <div>
-                        <input type="text" name="Fsubject" id="Fsubject" placeholder="favorite subject">
+                        <input type="text" name="Fsubject" id="Fsubject" placeholder="favorite subject" value="<?php if(isset($_SESSION["Fsubject"])){ echo $_SESSION["Fsubject"]; } ?>">
                     </div>
                 </div>
 
@@ -118,7 +118,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="戻る" onclick="header.location='G1-2-1.php'">
+                            <input type="button" value="戻る" onclick="history.back()">
                         </div>
                     </div>
 

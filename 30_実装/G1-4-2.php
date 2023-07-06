@@ -10,7 +10,9 @@
     $post = $get->get_post($postID);
     $userID = $post["user_id"];
 
-    if($userID == $_SESSION["userID"]){
+    if($post==null){
+        header("Location:G1-4-1.php");
+    }else if($userID == $_SESSION["userID"]){
         header('Location:G1-6-1-2.php?postID='.$postID);
     }
 

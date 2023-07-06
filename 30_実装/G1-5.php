@@ -3,6 +3,9 @@
     if(isset($_SESSION['userID'])==false){
         header('Location:G1-1.php');
     }
+
+    $_SESSION['num'] = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +70,7 @@
 
                 <!-- 投稿内容 -->
 
-                <form action="G1-5(b).php" method="post" enctype="multipart/form-data">
+                <form action="G1-5(b).php" method="post" enctype="multipart/form-data" onsubmit="return convertMark()">
 
                 <div class="row">
 
@@ -151,5 +154,38 @@
 </body>
 
 <script src="script/script.js"></script>
+<script>
+    function convertMark(){
+        var textElem = document.querySelector("textarea");
+        var text = textElem.value;
+
+        text = text.replace(/\//g,"z slash z");
+        text = text.replace(/`/g,"z point z");
+        text = text.replace(/select/g,"z s-elect z");
+        text = text.replace(/Select/g,"z S-elect z");
+        text = text.replace(/SELECT/g,"z S-ELECT z");
+        text = text.replace(/insert/g,"z i-nsert z");
+        text = text.replace(/Insert/g,"z I-nsert z");
+        text = text.replace(/INSERT/g,"z I-NSERT z");
+        text = text.replace(/update/g,"z u-pdate z");
+        text = text.replace(/Update/g,"z U-pdate z");
+        text = text.replace(/UPDATE/g,"z U-PDATE z");
+        text = text.replace(/delete/g,"z d-elete z");
+        text = text.replace(/Delete/g,"z D-elete z");
+        text = text.replace(/DELETE/g,"z D-ELETE z");
+        text = text.replace(/create/g,"z c-reate z");
+        text = text.replace(/Create/g,"z C-reate z");
+        text = text.replace(/CREATE/g,"z C-REATE z");
+        text = text.replace(/alter/g,"z a-lter z");
+        text = text.replace(/Alter/g,"z A-lter z");
+        text = text.replace(/ALTER/g,"z A-LTER z");
+        text = text.replace(/drop/g,"z d-rop z");
+        text = text.replace(/Drop/g,"z D-rop z");
+        text = text.replace(/DROP/g,"z D-ROP z");
+        
+        textElem.value = text;
+        return true;
+    }
+</script>
 
 </html>

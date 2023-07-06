@@ -4,6 +4,11 @@
         header('Location:G1-1.php');
     }
 
+    $_SESSION['num']++;
+    if($_SESSION['num'] != 1){
+        exit;
+    }
+    
     require_once "A_DBManager.php";
     $get = new DBManager();
     $postID = $_GET["postID"];
@@ -26,6 +31,7 @@
         $dp = 0;
     }
     $get->post_close($postUser["user_id"],$postID,$dp);
-
-    header('location:G1-6-1-1.php');
 ?>
+<script>
+    history.go(-3);
+</script>

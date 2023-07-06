@@ -54,5 +54,5 @@
     テキストファイル : 
     <input type="file" name="reply_file" accept="text/*, .java, .php, .sql"><br>
 
-    <input type="submit" value="回答">
+    <input type="submit" value="回答" onclick="submitDisabled()">
 </form>

@@ -8,6 +8,9 @@
     $get = new DBManager();
     $postID = $_GET["postID"];
     $post = $get->get_post($_GET["postID"]);
+    if($post==null){
+        header("Location:G1-6-2-1.php");
+    }
     $user = $get->get_user_info($_SESSION["userID"]);
     $replies = $get->get_replies($postID);
 ?>

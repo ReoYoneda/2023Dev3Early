@@ -12,6 +12,9 @@
             /*|| $_SESSION['Fsubject'] == false*/){
         header('Location:G1-1.php');
     }
+
+    $_SESSION['num'] = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +56,7 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- フォーム -->
-                <form action="G1-2-3(b).php" method="SESSION">
+                <form action="G1-2-3(b).php" method="POST">
 
                 <div class="row mb">
                     <div>
@@ -141,7 +144,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="戻る" onclick="location.href='G1-2-2.php'">
+                            <input type="button" value="戻る" onclick="history.back()">
                         </div>
                     </div>
 
@@ -166,4 +169,7 @@
     </div>
     
 </body>
+
+<script src="script/script.js"></script>
+
 </html>

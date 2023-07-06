@@ -8,7 +8,9 @@
     $get = new DBManager();
     $postID = $_GET["postID"];
     $post = $get->get_post($_GET["postID"]);
-    if($post["post_flag"] == 0){
+    if($post==null){
+        header("Location:G1-6-1-1.php");
+    }else if($post["post_flag"] == 0 || $post["user_id"] != $_SESSION["userID"]){
         header("Location:G1-6-2-2.php?postID=$postID");
     }
     $user = $get->get_user_info($_SESSION["userID"]);

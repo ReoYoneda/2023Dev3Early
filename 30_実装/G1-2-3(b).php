@@ -1,10 +1,15 @@
 <?php
     session_start();
+
+    $_SESSION['num']++;
+    if($_SESSION['num'] != 1){
+        exit;
+    }
+
     require_once "A_DBManager.php";
     $create = new DBManager();
     $create->create($_SESSION["loginID"],$_SESSION["password"],$_SESSION["nickname"],$_SESSION["course"],
                     $_SESSION["major"],$_SESSION["grade"],$_SESSION["classname"],$_SESSION["Fsubject"]);
-
 
     $search = $create->login($_SESSION["loginID"],$_SESSION["password"]);
     

@@ -8,6 +8,7 @@
             $cfg['Servers'][$i]  ['user']   = 'root';　phpmyAdminのユーザー名と
             $cfg['Servers'][$i]['password'] = 'root';　パスワードの設定はここから
             */
+            // $pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1418719-23dev3early;charset=utf8','LAA1418719','teamd');
             $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root','root');
             return $pdo;
         }
@@ -378,7 +379,7 @@
         }
 
         function evaluate($s_userID,$r_userID,$dp,$num){
-            $AddTrp = $dp * $num;
+            $AddTrp = $dp * $dp * $num;
             $pdo = $this->dbConnect();
             $sql = "UPDATE `evaluation`
                     SET `evaluation_trp`=`evaluation_trp`+ ? ,

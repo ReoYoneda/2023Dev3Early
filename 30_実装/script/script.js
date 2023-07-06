@@ -116,7 +116,9 @@ function previewImg(){
 
 
 // G1-4-3, G1-6-1-3
-// フォームAJAX通信用関数
+// フォームAJAX通信用関数　formタグの属性を空
+// データ送信と画面遷移を分離　遷移コントロールのため
+/* セッション管理と(b)でのJSによる遷移ができたのでいらないかも
 function sendFormData(url) {
     var form = document.querySelector('form');
     var formData = new FormData(form);
@@ -141,4 +143,39 @@ function sendFormData(url) {
 
     history.back();
 
+}*/
+
+// 送信連打は許したくない
+/*function submitDisabled(event){
+    setTimeout(function() {
+        event.disabled = true;
+    }, 0);
+    setTimeout(function() {
+        event.disabled = false;
+    }, 300);
+}*/
+
+// loginID password チェック
+function checkPass(usersID){
+    const pattern = /^[a-zA-Z0-9_.+-]+$/;
+    let loginID = document.pass.loginID.value;
+    let password = document.pass.password.value;
+    let isSuccess = true;
+
+    if(pattern.test(loginID) == false){
+        alert('ログインIDは半角英数字で設定してください。');
+        isSuccess = false;
+        return false;
+    }else if(usersID.includes(loginID) == true){
+        alert('このログインIDはすでに使用されています。');
+        isSuccess = false;
+        return false;
+    }else if(password.length < 6){
+        alert('パスワードは6文字以上の必要があります');
+        isSuccess = false;
+        return false;
+    }
+    if(isSuccess == true){
+        return true;
+    }
 }

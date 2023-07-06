@@ -5,6 +5,11 @@
         header('Location:G1-1.php');
     }
 
+    $_SESSION['num']++;
+    if($_SESSION['num'] != 1){
+        exit;
+    }
+
     require_once "A_DBManager.php";
     $create_post = new DBManager();
     $text = str_replace('<', '&lt;', $_POST["text"]);
@@ -41,3 +46,6 @@
     }
 
 ?>
+<script>
+    history.go(-2);
+</script>

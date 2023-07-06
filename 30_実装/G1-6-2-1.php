@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/style1.css">
 </head>
 
-<body class="G1-6-1-1">
+<body class="G1-6-2-1">
 
     <div id="modal" class="modal">
         <div class="modal-content">

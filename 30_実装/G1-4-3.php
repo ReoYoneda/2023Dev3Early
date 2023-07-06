@@ -4,13 +4,17 @@
         header('Location:G1-1.php');
     }
 
+    $_SESSION['num'] = 0;
+
     require_once "A_DBManager.php";
     $get = new DBManager();
     $postID = $_GET["postID"];
     $post = $get->get_post($postID);
     $userID = $post["user_id"];
 
-    if($userID == $_SESSION["userID"]){
+    if($post==null){
+        header("Location:G1-4-1.php");
+    }else if($userID == $_SESSION["userID"]){
         header('Location:G1-6-1-2.php?postID='.$postID);
     }
 
@@ -201,7 +205,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" class="black" value="送信" onclick="sendFormData('G1-4-3(b).php')">
+                            <input type="submit" class="black" value="送信">
                         </div>
                     </div>
 
