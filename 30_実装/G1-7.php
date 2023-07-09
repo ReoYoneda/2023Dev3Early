@@ -23,6 +23,11 @@
 </head>
 
 <body>
+    
+<script src="script/bubbly-bg.js"></script>
+<script>
+    bubbly();
+</script>
 
     <div class="container">
             
@@ -31,14 +36,14 @@
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
                 <!-- ナビ -->
-                <div class="row nav justify-content-between">
-                    <a class="col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
-                    <a class="col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                <div class="nav">
+                    <a class="nav-col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="nav-col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="nav-col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a id="nav-col-fixed" class="nav-col" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
+                    <a class="nav-col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="nav-col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="nav-col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
                 </div>
                 <!--/ナビ -->
 

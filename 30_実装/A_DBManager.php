@@ -8,8 +8,8 @@
             $cfg['Servers'][$i]  ['user']   = 'root';　phpmyAdminのユーザー名と
             $cfg['Servers'][$i]['password'] = 'root';　パスワードの設定はここから
             */
-            // $pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1418719-23dev3early;charset=utf8','LAA1418719','teamd');
-            $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8','root','root');
+            // $pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1418719-23dev3early;charset=utf8mb4','LAA1418719','teamd');
+            $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8mb4','root','root');
             return $pdo;
         }
 
@@ -379,7 +379,7 @@
         }
 
         function evaluate($s_userID,$r_userID,$dp,$num){
-            $AddTrp = $dp * $dp * $num;
+            $AddTrp = $dp * $num;
             $pdo = $this->dbConnect();
             $sql = "UPDATE `evaluation`
                     SET `evaluation_trp`=`evaluation_trp`+ ? ,
@@ -447,6 +447,37 @@
             $ps->bindValue(7,$Fsubject,PDO::PARAM_STR);
             $ps->bindValue(8,$userID,PDO::PARAM_STR);
             $ps->execute();
+        }
+
+        function reConvertMark($text){
+            $text = str_replace('<', '&lt;', $text);
+            $text = str_replace('>', '&gt;', $text);
+    
+            $text = str_replace("z slash z","/",$text);
+            $text = str_replace("z point z","`",$text);
+            $text = str_replace("z s-elect z","select",$text);
+            $text = str_replace("z S-elect z","Select",$text);
+            $text = str_replace("z S-ELECT z","SELECT",$text);
+            $text = str_replace("z i-nsert z","insert",$text);
+            $text = str_replace("z I-nsert z","Insert",$text);
+            $text = str_replace("z I-NSERT z","INSERT",$text);
+            $text = str_replace("z u-pdate z","update",$text);
+            $text = str_replace("z U-pdate z","Update",$text);
+            $text = str_replace("z U-PDATE z","UPDATE",$text);
+            $text = str_replace("z d-elete z","delete",$text);
+            $text = str_replace("z D-elete z","Delete",$text);
+            $text = str_replace("z D-ELETE z","DELETE",$text);
+            $text = str_replace("z c-reate z","create",$text);
+            $text = str_replace("z C-reate z","Create",$text);
+            $text = str_replace("z C-REATE z","CREATE",$text);
+            $text = str_replace("z a-lter z","alter",$text);
+            $text = str_replace("z A-lter z","Alter",$text);
+            $text = str_replace("z A-LTER z","ALTER",$text);
+            $text = str_replace("z d-rop z","drop",$text);
+            $text = str_replace("z D-rop z","Drop",$text);
+            $text = str_replace("z D-ROP z","DROP",$text);
+
+            return $text;
         }
 
     }

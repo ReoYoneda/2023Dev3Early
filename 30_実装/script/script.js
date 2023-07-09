@@ -145,16 +145,6 @@ function sendFormData(url) {
 
 }*/
 
-// 送信連打は許したくない
-/*function submitDisabled(event){
-    setTimeout(function() {
-        event.disabled = true;
-    }, 0);
-    setTimeout(function() {
-        event.disabled = false;
-    }, 300);
-}*/
-
 // loginID password チェック
 function checkPass(usersID){
     const pattern = /^[a-zA-Z0-9_.+-]+$/;
@@ -178,4 +168,37 @@ function checkPass(usersID){
     if(isSuccess == true){
         return true;
     }
+}
+
+
+function convertMark(){
+    let textElem = document.querySelector("textarea");
+    let text = textElem.value;
+
+    text = text.replace(/\//g,"z slash z");
+    text = text.replace(/`/g,"z point z");
+    text = text.replace(/select/g,"z s-elect z");
+    text = text.replace(/Select/g,"z S-elect z");
+    text = text.replace(/SELECT/g,"z S-ELECT z");
+    text = text.replace(/insert/g,"z i-nsert z");
+    text = text.replace(/Insert/g,"z I-nsert z");
+    text = text.replace(/INSERT/g,"z I-NSERT z");
+    text = text.replace(/update/g,"z u-pdate z");
+    text = text.replace(/Update/g,"z U-pdate z");
+    text = text.replace(/UPDATE/g,"z U-PDATE z");
+    text = text.replace(/delete/g,"z d-elete z");
+    text = text.replace(/Delete/g,"z D-elete z");
+    text = text.replace(/DELETE/g,"z D-ELETE z");
+    text = text.replace(/create/g,"z c-reate z");
+    text = text.replace(/Create/g,"z C-reate z");
+    text = text.replace(/CREATE/g,"z C-REATE z");
+    text = text.replace(/alter/g,"z a-lter z");
+    text = text.replace(/Alter/g,"z A-lter z");
+    text = text.replace(/ALTER/g,"z A-LTER z");
+    text = text.replace(/drop/g,"z d-rop z");
+    text = text.replace(/Drop/g,"z D-rop z");
+    text = text.replace(/DROP/g,"z D-ROP z");
+    
+    textElem.value = text;
+    return true;
 }

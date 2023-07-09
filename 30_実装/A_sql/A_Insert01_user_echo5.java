@@ -38,9 +38,9 @@ public class A_Insert01_user_echo5 {
         String[] cls2ary = {"A","B","C","D","E","F","G"};
         String fsub = "";
 
-        for(int x=0;x<10;x++){
-            for(int y=0;y<10;y++){
-                for(int z=0;z<10;z++){
+        for(int x=0;x<8;x++){
+            for(int y=0;y<8;y++){
+                for(int z=0;z<8;z++){
 
                     grade = n = 0;
                     m = c = cls1 = cls2 = fsub = "";

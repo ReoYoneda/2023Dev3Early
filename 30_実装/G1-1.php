@@ -3,6 +3,11 @@
     if(isset($_SESSION['userID'])==true){
         header('Location:G1-4-1.php');
     }
+
+    if(isset($_SESSION["checkNum1"]) == false){
+        $_SESSION["checkNum1"] = 0;
+        $_SESSION["checkNum2"] = 0;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +27,11 @@
 </head>
 
 <body class="G1-1">
+    
+<script src="script/bubbly-bg.js"></script>
+<script>
+    bubbly();
+</script>
 
     <div class="container">
             
@@ -79,6 +89,8 @@
                     </div>
                     
                 </div>
+
+                </form>
                 <!--/フォーム -->
 
                 <div class="row mb">
@@ -97,4 +109,21 @@
     </div>
     
 </body>
+
+<script>
+
+    window.onload = function(){
+        setTimeout(function (){
+<?php 
+    if($_SESSION["checkNum1"] < $_SESSION["checkNum2"]){
+        echo
+'            alert("ログインIDまたはパスワードが正しくありません");';
+        
+        $_SESSION["checkNum1"] = $_SESSION["checkNum2"];
+    }
+?>
+        }, 50);
+    }
+</script>
+
 </html>

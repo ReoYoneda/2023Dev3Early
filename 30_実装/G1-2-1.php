@@ -26,6 +26,11 @@
 </head>
 
 <body>
+    
+<script src="script/bubbly-bg.js"></script>
+<script>
+    bubbly();
+</script>
 
     <div class="container">
             
@@ -57,7 +62,7 @@
                         <label for="loginID">ログインID</label>
                     </div>
                     <div>
-                        <input type="text" name="loginID" id="loginID" placeholder="loginID" value="<?php if(isset($_SESSION["loginID"])){ echo $_SESSION["loginID"]; } ?>" autocomplete="off" required>
+                        <input type="text" name="loginID" id="loginID" placeholder="loginID" value="<?php if(isset($_SESSION["loginID"])){ echo $_SESSION["loginID"]; } ?>" required>
                     </div>
                 </div>
 
@@ -106,5 +111,16 @@
 </body>
 
 <script src="script/script.js"></script>
+<script>
+    setTimeout(function() {
+        var loginID = document.getElementById("loginID");
+        var password = document.getElementById("password");
+        var exist = <?php if(isset($_SESSION["loginID"])){ echo "true"; }else{ echo "false"; } ?>;
+        if(exist == false){
+            loginID.value = "";
+            password.value = "";
+        }
+    },1000);
+</script>
 
 </html>

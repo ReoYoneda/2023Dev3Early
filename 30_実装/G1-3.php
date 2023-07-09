@@ -24,6 +24,11 @@
 </head>
 
 <body>
+    
+<script src="script/bubbly-bg.js"></script>
+<script>
+    bubbly();
+</script>
 
     <div class="container">
             

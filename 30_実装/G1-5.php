@@ -22,6 +22,11 @@
 </head>
 
 <body>
+    
+<script src="script/bubbly-bg.js"></script>
+<script>
+    bubbly();
+</script>
 
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -41,14 +46,14 @@
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
                 <!-- ナビ -->
-                <div class="row nav justify-content-between">
-                    <a class="col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
-                    <a class="col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
-                    <a class="col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
-                    <a class="col" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
-                    <a class="col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
-                    <a class="col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                <div class="nav">
+                    <a class="nav-col" href="G1-4-1.php" title="みんなの投稿"><i class="bi bi-house-door"></i></a>
+                    <a class="nav-col" href="G1-6-1-1.php" title="じぶんの投稿"><i class="bi bi-person-lines-fill"></i></i></a>
+                    <a class="nav-col" href="G1-7.php" title="ランキング"><i class="bi bi-trophy"></i></a>
+                    <a id="nav-col-fixed" class="nav-col nav-col-out" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
+                    <a class="nav-col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
+                    <a class="nav-col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
+                    <a class="nav-col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
                 </div>
                 <!--/ナビ -->
 
@@ -154,38 +159,5 @@
 </body>
 
 <script src="script/script.js"></script>
-<script>
-    function convertMark(){
-        var textElem = document.querySelector("textarea");
-        var text = textElem.value;
-
-        text = text.replace(/\//g,"z slash z");
-        text = text.replace(/`/g,"z point z");
-        text = text.replace(/select/g,"z s-elect z");
-        text = text.replace(/Select/g,"z S-elect z");
-        text = text.replace(/SELECT/g,"z S-ELECT z");
-        text = text.replace(/insert/g,"z i-nsert z");
-        text = text.replace(/Insert/g,"z I-nsert z");
-        text = text.replace(/INSERT/g,"z I-NSERT z");
-        text = text.replace(/update/g,"z u-pdate z");
-        text = text.replace(/Update/g,"z U-pdate z");
-        text = text.replace(/UPDATE/g,"z U-PDATE z");
-        text = text.replace(/delete/g,"z d-elete z");
-        text = text.replace(/Delete/g,"z D-elete z");
-        text = text.replace(/DELETE/g,"z D-ELETE z");
-        text = text.replace(/create/g,"z c-reate z");
-        text = text.replace(/Create/g,"z C-reate z");
-        text = text.replace(/CREATE/g,"z C-REATE z");
-        text = text.replace(/alter/g,"z a-lter z");
-        text = text.replace(/Alter/g,"z A-lter z");
-        text = text.replace(/ALTER/g,"z A-LTER z");
-        text = text.replace(/drop/g,"z d-rop z");
-        text = text.replace(/Drop/g,"z D-rop z");
-        text = text.replace(/DROP/g,"z D-ROP z");
-        
-        textElem.value = text;
-        return true;
-    }
-</script>
 
 </html>

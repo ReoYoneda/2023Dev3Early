@@ -4,22 +4,24 @@ import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Random;
 
 public class A_Insert02_evaluation_echo5 {
     public static void main(String[] args) {
         String s = "INSERT INTO `evaluation`(`user_id`, `evaluation_trp`, `evaluation_receivednum`, `evaluation_receivedvalue`, `evaluation_sentnum`, `evaluation_sentvalue`)\nVALUES\n";
-        double id, id2, trp, num, Rvalue, Svalue;
-        for(int x=1; x<=10; x++){
-            for(int y=1; y<=10; y++){
-                for(int z=1; z<=10; z++){
-                    id = (x-1)*10*10+(y-1)*10+z;
-                    id2 = id/16;
-                    trp = id2*id2*id2*id2*id2*id2*id2*id2*id2/1024/1024/1024/512+id2*id2/2;
+        double id, trp, num, Rvalue, Svalue;
+        Random random = new Random();
+
+        for(double x=1; x<=8; x++){
+            for(double y=1; y<=8; y++){
+                for(double z=1; z<=8; z++){
+                    id = (x-1)*8*8+(y-1)*8+z;
                     
+                    trp = generateRandomNumber(random);
                     num = (int)Math.sqrt(trp*5-9);
                     if(num!=0){
-                        Rvalue = num*num/(num/2)*(id/2000)+num*3.5;
-                        Svalue = -num*num/(num/2)*(id/2000)+num*4.5;
+                        Rvalue = num*num/(num/2)*(id/1024)+num*3.5;
+                        Svalue = -num*num/(num/2)*(id/1024)+num*4.5;
                     }else{
                         Rvalue = 0;
                         Svalue = 0;
@@ -50,6 +52,26 @@ public class A_Insert02_evaluation_echo5 {
             System.out.println("ファイルに書き込みが完了しました。");
         } catch (IOException e) {
             System.out.println("ファイル書き込みエラー: " + e.getMessage());
+        }
+    }
+
+    private static int generateRandomNumber(Random random) {
+        int maxNumber = 1500;
+        int randomNumber = random.nextInt(maxNumber + 1);
+
+        double probability;
+        if (randomNumber == 0) {
+            probability = 0.05; // 0の出現率を30%に設定
+        } else if (randomNumber >= 1 && randomNumber <= 20) {
+            probability = 0.01; // 1の出現率を10%に設定
+        } else {
+            probability = 1.0 / Math.pow(randomNumber, 1.0 / 0.6);
+        }
+
+        if (random.nextDouble() <= probability) {
+            return randomNumber;
+        } else {
+            return generateRandomNumber(random);
         }
     }
 }

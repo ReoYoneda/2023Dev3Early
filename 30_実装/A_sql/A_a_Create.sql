@@ -31,7 +31,7 @@ CREATE TABLE posts
  post_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  post_title VARCHAR(128) NOT NULL,
  post_subject VARCHAR(128) NOT NULL,
- post_text VARCHAR(4000) NOT NULL,
+ post_text TEXT NOT NULL,
 PRIMARY KEY(post_id),
  FOREIGN KEY (user_id)
  	REFERENCES users(user_id)
@@ -42,7 +42,7 @@ CREATE TABLE replies
  post_id INT NOT NULL,
  user_id INT NOT NULL,
  reply_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
- reply_text VARCHAR(4000) NOT NULL,
+ reply_text TEXT NOT NULL,
 PRIMARY KEY(reply_id),
  FOREIGN KEY (user_id)
  	REFERENCES users(user_id)
@@ -89,6 +89,6 @@ CREATE TABLE events
  event_start DATETIME,
  event_end DATETIME,
  event_title VARCHAR(128) NOT NULL,
- event_content VARCHAR(4000) NOT NULL,
+ event_content TEXT NOT NULL,
 PRIMARY KEY(event_id)
 );
