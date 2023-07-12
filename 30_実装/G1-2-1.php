@@ -29,7 +29,15 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
 
     <div class="container">

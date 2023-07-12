@@ -38,16 +38,28 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
+
+    <i id="scrollToTop" class="bi bi-arrow-up"></i>
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+            <div id="modalNameDiv" class="row">
+                <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+                <div></div>
+            </div>
             
             <div class="modal-source">
                 <img id="imgModal">
-                <object id="textModal"></object>
             </div>
         </div>
     </div>
@@ -138,8 +150,10 @@
                                 echo 
                             '<div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
-                                    <div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
-                                        '.substr($post["post_file_path"],20).'
+                                    <div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
+                                    onmouseout="restoreText(this,\''.substr($post["post_file_path"],22).'\')" 
+                                    onclick="sourceDownload(\''.$post["post_file_path"].'\')">
+                                        '.substr($post["post_file_path"],22).'
                                     </div>
                                 </div>
                             </div>';
@@ -186,7 +200,7 @@
                                 <div class="row justify-content-center">
 
                                     <label class="td source-box py-2 col-10">
-                                            <input type="file" id="src" name="reply_file" accept="text/*, .java, .php, .sql" style="display: none;" onchange="viewSrc(this)">
+                                            <input type="file" id="src" name="reply_file" style="display: none;" onchange="viewSrc(this)">
                                             <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
                                     </label>
                                     <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">

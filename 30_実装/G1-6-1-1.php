@@ -26,16 +26,28 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
+
+    <i id="scrollToTop" class="bi bi-arrow-up"></i>
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+            <div id="modalNameDiv" class="row">
+                <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+                <div></div>
+            </div>
             
             <div class="modal-source">
                 <img id="imgModal">
-                <object id="textModal"></object>
             </div>
         </div>
     </div>
@@ -82,7 +94,7 @@
                             <label>　</label>
                         </div>
                         <div>
-                            <input type="button" value="Open" onclick="location.href='G1-6-1-1.php'" style="outline: 4px solid #74f;">
+                            <input type="button" value="Open" onclick="location.href='G1-6-1-1.php'" style="outline: 4px solid #888;">
                         </div>
                     </div>
 
@@ -121,8 +133,10 @@
                             }
                             if($post["post_file_path"]!=null){
                                 echo 
-                            '<div class="td black source-box py-2 col-10" onclick="toTextModal(event, \''.$post['post_file_path'].'\')">
-                                '.substr($post["post_file_path"],20).'
+                            '<div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
+                            onmouseout="restoreText(this,\''.substr($post["post_file_path"],22).'\')" 
+                            onclick="toSourceDownload(event,\''.$post["post_file_path"].'\')">
+                                '.substr($post["post_file_path"],22).'
                             </div>';
                             }
                         
@@ -156,15 +170,7 @@
     </div>
 
 </body>
+
 <script src="script/script.js"></script>
-<script>
-    function toImgModal(event,path){
-        event.stopPropagation();
-        openImg(path);
-    }
-    function toTextModal(event,path){
-        event.stopPropagation();
-        openText(path);
-    }
-</script>
+
 </html>

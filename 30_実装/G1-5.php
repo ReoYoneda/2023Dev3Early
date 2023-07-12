@@ -25,16 +25,26 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+            <div id="modalNameDiv" class="row">
+                <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+                <div></div>
+            </div>
             
             <div class="modal-source">
                 <img id="imgModal">
-                <object id="textModal"></object>
             </div>
         </div>
     </div>
@@ -118,7 +128,7 @@
                                 <div class="row justify-content-center">
 
                                     <label class="td source-box py-2 col-10">
-                                            <input type="file" id="src" name="post_file" accept="text/*, .java, .php, .sql" style="display: none;" onchange="viewSrc(this)">
+                                            <input type="file" id="src" name="post_file" style="display: none;" onchange="viewSrc(this)">
                                             <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
                                     </label>
                                     <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">

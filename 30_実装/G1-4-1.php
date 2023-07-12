@@ -8,7 +8,6 @@
     $get = new DBManager();
     $posts = array_reverse($get->get_posts());
     $users = $get->get_users();
-    
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,8 +26,18 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
+
+    <i id="scrollToTop" class="bi bi-arrow-up"></i>
 
     <div class="container">
             
@@ -117,5 +126,7 @@
     </div>
     
 </body>
+
+<script src="script/script.js"></script>
 
 </html>

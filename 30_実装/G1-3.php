@@ -27,7 +27,15 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
 
     <div class="container">
@@ -53,23 +61,44 @@
             <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
 
                 <!-- ステータス -->
-                
-                <div class="row mb">
+
+                <div class="row">
                     <div>
-                        <label for="loginID">ログインID</label>
+                        <label for="Fsubject">ステータス</label>
                     </div>
-                    <div>
-                        <input type="text" class="input-display" name="loginID" id="loginID" value="<?php echo $row['user_loginid'] ?>" disabled>
+                    <div class="row status">
+                        <div class="col-1 col-sm-2"></div><div class="td col-4 col-sm-3">現在のレベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_lv'] ?>　　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">要求レベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_dp'] ?>　　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">累計獲得RP</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['evaluation_trp'] ?>　　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">次のLvまで</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_nrp'] ?>　　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ランキング</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rank'] ?>位　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ユーザーレート</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rate'] ?>　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">被評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Ravg'] ?>　　</div><div class="td col-2"></div>
+                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">与評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Savg'] ?>　　</div><div class="td col-2"></div>
                     </div>
                 </div>
 
-                <div class="row mb">
-                    <div>
-                        <label for="password">パスワード</label>
+                <div class="row mb
+                            justify-content-between">
+
+                    <div class="col-4">
+                        <div>
+                            <label>　</label>
+                        </div>
+                        <div>
+                            <input type="button" value="ログアウト" onclick="location.href='G1-LogOut.php'">
+                        </div>
                     </div>
-                    <div>
-                        <input type="password" class="input-display" name="password" id="password" value="<?php echo $row['user_password'] ?>" disabled>
+
+                    <div class="col-4">
+                        <div>
+                            <label>　</label>
+                        </div>
+                        <div>
+                            <input type="button" class="black" value="皆の投稿" onclick="location.href='G1-4-1.php'">
+                        </div>
                     </div>
+                    
                 </div>
 
                 <div class="row mb">
@@ -132,46 +161,7 @@
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div>
-                        <label for="Fsubject">ステータス</label>
-                    </div>
-                    <div class="row status">
-                        <div class="col-1 col-sm-2"></div><div class="td col-4 col-sm-3">現在のレベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_lv'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">要求レベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_dp'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">累計獲得RP</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['evaluation_trp'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">次のLvまで</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_nrp'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ランキング</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rank'] ?>位　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ユーザーレート</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rate'] ?>　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">被評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Ravg'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">与評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Savg'] ?>　　</div><div class="td col-2"></div>
-                    </div>
-                </div>
-
                 <!--/ステータス -->
-
-                <div class="row mb
-                            justify-content-between">
-
-                    <div class="col-4">
-                        <div>
-                            <label>　</label>
-                        </div>
-                        <div>
-                            <input type="button" value="ログアウト" onclick="location.href='G1-LogOut.php'">
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div>
-                            <label>　</label>
-                        </div>
-                        <div>
-                            <input type="button" class="black" value="皆の投稿" onclick="location.href='G1-4-1.php'">
-                        </div>
-                    </div>
-                    
-                </div>
 
             </div>
 
@@ -180,4 +170,5 @@
     </div>
     
 </body>
+
 </html>

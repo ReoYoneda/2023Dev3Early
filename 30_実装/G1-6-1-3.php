@@ -39,7 +39,15 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
 
     <div id="modal" class="modal">
@@ -153,7 +161,7 @@
             }else{
                 echo
                     '<div class="text-center">
-                        送信すると掲示を終了します
+                        掲示を終了します
                     </div>';
             }
 
@@ -216,7 +224,7 @@ for($i=1;$i<=5;$i++){
         display: none;
     }
     .td label{
-        color: #74f;
+        color: #fc7;
         padding: 0;
         margin:  5px 0;
         text-align: center;
@@ -227,5 +235,7 @@ for($i=1;$i<=5;$i++){
         padding: 0;
     }
 </style>
+
 <script src="script/script.js"></script>
+
 </html>

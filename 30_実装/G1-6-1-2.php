@@ -34,16 +34,28 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
+
+    <i id="scrollToTop" class="bi bi-arrow-up"></i>
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+            <div id="modalNameDiv" class="row">
+                <div id="modalContentName" class="modal-name">モーダルコンテンツ名</div>
+                <div></div>
+            </div>
             
             <div class="modal-source">
                 <img id="imgModal">
-                <object id="textModal"></object>
             </div>
         </div>
     </div>
@@ -144,8 +156,10 @@
                                 echo 
                             '<div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
-                                    <div class="td black source-box py-2 col-10" onclick="openText('."'".$post['post_file_path']."'".')">
-                                        '.substr($post["post_file_path"],20).'
+                                    <div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
+                                    onmouseout="restoreText(this,\''.substr($post["post_file_path"],22).'\')" 
+                                    onclick="toSourceDownload(event,\''.$post["post_file_path"].'\')">
+                                        '.substr($post["post_file_path"],22).'
                                     </div>
                                 </div>
                             </div>';
@@ -194,8 +208,10 @@
                                 echo 
                             '<div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
-                                    <div class="td black source-box py-2 col-10" onclick="openText('."'".$reply["reply_file_path"]."'".')">
-                                    '.substr($reply["reply_file_path"],20).'
+                                    <div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
+                                    onmouseout="restoreText(this,\''.substr($reply["reply_file_path"],22).'\')" 
+                                    onclick="sourceDownload(\''.$reply["reply_file_path"].'\')">
+                                    '.substr($reply["reply_file_path"],22).'
                                     </div>
                                 </div>
                             </div>';
@@ -220,5 +236,7 @@
     </div>
 
 </body>
+
 <script src="script/script.js"></script>
+
 </html>

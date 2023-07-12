@@ -26,7 +26,15 @@
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
 
     <div class="container">
@@ -80,7 +88,6 @@
                         <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">与評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Savg'] ?>　 　</div><div class="td col-2"></div>
                     </div>
                 </div>
-
                 
                 <div class="row mb
                             justify-content-between">
@@ -185,6 +192,56 @@
 
                 <!--/ステータス -->
 
+                <div class="row mb-4
+                            justify-content-between">
+                    <div>
+                        <label>背景</label>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#f5daf0')" style="background-color: #fad5ea;">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#ffefc2')" style="background-color: #ffefc2;">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#ced')" style="background-color: #ced;">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#c8e3fa')" style="background-color: #c8e3fa;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb
+                            justify-content-between">
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#d7dafa')" style="background-color: #d7dafa;">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#c0c0c0')" style="background-color: #c0c0c0;">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#eaeaea')" style="background-color: #eaeaea;">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="button" onclick="changeBgColor('#fff')" style="background-color: #fff;">
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
         </div>
@@ -192,5 +249,21 @@
     </div>
     
 </body>
+
+<script>
+    function changeBgColor(colorCode){
+        localStorage.setItem("backgroundColor", colorCode);
+        location.reload();
+    }
+
+    function changeThemeColor(themeColor){
+        if(themeColor){
+            localStorage.setItem("themeColor", true);
+        }else{
+            localStorage.setItem("themeColor", false);
+        }
+        location.reload();
+    }
+</script>
 
 </html>

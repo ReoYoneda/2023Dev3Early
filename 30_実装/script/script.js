@@ -1,3 +1,8 @@
+// Topへ戻るボタン
+document.getElementById('scrollToTop').addEventListener('click', function() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 var body = document.querySelector("body");
 
 // モーダルを開くためのトリガー要素を取得
@@ -7,6 +12,7 @@ var modalTrigger = document.getElementById("modal-trigger");
 var modal = document.getElementById("modal");
 
 // コンテンツ名・画像タグ・オブジェクトタグの要素を取得
+var modalNameDiv = document.getElementById("modalNameDiv");
 var modalContentName = document.getElementById("modalContentName");
 var modalImgElem = document.getElementById("imgModal");
 var modalTextElem = document.getElementById("textModal");
@@ -14,16 +20,16 @@ var modalTextElem = document.getElementById("textModal");
 
 // 画像をクリックしたときにモーダルを表示する
 function openImg(path) {
-    // 再生成したオブジェクトの取得
-    var modalTextElem = document.getElementById("textModal");
+    /* 再生成したオブジェクトの取得
+    var modalTextElem = document.getElementById("textModal");*/
 
     // body要素のスクロールを禁止し、スクロールチェーンを防止する。
     body.style.overflow = "hidden";
 
     // imgタグを表示する
     modalImgElem.style.display = "block";
-    // objectタグを非表示にする
-    modalTextElem.style.display = "none";
+    /* objectタグを非表示にする
+    modalTextElem.style.display = "none";*/
 
     // リソースの名前を出力する
     modalContentName.innerHTML = path.substring(21);
@@ -32,11 +38,16 @@ function openImg(path) {
 
     // モーダルを表示する
     modal.style.display = "block";
+
+    // 縮尺をリセット
+    modalImgElem.style.width = "100%";
+    modalImgElem.style.height = "";
+    modalImgElem.style.objectFit = "contain";
 };
 
 /* ファイルをクリックしたときにモーダルを表示する
    objectタグはdata属性を書き換えるだけでは中身が書き変わらない。
-   よって、objectタグのオブジェクト(id取得)を削除して再び生成する手法で中身を更新する。 */
+   よって、objectタグのオブジェクト(id取得)を削除して再び生成する手法で中身を更新する。 
 function openText(path) {
     // 再生成したオブジェクトの取得
     var modalTextElem = document.getElementById("textModal");
@@ -60,15 +71,63 @@ function openText(path) {
     newModalTextElem.style.display = "block";
 
     // リソースの名前を出力する
-    modalContentName.innerHTML = path.substring(20);
+    modalContentName.innerHTML = path.substring(22);
     // objectタグのdata属性を書き換える
     newModalTextElem.setAttribute("data", path);
 
     // モーダルを表示する
     modal.style.display = "block";
-};
+};*/
+
+function changeText(event){
+    event.innerHTML = "ダウンロード";
+}
+
+function restoreText(event,name){
+    event.innerHTML = name;
+}
+
+function sourceDownload(path){
+    var result = confirm("\n"+path.substr(22)+"\n\nダウンロードしますか？\n");
+    if(result){
+        var link = document.createElement("a");
+        link.href = path;
+        link.download = path.substr(22);
+        link.click();
+    }
+}
+
+// 画像をダブルクリックで拡大
+var scaleCount = 0; // クリック回数
+
+// ダブルクリックイベントのリスナーを設定
+modalImgElem.addEventListener("dblclick", function() {
+
+    modalNameDiv.style.display = "none";
+
+    var modalImgElem = document.getElementById("imgModal");
+    var currentWidth = modalImgElem.clientWidth; // 現在の画像の幅
+    var currentHeight = modalImgElem.clientHeight; // 現在の画像の高さ
+
+    if(scaleCount == 0){
+        modalImgElem.style.width = currentWidth * 1.8 + "px"; // 幅を変更
+        modalImgElem.style.height = currentHeight * 1.8 + "px"; // 高さを変更
+
+        scaleCount++;
+    }else{
+        modalImgElem.style.width = "100%";
+        modalImgElem.style.height = "";
+        modalImgElem.style.objectFit = "contain";
+
+        modalNameDiv.style.display = "block";
+
+        scaleCount = 0;
+    }
+    
+});
 
 // モーダル外の領域をクリックしたときにモーダルを非表示にする
+/*safariでは起動しない恐れあり
 window.onclick = function (event) {
   if (event.target == modal) {
 
@@ -76,7 +135,17 @@ window.onclick = function (event) {
 
     modal.style.display = "none";
   }
-};
+};*/
+document.addEventListener("click", function (event) {
+    if (event.target == modal) {
+  
+      body.style.overflow = "auto";
+  
+      modal.style.display = "none";
+
+      modalNameDiv.style.display = "block";
+    }
+});
 
 
 // ファイル添付時　プレビュー用
@@ -112,6 +181,16 @@ function previewImg(){
     var url = URL.createObjectURL(img.files[0]);
     openImg(url);
     document.getElementById("modalContentName").innerHTML = img.value.substring(12);
+}
+
+// G1-6-1-1, G1-6-2-1
+function toImgModal(event,path){
+    event.stopPropagation();
+    openImg(path);
+}
+function toSourceDownload(event,path){
+    event.stopPropagation();
+    sourceDownload(path);
 }
 
 
@@ -170,7 +249,7 @@ function checkPass(usersID){
     }
 }
 
-
+// text入力 SQLクエリ検出 POST時変換
 function convertMark(){
     let textElem = document.querySelector("textarea");
     let text = textElem.value;

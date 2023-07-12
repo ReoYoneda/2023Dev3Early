@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userID'])==false){
+        header('Location:G1-1.php');
+    }
+    
+    require_once "A_DBManager.php";
+    $get = new DBManager();
+    $events = $get->get_events();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,21 +20,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style1.css">
-    <link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
     
 <script src="script/bubbly-bg.js"></script>
 <script>
-    bubbly();
+    if(localStorage.getItem("backgroundColor") === null){
+        bubbly({
+            background: () => "#eee"
+        });
+    }else{
+        bubbly({
+            background: () => localStorage.getItem("backgroundColor")
+        });
+    }
 </script>
 
     <div class="container">
             
         <div class="row justify-content-center"><!-- ヘッダー用コンテナ -->
 
-        <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6"><!-- ヘッダー用のコンテナサイズ -->
 
                 <!-- ナビ -->
                 <div class="nav">
@@ -39,8 +57,8 @@
 
                 <!-- 見出し -->
                 <div class="row">
-                    <div class="header-title" title="開催イベントを確認しましょう">
-                        開催イベント
+                    <div class="header-title" title="開催イベントの一覧です">
+                        イベント
                     </div>
                 </div>
                 <!--/見出し -->
@@ -51,10 +69,23 @@
 
         <div class="row justify-content-center"><!-- フォーム用コンテナ -->
 
-            <div class="col-10 col-sm-8 col-md-7 col-lg-5 col-xl-4"><!-- フォーム用のコンテナサイズ -->
+            <div class="col-11 col-md-10 col-lg-9 col-xl-7"><!-- 用のコンテナサイズ -->
+            
+                <!-- 開催イベント -->
+                <?php
+                foreach($events as $event){
+                    if($event["event_end"] > date("Y-m-d H:i:s")){
+                        echo '
+                <div class="row tdiv">
+                    <div class="h5 text-center my-3">'.$event["event_title"].'</div>
+                    <div class="h5 text-center mb-3">'.substr(date("n/j H:i",strtotime($event["event_start"])),0,17).' ～ '.substr(date("Y n/j H:i",strtotime($event["event_end"])),5,16).'</div>
+                    <div class="px-3 event-content">'.$event["event_content"].'</div>
+                </div>';
+                    }
+                }
 
-                <!-- フォーム -->
-                
+                ?>
+                <!-- /開催イベント -->
 
             </div>
 
@@ -64,3 +95,22 @@
     
 </body>
 </html>
+<style>
+/*
+.tdiv{
+    border: 1.5px solid #000;
+    border-radius: 5.5px;
+    margin-bottom: 1.2rem;
+}*/
+.tdiv{
+    background-color: rgba(255,255,255, 0.5);
+    border: 1.5px solid #000;
+    border-radius: 5.5px;
+    margin-bottom: 1.2rem;
+}
+.event-content{
+    
+    white-space: pre;
+    white-space: wrap;
+}
+</style>

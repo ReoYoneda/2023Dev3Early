@@ -33,12 +33,14 @@
     
     if(is_uploaded_file($_FILES['post_file']['tmp_name'])){
 
-        if(!file_exists('text')){
-            mkdir('text');
+        if(!file_exists('source')){
+            mkdir('source');
         }
 
+        /*フォルダ名をtextからsourceに変更
         $extension = explode(".",$_FILES['post_file']['name']);
-        $file= 'text/'.date("YmdHis")."_".$extension[0].".txt";
+        $file= 'text/'.date("YmdHis")."_".$extension[0].".txt";*/
+        $file= 'source/'.date("YmdHis")."_".str_replace($target,'',basename($_FILES['post_file']['name']));
         if(move_uploaded_file($_FILES['post_file']['tmp_name'],$file)){
             $create_post->create_post_file($file);
         }
