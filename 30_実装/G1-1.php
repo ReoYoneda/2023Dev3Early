@@ -8,6 +8,8 @@
         $_SESSION["checkNum1"] = 0;
         $_SESSION["checkNum2"] = 0;
     }
+
+    unset($_SESSION['passCheck']);
 ?>
 
 <!DOCTYPE html>
@@ -28,18 +30,7 @@
 
 <body class="G1-1">
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <div class="container">
             
@@ -105,7 +96,7 @@
                     <div>
                         <label>　</label>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center h5">
                         <a href="G1-2-1.php" style="color: #63f">新規登録はこちら</a>
                     </div>
                 </div>
@@ -119,19 +110,17 @@
 </body>
 
 <script>
-
-    window.onload = function(){
-        setTimeout(function (){
+window.onload = function(){
+    setTimeout(function (){
 <?php 
-    if($_SESSION["checkNum1"] < $_SESSION["checkNum2"]){
-        echo
-'            alert("ログインIDまたはパスワードが正しくありません");';
-        
-        $_SESSION["checkNum1"] = $_SESSION["checkNum2"];
-    }
+if($_SESSION["checkNum1"] < $_SESSION["checkNum2"]){
+    echo
+'       alert("入力内容が正しくありません");';
+    $_SESSION["checkNum1"] = $_SESSION["checkNum2"];
+}
 ?>
-        }, 50);
-    }
+    }, 50);
+}
 </script>
 
 </html>

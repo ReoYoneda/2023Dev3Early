@@ -4,7 +4,7 @@
         header('Location:G1-1.php');
     }
     
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $users = $get->get_users_info();
 ?>
@@ -24,18 +24,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <i id="scrollToTop" class="bi bi-arrow-up"></i>
 
@@ -91,7 +80,7 @@
                             <div class="td      col-6   col-md-3                    ">与評 : '.$user['user_Savg'].'</div>
                             <div class="td              col-md-5 d-none d-md-block  ">'.$user['user_course'].'</div>
                             <div class="td              col-md-7 d-none d-md-block  ">'.$user['user_major'].'</div>
-                            <div class="td              col-md-2 d-none d-md-block  ">'.$user['user_grade'].'</div>
+                            <div class="td              col-md-2 d-none d-md-block  ">'.$user['user_grade'].' 年</div>
                             <div class="td              col-md-3 d-none d-md-block  ">'.$user['user_classname'].'</div>
                             <div class="td              col-md-7 d-none d-md-block  ">'.$user['user_Fsubject'].'</div>
                         </div>

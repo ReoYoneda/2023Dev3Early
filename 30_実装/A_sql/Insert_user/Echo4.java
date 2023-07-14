@@ -102,7 +102,7 @@ public class Echo4 {
 
         s = s.substring(0,s.length()-2);
 
-        String filePath = "A_sql/A_Insert_users.txt";
+        String filePath = "A_sql/Insert_user/Insert_users.txt";
 
         try {
             // 文字エンコーディングを指定してファイルに書き込む

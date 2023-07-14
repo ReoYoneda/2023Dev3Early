@@ -9,7 +9,7 @@
         exit;
     }
     
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $postID = $_GET["postID"];
     $post = $get->get_post($postID);

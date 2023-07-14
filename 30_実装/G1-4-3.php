@@ -6,7 +6,7 @@
 
     $_SESSION['num'] = 0;
 
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $postID = $_GET["postID"];
     $post = $get->get_post($postID);
@@ -36,18 +36,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <i id="scrollToTop" class="bi bi-arrow-up"></i>
 

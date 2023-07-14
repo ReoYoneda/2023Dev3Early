@@ -10,7 +10,7 @@
         exit;
     }
 
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $create_post = new DBManager();
     $text = str_replace('<', '&lt;', $_POST["text"]);
     $text = str_replace('>', '&gt;', $text);

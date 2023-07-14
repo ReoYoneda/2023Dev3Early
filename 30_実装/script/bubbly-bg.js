@@ -1,3 +1,5 @@
+// このファイル自体は使用していません。 script.jsの方に転記しました。
+
 window.bubbly = function (userConfig = {}) {
     // we need to create a canvas element if the user didn't provide one
     const cv = userConfig.canvas ?? (() => {

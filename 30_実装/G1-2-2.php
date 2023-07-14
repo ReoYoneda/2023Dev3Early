@@ -25,18 +25,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <div class="container">
             
@@ -65,7 +54,7 @@
 
                 <div class="row mb">
                     <div>
-                        <label for="nickname">ニックネーム</label>
+                        <label for="nickname">ニックネーム（必須）</label>
                     </div>
                     <div>
                         <input type="text" name="nickname" id="nickname" placeholder="nickname" value="<?php if(isset($_SESSION["nickname"])){ echo $_SESSION["nickname"]; } ?>" required>
@@ -74,7 +63,7 @@
 
                 <div class="row mb">
                     <div>
-                        <label for="course">学科</label>
+                        <label for="course">学科（必須）</label>
                     </div>
                     <div>
                         <input type="text" name="course" id="course" placeholder="course" value="<?php if(isset($_SESSION["course"])){ echo $_SESSION["course"]; } ?>" required>
@@ -92,7 +81,7 @@
 
                 <div class="row mb">
                     <div>
-                        <label for="grade">学年</label>
+                        <label for="grade">学年（必須）</label>
                     </div>
                     <div>
                         <select class="select" name="grade" id="grade" required>
@@ -156,4 +145,5 @@
     </div>
     
 </body>
+
 </html>

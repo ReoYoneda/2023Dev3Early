@@ -1,7 +1,136 @@
+/*
+動作に支障のない
+「Cannot read properties of null (reading 'addEventListener')」
+は try{}catch(e){} で例外処理
+*/
+
+// 背景アニメーション 参照(2023/07/13) https://on-ze.com/archives/6784 >> https://github.com/tipsy/bubbly-bg
+window.bubbly = function (userConfig = {}) {
+    // we need to create a canvas element if the user didn't provide one
+    const cv = userConfig.canvas ?? (() => {
+        let canvas = document.createElement("canvas");
+        canvas.setAttribute("style", "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100vh;");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        return canvas;
+    })();
+    const ctx = cv.getContext("2d");
+    // we destructure the config object (with default values as fallback)
+    const {compose, bubbles, background, animate} = {
+        compose: userConfig.compose ?? "lighter",
+        bubbles: Object.assign({ // default values
+            count: Math.floor((cv.width + cv.height) * 0.02),
+            radius: () => 4 + Math.random() * window.innerWidth / 25,
+            fill: () => `hsla(0, 0%, 100%, ${Math.random() * 0.1})`,
+            angle: () => Math.random() * Math.PI * 2,
+            velocity: () => 0.1 + Math.random() * 0.5,
+            shadow: () => null, // ({blur: 4, color: "#fff"})
+            stroke: () => null, // ({width: 2, color: "#fff"})
+        }, userConfig.bubbles ?? {}),
+        background: userConfig.background ?? (() => "#eee"),//eee 赤fad5ea　黄fff5d0　緑ced　青d5eafa 紫e3e0fa
+        animate: userConfig.animate !== true,
+    }
+    // this function contains a lot of references to its parent scope,
+    // so it must be defined after the config is created
+    bubbles.objectCreator = userConfig.bubbles?.objectCreator ?? (() => ({
+        r: bubbles.radius(),
+        f: bubbles.fill(),
+        x: Math.random() * cv.width,
+        y: Math.random() * cv.height,
+        a: bubbles.angle(),
+        v: bubbles.velocity(),
+        sh: bubbles.shadow(),
+        st: bubbles.stroke(),
+        draw: (ctx, bubble) => {
+            if (bubble.sh) {
+                ctx.shadowColor = bubble.sh.color;
+                ctx.shadowBlur = bubble.sh.blur;
+            }
+            ctx.fillStyle = bubble.f;
+            ctx.beginPath();
+            ctx.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
+            ctx.fill();
+            if (bubble.st) {
+                ctx.strokeStyle = bubble.st.color;
+                ctx.lineWidth = bubble.st.width;
+                ctx.stroke();
+            }
+        }
+    }));
+    let bubbleArray = Array.from({length: bubbles.count}, bubbles.objectCreator);
+    requestAnimationFrame(draw);
+    function draw() {
+        if (cv.parentNode === null) {
+            bubbleArray = [];
+            return cancelAnimationFrame(draw);
+        }
+        if (animate) {
+            requestAnimationFrame(draw);
+        }
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = background(ctx);
+        ctx.fillRect(0, 0, cv.width, cv.height);
+        ctx.globalCompositeOperation = compose;
+        for (const bubble of bubbleArray) {
+            bubble.draw(ctx, bubble);
+            bubble.x += Math.cos(bubble.a) * bubble.v;
+            bubble.y += Math.sin(bubble.a) * bubble.v;
+            if (bubble.x - bubble.r > cv.width) {
+                bubble.x = -bubble.r;
+            }
+            if (bubble.x + bubble.r < 0) {
+                bubble.x = cv.width + bubble.r;
+            }
+            if (bubble.y - bubble.r > cv.height) {
+                bubble.y = -bubble.r;
+            }
+            if (bubble.y + bubble.r < 0) {
+                bubble.y = cv.height + bubble.r;
+            }
+        }
+    }
+};
+
+
+// 背景色の設定
+if(localStorage.getItem("backgroundColor") === null){
+    bubbly({
+        background: () => "#eaeaea"
+    });
+}else{
+    bubbly({
+        background: () => localStorage.getItem("backgroundColor")
+    });
+}
+
+//テーマカラーの設定
+if(localStorage.getItem("themeColor") == "dark"){
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "css/style_dark.css";
+
+    // <head>要素に<link>要素を追加
+    document.head.appendChild(link);
+}
+
+
+
+
+
+
+
+
+
+
 // Topへ戻るボタン
-document.getElementById('scrollToTop').addEventListener('click', function() {
-window.scrollTo({ top: 0, behavior: 'smooth' });
+try {
+    document.getElementById('scrollToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+} catch (e) {
+    console.log("Not exist 'scrollToTop'");
+}
 
 var body = document.querySelector("body");
 
@@ -98,33 +227,37 @@ function sourceDownload(path){
 }
 
 // 画像をダブルクリックで拡大
-var scaleCount = 0; // クリック回数
+var scaleCheck = 0; // クリック回数
 
 // ダブルクリックイベントのリスナーを設定
-modalImgElem.addEventListener("dblclick", function() {
+try {
+    modalImgElem.addEventListener("dblclick", function() {
 
-    modalNameDiv.style.display = "none";
+        modalNameDiv.style.display = "none";
 
-    var modalImgElem = document.getElementById("imgModal");
-    var currentWidth = modalImgElem.clientWidth; // 現在の画像の幅
-    var currentHeight = modalImgElem.clientHeight; // 現在の画像の高さ
+        var modalImgElem = document.getElementById("imgModal");
+        var currentWidth = modalImgElem.clientWidth; // 現在の画像の幅
+        var currentHeight = modalImgElem.clientHeight; // 現在の画像の高さ
 
-    if(scaleCount == 0){
-        modalImgElem.style.width = currentWidth * 1.8 + "px"; // 幅を変更
-        modalImgElem.style.height = currentHeight * 1.8 + "px"; // 高さを変更
+        if(scaleCheck == 0){
+            modalImgElem.style.width = currentWidth * 1.8 + "px"; // 幅を変更
+            modalImgElem.style.height = currentHeight * 1.8 + "px"; // 高さを変更
 
-        scaleCount++;
-    }else{
-        modalImgElem.style.width = "100%";
-        modalImgElem.style.height = "";
-        modalImgElem.style.objectFit = "contain";
+            scaleCheck++;
+        }else{
+            modalImgElem.style.width = "100%";
+            modalImgElem.style.height = "";
+            modalImgElem.style.objectFit = "contain";
 
-        modalNameDiv.style.display = "block";
+            modalNameDiv.style.display = "block";
 
-        scaleCount = 0;
-    }
-    
-});
+            scaleCheck = 0;
+        }
+        
+    });
+} catch (e) {
+    console.log("Not exist 'modalImgElem'");
+}
 
 // モーダル外の領域をクリックしたときにモーダルを非表示にする
 /*safariでは起動しない恐れあり
@@ -224,7 +357,7 @@ function sendFormData(url) {
 
 }*/
 
-// loginID password チェック
+/* loginID password チェック
 function checkPass(usersID){
     const pattern = /^[a-zA-Z0-9_.+-]+$/;
     let loginID = document.pass.loginID.value;
@@ -247,7 +380,7 @@ function checkPass(usersID){
     if(isSuccess == true){
         return true;
     }
-}
+}*/
 
 // text入力 SQLクエリ検出 POST時変換
 function convertMark(){

@@ -4,11 +4,12 @@
         header('Location:A_G1-1.php');
     }
 
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $row = $get->get_user_info($_SESSION['userID']);
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,18 +26,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <div class="container">
             
@@ -67,14 +57,14 @@
                         <label for="Fsubject">ステータス</label>
                     </div>
                     <div class="row status">
-                        <div class="col-1 col-sm-2"></div><div class="td col-4 col-sm-3">現在のレベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_lv'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">要求レベル</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_dp'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">累計獲得RP</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['evaluation_trp'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">次のLvまで</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_nrp'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ランキング</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rank'] ?>位　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">ユーザーレート</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_rate'] ?>　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">被評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Ravg'] ?>　　</div><div class="td col-2"></div>
-                        <div class="td col-1 col-sm-2"></div><div class="td col-4 col-sm-3">与評価平均</div><div class="td text-center col-2">：</div><div class="td text-right col-3"><?php echo $row['user_Savg'] ?>　　</div><div class="td col-2"></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">現在のレベル</div><div class="status-td col-3 col-md-1">( Level )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_lv'] ?>　</div><div class="status-td col-3 col-md-2"></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">与ポイント</div><div class="status-td col-3 col-md-1">( D　 P )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_dp'] ?>　</div><div class="status-td col-3 col-md-2"></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">累計獲得RP</div><div class="status-td col-3 col-md-1">( T R P )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['evaluation_trp'] ?>　</div><div class="status-td col-3 col-md-2"></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">次のLvまで</div><div class="status-td col-3 col-md-1">( N R P )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_nrp'] ?>　</div><div class="status-td col-3 col-md-2">( <?php echo $row['user_allnrp'] ?> )</div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">ランキング</div><div class="status-td col-3 col-md-1">( RANK )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_rank'] ?>位</div><div class="status-td col-3 col-md-2">／<?php echo $row['user_cnt'] ?></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">ユーザレート</div><div class="status-td col-3 col-md-1">( RATE )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_rate'] ?></div><div class="status-td col-3 col-md-2"></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">被評価平均</div><div class="status-td col-3 col-md-1">( R-Avg )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_Ravg'] ?>　</div><div class="status-td col-3 col-md-2"></div>
+                        <div class="status-td col-3 col-md-1"></div><div class="status-td col-4  d-none d-md-block">与評価平均</div><div class="status-td col-3 col-md-1">( S-Avg )</div><div class="status-td text-right col-3 col-md-4"><?php echo $row['user_Savg'] ?>　</div><div class="status-td col-3 col-md-2"></div>
                     </div>
                 </div>
 

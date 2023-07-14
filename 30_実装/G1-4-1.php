@@ -4,7 +4,7 @@
         header('Location:G1-1.php');
     }
 
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $posts = array_reverse($get->get_posts());
     $users = $get->get_users();
@@ -24,18 +24,7 @@
 
 <body class="G1-4-1">
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <i id="scrollToTop" class="bi bi-arrow-up"></i>
 

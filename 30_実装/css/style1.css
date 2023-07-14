@@ -17,13 +17,14 @@ body{/*
     background-position: 0 0, 100% 0;
     background-repeat: repeat-y, repeat-y;
     */
+    color: #000;
     font-family: 'Times New Roman';
     overflow: auto;
     padding-bottom: 15vh;
 }
 
 #scrollToTop{
-    padding: 7px 15px;
+    padding: 7px 14px;
     border-radius: 100%;
     font-size: 1.7rem;
     background-color: rgba(0,0,0, 0.5);
@@ -102,7 +103,7 @@ select:focus,
 .G1-4-1 .tdiv:active,
 
 .source-box:active{
-    outline: 4px solid #888;
+    outline: 4px solid rgba(136,136,136, 0.5);
     z-index: 3;
 }
 
@@ -171,6 +172,31 @@ input[type="button"].black,
     overflow: auto;
     max-height: 80vh;
 }
+
+
+.status{
+    background-color: rgba(255,255,255, 0.5);
+    border: 1.5px solid #000;
+    border-radius: 4px;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.status-td{
+    padding: 2px 0;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+
+.event{
+    background-color: rgba(255,255,255, 0.5);
+    border: 1.5px solid #000;
+    border-radius: 5.5px;
+    margin-bottom: 1.2rem;
+}
 /*----- /section1-2 -----*/
 
 
@@ -222,7 +248,7 @@ input[type="button"].black,
     background-color: #eee;
     transform: translate(-50%, -50%);
     width: 75%;
-    max-height: 100%;/*90%*/
+    max-height: 100%;
     height: fit-content;
     text-align: center;
 }
@@ -236,17 +262,13 @@ input[type="button"].black,
 }
 
 .modal-source{
-    overflow: auto;
-}
-
-.modal-source>img{
-    width: 100%;
     object-fit: contain;
+    overflow: auto;
 }
 /*----- /section1-3 -----*/
 
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
 
     #scrollToTop{
         display: none;
@@ -260,7 +282,6 @@ input[type="button"].black,
 
     .nav{
         background-color: #fafafa;
-        margin-left: -12px;
         width: 100%;
         min-width: 360px;
         z-index: 5;
@@ -269,6 +290,8 @@ input[type="button"].black,
         padding: 4px 10px;
 
         position: fixed;
+        transform: translate(-50%, 0%);
+        left: 50%;
         bottom: 0;
     }
     
@@ -288,9 +311,9 @@ input[type="button"].black,
     }
     #nav-col-fixed>i{
         border-radius: 30px;
-        border-top: 5px solid rgba(250,250,250, 0.4);;
-        border-left: 6px solid rgba(250,250,250, 0.4);;
-        border-right: 6px solid rgba(250,250,250, 0.4);;
+        border-top: 4px solid rgba(0,0,0, 0);
+        border-left: 5px solid rgba(0,0,0, 0);
+        border-right: 5px solid rgba(0,0,0, 0);
         background-color: rgba(250,250,250, 0.6);
     }
     .nav-col-out{

@@ -4,7 +4,7 @@
         header('Location:G1-1.php');
     }
     
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $events = $get->get_events();
 ?>
@@ -24,18 +24,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <div class="container">
             
@@ -76,7 +65,7 @@
                 foreach($events as $event){
                     if($event["event_end"] > date("Y-m-d H:i:s")){
                         echo '
-                <div class="row tdiv">
+                <div class="row event">
                     <div class="h5 text-center my-3">'.$event["event_title"].'</div>
                     <div class="h5 text-center mb-3">'.substr(date("n/j H:i",strtotime($event["event_start"])),0,17).' ～ '.substr(date("Y n/j H:i",strtotime($event["event_end"])),5,16).'</div>
                     <div class="px-3 event-content">'.$event["event_content"].'</div>
@@ -94,6 +83,7 @@
     </div>
     
 </body>
+
 </html>
 <style>
 /*

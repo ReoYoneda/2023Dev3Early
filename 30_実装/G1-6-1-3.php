@@ -7,7 +7,7 @@
 
     $_SESSION['num'] = 0;
 
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $postID = $_GET["postID"];
 
@@ -37,18 +37,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -224,7 +213,7 @@ for($i=1;$i<=5;$i++){
         display: none;
     }
     .td label{
-        color: #fc7;
+        color: #fc7;/*fc7 75f*/
         padding: 0;
         margin:  5px 0;
         text-align: center;

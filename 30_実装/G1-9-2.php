@@ -4,7 +4,11 @@
         header('Location:G1-1.php');
     }
 
-    require_once "A_DBManager.php";
+    if(isset($_SESSION["passCheck"]) == false){
+        $_SESSION["passCheck"] = 0;
+    }
+
+    require_once "G1-DBManager.php";
     $get = new DBManager();
     $row = $get->get_user_info($_SESSION['userID']);
 
@@ -24,18 +28,7 @@
 
 <body>
     
-<script src="script/bubbly-bg.js"></script>
-<script>
-    if(localStorage.getItem("backgroundColor") === null){
-        bubbly({
-            background: () => "#eee"
-        });
-    }else{
-        bubbly({
-            background: () => localStorage.getItem("backgroundColor")
-        });
-    }
-</script>
+<script src="script/script.js"></script>
 
     <div class="container">
             
@@ -84,11 +77,11 @@
                     </div>
                 </div>
                 
-                <form action="G1-9-3.php" method="post">
+                <form action="G1-9-2(b).php" method="post">
 
                 <div class="row mb">
                     <div>
-                        <label for="loginID">ログインID</label>
+                        <label for="loginID">ログインID（半角英数）</label>
                     </div>
                     <div>
                         <input type="text" class="input-display" name="loginID" id="loginID" value="<?php echo $row['user_loginid'] ?>" required>
@@ -97,16 +90,16 @@
 
                 <div class="row mb">
                     <div>
-                        <label for="password">パスワード</label>
+                        <label for="password">パスワード（半角英数・６文字以上）</label>
                     </div>
                     <div>
-                        <input type="password" class="input-display" name="password" id="password" value="<?php echo $row['user_password'] ?>" required>
+                        <input type="password" class="input-display" name="password" id="password" placeholder="password" required>
                     </div>
                 </div>
 
                 <div class="row mb">
                     <div>
-                        <label for="nickname">ニックネーム</label>
+                        <label for="nickname">ニックネーム（必須）</label>
                     </div>
                     <div>
                         <input type="text" class="input-display" name="nickname" id="nickname" value="<?php echo $row['user_name'] ?>" required>
@@ -115,7 +108,7 @@
 
                 <div class="row mb">
                     <div>
-                        <label for="course">学科</label>
+                        <label for="course">学科（必須）</label>
                     </div>
                     <div>
                         <input type="text" name="course" id="course" value="<?php echo $row['user_course'] ?>" required>
@@ -133,7 +126,7 @@
 
                 <div class="row mb">
                     <div>
-                        <label for="grade">学年</label>
+                        <label for="grade">学年（必須）</label>
                     </div>
                     <div>
                         <select name="grade" id="grade" required>
@@ -187,4 +180,24 @@
     </div>
     
 </body>
+
+<script>
+    window.onload = function(){
+        setTimeout(function (){
+<?php 
+    if($_SESSION['passCheck'] == 1){
+        echo
+'            alert("ログインIDは 半角英数字で設定してください");';
+    }else if($_SESSION['passCheck'] == 2){
+        echo
+'            alert("このログインIDは すでに使用されています");';
+    }else if($_SESSION['passCheck'] == 3){
+        echo
+'            alert("パスワードは 6文字以上の必要があります");';
+    }
+?>
+        }, 50);
+    }
+</script>
+
 </html>

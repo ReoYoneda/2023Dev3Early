@@ -6,14 +6,14 @@
         exit;
     }
 
-    require_once "A_DBManager.php";
+    require_once "G1-DBManager.php";
     $create = new DBManager();
     $create->create($_SESSION["loginID"],$_SESSION["password"],$_SESSION["nickname"],$_SESSION["course"],
                     $_SESSION["major"],$_SESSION["grade"],$_SESSION["classname"],$_SESSION["Fsubject"]);
-
+    
     $search = $create->login($_SESSION["loginID"],$_SESSION["password"]);
     
-    unset($_SESSION['userID']);
+    unset($_SESSION['loginID']);
     unset($_SESSION['password']);
     unset($_SESSION['nickname']);
     unset($_SESSION['course']);
