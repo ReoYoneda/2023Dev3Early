@@ -2,7 +2,7 @@
     session_start();
     require_once "G1-DBManager.php";
     $login = new DBManager();
-    $search = $login->login($_POST["username"],$_POST["current-password"]);
+    $search = $login->login($_POST["loginID"],$_POST["password"]);
 
     if(count($search)==0){
         $_SESSION["checkNum2"] = $_SESSION["checkNum1"] + 1;
