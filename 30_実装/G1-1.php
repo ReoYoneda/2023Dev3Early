@@ -10,6 +10,15 @@
     }
 
     unset($_SESSION['passCheck']);
+
+    unset($_SESSION['loginID']);
+    unset($_SESSION['password']);
+    unset($_SESSION['nickname']);
+    unset($_SESSION['course']);
+    unset($_SESSION['major']);
+    unset($_SESSION['grade']);
+    unset($_SESSION['classname']);
+    unset($_SESSION['Fsubject']);
 ?>
 
 <!DOCTYPE html>

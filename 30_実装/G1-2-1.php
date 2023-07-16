@@ -129,15 +129,15 @@
         }, 50);
     }
     
-    /*setTimeout(function() {
+    setTimeout(function() {
         var loginID = document.getElementById("loginID");
         var password = document.getElementById("password");
-        var exist = <?php if(isset($_SESSION["loginID"])){ echo true; }else{ echo false; } ?>;
+        var exist = <?php if(isset($_SESSION["loginID"])){ echo "true"; }else{ echo "false"; } ?>;
         if(exist == false){
             loginID.value = "";
             password.value = "";
         }
-    },1000);*/
+    },1000);
 </script>
 
 </html>

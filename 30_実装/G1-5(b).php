@@ -4,11 +4,11 @@
     if(isset($_SESSION['userID'])==false){
         header('Location:G1-1.php');
     }
-/*
+    
     $_SESSION['num']++;
     if($_SESSION['num'] != 1){
         exit;
-    }*/
+    }
 
     require_once "G1-DBManager.php";
     $create_post = new DBManager();
@@ -49,6 +49,6 @@
 
 ?>
 <script>
-    history.go(0);
-    //location.replace('G1-6-1-1.php');
+    //history.go(0);
+    location.replace('G1-6-1-1.php');
 </script>

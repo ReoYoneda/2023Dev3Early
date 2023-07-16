@@ -12,16 +12,16 @@ public class Echo5 {
         double id, trp, num, Rvalue, Svalue;
         Random random = new Random();
 
-        for(double x=1; x<=8; x++){
-            for(double y=1; y<=8; y++){
-                for(double z=1; z<=8; z++){
-                    id = (x-1)*8*8+(y-1)*8+z;
+        for(double x=1; x<=6; x++){
+            for(double y=1; y<=6; y++){
+                for(double z=1; z<=6; z++){
+                    id = (x-1)*6*6+(y-1)*6+z;
                     
                     trp = generateRandomNumber(random);
                     num = (int)Math.sqrt(trp*5-9);
                     if(num!=0){
-                        Rvalue = num*num/(num/2)*(id/1024)+num*3.5;
-                        Svalue = -num*num/(num/2)*(id/1024)+num*4.5;
+                        Rvalue = num*num/(num/2)*(id/432)+num*3.5;
+                        Svalue = -num*num/(num/2)*(id/432)+num*4.5;
                     }else{
                         Rvalue = 0;
                         Svalue = 0;

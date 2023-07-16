@@ -9,6 +9,10 @@
     if($_SESSION['num'] != 1){
         exit;
     }
+    /*if($_SESSION['num'] > 10){
+        echo "history.go(-2);";
+        exit;
+    }*/
 
     require_once "G1-DBManager.php";
     $create_post = new DBManager();
@@ -49,5 +53,6 @@
 
 ?>
 <script>
+    //history.go(0);
     history.go(-2);
 </script>

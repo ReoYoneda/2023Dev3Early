@@ -96,7 +96,7 @@
                         <label for="password">パスワード</label>
                     </div>
                     <div>
-                        <input type="password" name="password" id="password" value="<?php for($i=0;$i<$_SESSION['passwordLength'];$i++){ echo 'x'; } ?>" disabled>
+                        <input type="password" name="password" id="password" value="<?php echo $_SESSION['password'] ?>" disabled>
                     </div>
                 </div>
 

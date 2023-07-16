@@ -11,7 +11,7 @@ import java.util.Random;
 public class Echo5 {
     public static void main(String[] args) {
         // users = { [ログインID] [パスワード] [名前] [学科] [専攻] [学年] [クラス] [得意科目] }
-        String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
+        String s = "INSERT INTO `users`(`user_loginiD`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
         // ログインID = アルファベット[a~h] ３文字
         String[] ary = {"0","1","2","3","4","5","6","7","8","9"};
         // 名前 = 苗字38パターン × 名前38パターン
@@ -38,9 +38,9 @@ public class Echo5 {
         String[] cls2ary = {"A","B","C","D","E","F","G"};
         String fsub = "";
 
-        for(int x=0;x<8;x++){
-            for(int y=0;y<8;y++){
-                for(int z=0;z<8;z++){
+        for(int x=0;x<6;x++){
+            for(int y=0;y<6;y++){
+                for(int z=0;z<6;z++){
 
                     grade = n = 0;
                     m = c = cls1 = cls2 = fsub = "";

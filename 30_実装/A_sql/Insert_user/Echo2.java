@@ -11,7 +11,7 @@ import java.util.Random;
 public class Echo2 {
     public static void main(String[] args) {
         // users = { [ログインID] [パスワード] [名前] [学科] [専攻] [学年] [クラス] [得意科目] }
-        String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
+        String s = "INSERT INTO `users`(`user_loginID`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES\n";
         // ログインID = アルファベット[a~h] ３文字
         String[] ary = {"a","b","c","d","e","f","g","h"};
         // 名前 = 苗字38パターン × 名前38パターン

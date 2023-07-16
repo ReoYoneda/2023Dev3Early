@@ -9,6 +9,15 @@
     $row = $get->get_user_info($_SESSION['userID']);
 
     unset($_SESSION['passCheck']);
+
+    unset($_SESSION['loginID']);
+    unset($_SESSION['password']);
+    unset($_SESSION['nickname']);
+    unset($_SESSION['course']);
+    unset($_SESSION['major']);
+    unset($_SESSION['grade']);
+    unset($_SESSION['classname']);
+    unset($_SESSION['Fsubject']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,15 +110,6 @@
                         </div>
                     </div>
                     
-                </div>
-
-                <div class="row mb">
-                    <div>
-                        <label for="loginID">ログインID</label>
-                    </div>
-                    <div>
-                        <input type="text" class="input-display" name="loginID" id="loginID" value="<?php echo $row['user_loginid'] ?>" disabled>
-                    </div>
                 </div>
 
                 <div class="row mb">
@@ -235,7 +235,7 @@
                     </div>
                     <div class="col-5">
                         <div>
-                            <input type="button" value="dark" onclick="changeThemeColor('dark')" style="background-color: #444; color: #fff;">
+                            <input type="button" value="dark" onclick="changeThemeColor('dark')" style="background-color: #333; color: #fff;">
                         </div>
                     </div>
                 </div>

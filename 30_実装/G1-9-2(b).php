@@ -5,8 +5,7 @@
     }
 
     $_SESSION['loginID'] = $_POST['loginID'];
-    $_SESSION['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $_SESSION['passwordLength'] = mb_strlen($_POST['password']);
+    $_SESSION['password'] = $_POST['password'];
     $_SESSION['nickname'] = $_POST["nickname"];
     $_SESSION['course'] = $_POST["course"];
     $_SESSION['major'] = $_POST["major"];
@@ -20,11 +19,11 @@
     require_once "G1-DBManager.php";
     $passCheck = new DBManager();
     $user = $passCheck->get_user_info($_SESSION['userID']);
-    if($_POST['loginID'] != $user['user_loginid']){
+    if($_POST['loginID'] != $user['user_loginID']){
         $users = $passCheck->get_users();
         $userLoginID = [];
         foreach($users as $user){
-            array_push($userLoginID, $user['user_loginid']);
+            array_push($userLoginID, $user['user_loginID']);
         }
         $exixtLoginID = in_array($_POST['loginID'], $userLoginID);
     }else{
@@ -37,7 +36,7 @@
     }else if($exixtLoginID){
         $_SESSION['passCheck'] = 2;
         echo '<script> history.back(); </script>';
-    }else if($_SESSION['passwordLength'] < 6){
+    }else if(mb_strlen($_SESSION['password']) < 6){
         $_SESSION['passCheck'] = 3;
         echo '<script> history.back(); </script>';
     }else{

@@ -84,7 +84,7 @@
                         <label for="loginID">ログインID（半角英数）</label>
                     </div>
                     <div>
-                        <input type="text" class="input-display" name="loginID" id="loginID" value="<?php echo $row['user_loginid'] ?>" required>
+                        <input type="text" class="input-display" name="loginID" id="loginID" value="<?php echo $row['user_loginID'] ?>" placeholder="loginID" required>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@
                         <label for="nickname">ニックネーム（必須）</label>
                     </div>
                     <div>
-                        <input type="text" class="input-display" name="nickname" id="nickname" value="<?php echo $row['user_name'] ?>" required>
+                        <input type="text" class="input-display" name="nickname" id="nickname" value="<?php echo $row['user_name'] ?>" placeholder="nickname" required>
                     </div>
                 </div>
 
@@ -111,7 +111,7 @@
                         <label for="course">学科（必須）</label>
                     </div>
                     <div>
-                        <input type="text" name="course" id="course" value="<?php echo $row['user_course'] ?>" required>
+                        <input type="text" name="course" id="course" value="<?php echo $row['user_course'] ?>" placeholder="course" required>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@
                         <label for="major">専攻</label>
                     </div>
                     <div>
-                        <input type="text" name="major" id="major" value="<?php echo $row['user_major'] ?>">
+                        <input type="text" name="major" id="major" value="<?php echo $row['user_major'] ?>" placeholder="major">
                     </div>
                 </div>
 
@@ -144,7 +144,7 @@
                         <label for="classname">クラス</label>
                     </div>
                     <div>
-                        <input type="text" name="classname" id="classname" value="<?php echo $row['user_classname'] ?>">
+                        <input type="text" name="classname" id="classname" value="<?php echo $row['user_classname'] ?>" placeholder="classname">
                     </div>
                 </div>
 
@@ -153,7 +153,7 @@
                         <label for="Fsubject">得意科目</label>
                     </div>
                     <div>
-                        <input type="text" name="Fsubject" id="Fsubject" value="<?php echo $row['user_Fsubject'] ?>">
+                        <input type="text" name="Fsubject" id="Fsubject" value="<?php echo $row['user_Fsubject'] ?>" placeholder="favorite subject">
                     </div>
                 </div>
 

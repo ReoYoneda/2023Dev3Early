@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Echo1 {
     public static void main(String[] args) {
-        String s = "INSERT INTO `users`(`user_loginid`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES ";
+        String s = "INSERT INTO `users`(`user_loginID`, `user_password`, `user_name`, `user_course`, `user_major`, `user_grade`, `user_classname`, `user_Fsubject`) \nVALUES ";
         
         String[] ary = {"a","b","c","d","e","f","g","h"};
         String[] Ary1 = {"佐藤","佐藤","佐藤", "鈴木", "高橋", "田中","田中", "渡辺", "佐藤","伊藤", "山本", "中村","中村", "小林", "加藤","斎藤","本田","石川","松丸","比嘉","近藤","秋月","東","山西","堀","七海","石松","村上","中野","志水","田中","桐生","寺井","神戸","諸橋","斎木","米田","佐々木"};

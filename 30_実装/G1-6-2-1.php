@@ -109,8 +109,19 @@
                     }
                     $count++;
                     $postID = $post["post_id"];
+                    if(count($get->get_evaluate_users($postID)) > 0){
+                        $repUserCnt = count($get->get_evaluate_users($postID)); 
+                    }else{
+                        $repUserCnt = null;
+                    }
+                    if(count($get->get_replies($postID)) > 0){
+                        $replyCnt = count($get->get_replies($postID)); 
+                    }else{
+                        $replyCnt = null;
+                    }
+
                     echo '
-                <div class="row tdiv" onclick="location.href='."'G1-6-2-2.php?postID=".$postID.'\'">
+                <div class="row tdiv" onclick="location.href=\'G1-6-1-2.php?postID='.$postID.'\'">
 
                     <div class="td col-md-3 d-none d-md-block">
                         <div class="row justify-content-center pt-2">';
@@ -124,7 +135,7 @@
                                 echo 
                             '<div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
                             onmouseout="restoreText(this,\''.substr($post["post_file_path"],22).'\')" 
-                            onclick="toSourceDownload(event, \''.$post['post_file_path'].'\')">
+                            onclick="toSourceDownload(event,\''.$post["post_file_path"].'\')">
                                 '.substr($post["post_file_path"],22).'
                             </div>';
                             }
@@ -136,18 +147,16 @@
                         <div class="row">
                             <div class="td">'.date('Y/m/d　H:i',strtotime($post["post_date"])).'</div>
                             <div class="td">科目 : '.$post["post_subject"].'</div>
-                            <div class="td post-title" style="height: 115px">'.$post["post_title"].'</div>
+                            <div class="td post-title" style="height: 86px">'.$post["post_title"].'</div>
+                            <div class="td row m-0">
+                                <div class="col-6 col-md-8 p-0"></div>
+                                <div class="col-3 col-md-2 p-0"><i class="bi bi-person"></i>　'.$repUserCnt.'</div>
+                                <div class="col p-0"><i class="bi bi-chat-left-text"></i>　'.$replyCnt.'</div>
+                            </div>
                         </div>
                     </div>
 
                 </div>';
-                }
-                
-                if($count == 0){
-                    echo
-                        '<div class="text-center">
-                            過去の投稿はありません
-                        </div>';
                 }
 
                 ?>

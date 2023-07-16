@@ -109,6 +109,17 @@
                     }
                     $count++;
                     $postID = $post["post_id"];
+                    if(count($get->get_evaluate_users($postID)) > 0){
+                        $repUserCnt = count($get->get_evaluate_users($postID)); 
+                    }else{
+                        $repUserCnt = null;
+                    }
+                    if(count($get->get_replies($postID)) > 0){
+                        $replyCnt = count($get->get_replies($postID)); 
+                    }else{
+                        $replyCnt = null;
+                    }
+
                     echo '
                 <div class="row tdiv" onclick="location.href=\'G1-6-1-2.php?postID='.$postID.'\'">
 
@@ -136,7 +147,12 @@
                         <div class="row">
                             <div class="td">'.date('Y/m/d　H:i',strtotime($post["post_date"])).'</div>
                             <div class="td">科目 : '.$post["post_subject"].'</div>
-                            <div class="td post-title" style="height: 115px">'.$post["post_title"].'</div>
+                            <div class="td post-title" style="height: 86px">'.$post["post_title"].'</div>
+                            <div class="td row m-0">
+                                <div class="col-6 col-md-8 p-0"></div>
+                                <div class="col-3 col-md-2 p-0"><i class="bi bi-person"></i>　'.$repUserCnt.'</div>
+                                <div class="col p-0"><i class="bi bi-chat-left-text"></i>　'.$replyCnt.'</div>
+                            </div>
                         </div>
                     </div>
 
