@@ -172,7 +172,7 @@ input[type="button"].black,
     white-space: nowrap;
     white-space: pre;
     overflow: auto;
-    max-height: 170px;
+    /*max-height: 170px;*/
 }
 .bi-chevron-compact-down{
     position: absolute;

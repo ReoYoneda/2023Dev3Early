@@ -282,13 +282,14 @@ document.addEventListener("click", function (event) {
     }
 });
 
-// 長文テキストの開閉　アイコンの切り替え
+// 長文テキストの開閉　アイコンの逆転
 var textElems = document.querySelectorAll(".text-display");
 textElems.forEach(function (element){
     if(element.offsetHeight >= 170){
         const iconElem = document.createElement("i");
         iconElem.className = "bi bi-chevron-compact-down";
         element.appendChild(iconElem);
+        element.style.maxHeight = "170px"
         element.style.overflow = "hidden";
     }
 });
@@ -296,8 +297,8 @@ textElems.forEach(function (element){
 function textOpenSwitch(id) {
     var textElem = document.getElementById(id);
     var textIconElem = textElem.querySelector(".bi-chevron-compact-down");
-    if(textElem.offsetHeight>=170){
-        if(textElem.style.maxHeight!="max-content"){
+    if(textElem.offsetHeight >= 170){
+        if(textElem.style.maxHeight != "max-content"){
             textElem.style.maxHeight = "max-content";
             textElem.style.overflow = "auto";
             textIconElem.style.transform = "rotate(180deg)";
@@ -307,6 +308,7 @@ function textOpenSwitch(id) {
             textIconElem.style.transform = "rotate(0deg)";
         }
     }
+    console.log(textElem.offsetHeight);
 }
 
 
