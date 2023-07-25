@@ -8,7 +8,7 @@ CREATE TABLE users
  user_grade INT NOT NULL,
  user_classname VARCHAR(128),
  user_Fsubject VARCHAR(128),
-PRIMARY KEY(user_id)
+ PRIMARY KEY(user_id)
 );
 
 CREATE TABLE evaluation
@@ -20,7 +20,7 @@ CREATE TABLE evaluation
  evaluation_sentnum INT NOT NULL,
  evaluation_sentvalue INT NOT NULL,
  PRIMARY KEY(evaluation_id),
-  FOREIGN KEY (user_id)
+ FOREIGN KEY (user_id)
 	REFERENCES users(user_id)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE posts
  post_title VARCHAR(128) NOT NULL,
  post_subject VARCHAR(128) NOT NULL,
  post_text TEXT NOT NULL,
-PRIMARY KEY(post_id),
+ PRIMARY KEY(post_id),
  FOREIGN KEY (user_id)
  	REFERENCES users(user_id)
 );
@@ -43,7 +43,7 @@ CREATE TABLE replies
  user_id INT NOT NULL,
  reply_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  reply_text TEXT NOT NULL,
-PRIMARY KEY(reply_id),
+ PRIMARY KEY(reply_id),
  FOREIGN KEY (user_id)
  	REFERENCES users(user_id)
 );
@@ -52,7 +52,7 @@ CREATE TABLE post_images
 (post_image_id INT AUTO_INCREMENT,
  post_id INT NOT NULL,
  post_image_path VARCHAR(400) NOT NULL,
-PRIMARY KEY(post_image_id),
+ PRIMARY KEY(post_image_id),
  FOREIGN KEY (post_id)
  	REFERENCES posts(post_id)
 );
@@ -61,7 +61,7 @@ CREATE TABLE reply_images
 (reply_image_id INT AUTO_INCREMENT,
  reply_id INT NOT NULL,
  reply_image_path VARCHAR(400) NOT NULL,
-PRIMARY KEY(reply_image_id),
+ PRIMARY KEY(reply_image_id),
  FOREIGN KEY (reply_id)
  	REFERENCES replies(reply_id)
 );
@@ -70,7 +70,7 @@ CREATE TABLE post_files
 (post_file_id INT AUTO_INCREMENT,
  post_id INT NOT NULL,
  post_file_path VARCHAR(400) NOT NULL,
-PRIMARY KEY(post_file_id),
+ PRIMARY KEY(post_file_id),
  FOREIGN KEY (post_id)
  	REFERENCES posts(post_id)
 );
@@ -79,9 +79,25 @@ CREATE TABLE reply_files
 (reply_file_id INT AUTO_INCREMENT,
  reply_id INT NOT NULL,
  reply_file_path VARCHAR(400) NOT NULL,
-PRIMARY KEY(reply_file_id),
+ PRIMARY KEY(reply_file_id),
  FOREIGN KEY (reply_id)
  	REFERENCES replies(reply_id)
+);
+
+CREATE TABLE notices
+(notice_id INT AUTO_INCREMENT,
+ post_id INT NOT NULL,
+ user_id INT NOT NULL,
+ notice_readFlag BOOLEAN NOT NULL,
+ notice_getRP INT NOT NULL,
+ notice_beforeTrp INT NOT NULL,
+ notice_evaluateNum INT NOT NULL,
+ notice_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY(notice_id),
+ FOREIGN KEY (post_id)
+	REFERENCES posts(post_id),
+ FOREIGN KEY (user_id)
+	REFERENCES users(user_id)
 );
 
 CREATE TABLE events
@@ -90,5 +106,5 @@ CREATE TABLE events
  event_end DATETIME,
  event_title VARCHAR(128) NOT NULL,
  event_content TEXT NOT NULL,
-PRIMARY KEY(event_id)
+ PRIMARY KEY(event_id)
 );

@@ -36,7 +36,7 @@
                 <!-- 見出し -->
                 <div class="row">
                     <div class="header-title" title="ユーザ情報をを入力して [確認] を押してください">
-                        ユーザー情報
+                        ユーザー情報入力
                     </div>
                 </div>
                 <!--/見出し -->

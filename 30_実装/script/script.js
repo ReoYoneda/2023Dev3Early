@@ -20,15 +20,15 @@ window.bubbly = function (userConfig = {}) {
     const {compose, bubbles, background, animate} = {
         compose: userConfig.compose ?? "lighter",
         bubbles: Object.assign({ // default values
-            count: Math.floor((cv.width + cv.height) * 0.02),
-            radius: () => 4 + Math.random() * window.innerWidth / 25,
+            count: Math.floor((cv.width + cv.height) * 0.025),
+            radius: () => 4 + Math.random() * (window.innerWidth + window.innerHeight) / 50,// 4 + Math.random() * window.innerWidth / 25
             fill: () => `hsla(0, 0%, 100%, ${Math.random() * 0.1})`,
             angle: () => Math.random() * Math.PI * 2,
-            velocity: () => 0.1 + Math.random() * 0.5,
+            velocity: () => 0.07 + Math.random() * 0.35,// 0.1 + Math.random() * 0.5
             shadow: () => null, // ({blur: 4, color: "#fff"})
             stroke: () => null, // ({width: 2, color: "#fff"})
         }, userConfig.bubbles ?? {}),
-        background: userConfig.background ?? (() => "#eee"),//eee 赤fad5ea　黄fff5d0　緑ced　青d5eafa 紫e3e0fa
+        background: userConfig.background ?? (() => "#eaeaea"),//
         animate: userConfig.animate !== true,
     }
     // this function contains a lot of references to its parent scope,
@@ -131,6 +131,8 @@ try {
 } catch (e) {
     console.log("Not exist 'scrollToTop'");
 }
+
+
 
 var body = document.querySelector("body");
 
@@ -279,6 +281,33 @@ document.addEventListener("click", function (event) {
       modalNameDiv.style.display = "block";
     }
 });
+
+// 長文テキストの開閉　アイコンの切り替え
+var textElems = document.querySelectorAll(".text-display");
+textElems.forEach(function (element){
+    if(element.offsetHeight >= 170){
+        const iconElem = document.createElement("i");
+        iconElem.className = "bi bi-chevron-compact-down";
+        element.appendChild(iconElem);
+        element.style.overflow = "hidden";
+    }
+});
+
+function textOpenSwitch(id) {
+    var textElem = document.getElementById(id);
+    var textIconElem = textElem.querySelector(".bi-chevron-compact-down");
+    if(textElem.offsetHeight>=170){
+        if(textElem.style.maxHeight!="max-content"){
+            textElem.style.maxHeight = "max-content";
+            textElem.style.overflow = "auto";
+            textIconElem.style.transform = "rotate(180deg)";
+        }else{
+            textElem.style.maxHeight = "170px";
+            textElem.style.overflow = "hidden";
+            textIconElem.style.transform = "rotate(0deg)";
+        }
+    }
+}
 
 
 // ファイル添付時　プレビュー用

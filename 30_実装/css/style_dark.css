@@ -64,7 +64,6 @@ input[type="button"].black,
 .td .black{
     background-color: rgba(255,255,255, 0.6);
     color: #000;
-
 }
 /*----- /section1-1 -----*/
 
@@ -79,13 +78,12 @@ input[type="button"].black,
     background-color: rgba(0,0,0, 0.5);
     color: #eff;
 }
-
+/*
 .rank,
 .rate{
-    background-color: rgba(0,0,0, 0.5);
-    color: #eff;
-}
 
+}
+*/
 .status{
     background-color: rgba(0,0,0, 0.5);
     color: #eff;

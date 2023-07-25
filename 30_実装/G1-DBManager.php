@@ -351,18 +351,31 @@
             return $search;
         }
 
-        function evaluate($s_userID,$r_userID,$dp,$num){
+        function evaluate($postID,$s_userID,$r_userID,$dp,$num){
             $AddTrp = $dp * $num;
+            $user = $this->get_user_info($r_userID);
+            $beforeTrp = $user['evaluation_trp'];
             $pdo = $this->dbConnect();
+            $sql = "INSERT INTO `notices`(`post_id`, `user_id`, `notice_readFlag`, `notice_getRP`, 
+                                        `notice_beforeTrp`, `notice_evaluateNum`) 
+                                VALUES ( ?, ?, 1, ?, ?, ?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$postID,PDO::PARAM_INT);
+            $ps->bindValue(2,$r_userID,PDO::PARAM_INT);
+            $ps->bindValue(3,$AddTrp,PDO::PARAM_INT);
+            $ps->bindValue(4,$beforeTrp,PDO::PARAM_INT);
+            $ps->bindValue(5,$num,PDO::PARAM_INT);
+            $ps->execute();
+           
             $sql = "UPDATE `evaluation`
                     SET `evaluation_trp`=`evaluation_trp`+ ? ,
                         `evaluation_receivednum`=`evaluation_receivednum`+ 1,
                         `evaluation_receivedvalue`=`evaluation_receivedvalue`+ ?
                     WHERE user_id = ? ";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$AddTrp,PDO::PARAM_STR);
-            $ps->bindValue(2,$num,PDO::PARAM_STR);
-            $ps->bindValue(3,$r_userID,PDO::PARAM_STR);
+            $ps->bindValue(1,$AddTrp,PDO::PARAM_INT);
+            $ps->bindValue(2,$num,PDO::PARAM_INT);
+            $ps->bindValue(3,$r_userID,PDO::PARAM_INT);
             $ps->execute();
 
             $sql = "UPDATE `evaluation`
@@ -370,13 +383,28 @@
                         `evaluation_sentvalue`=`evaluation_sentvalue`+ ?
                     WHERE user_id = ? ";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$num,PDO::PARAM_STR);
-            $ps->bindValue(2,$s_userID,PDO::PARAM_STR);
+            $ps->bindValue(1,$num,PDO::PARAM_INT);
+            $ps->bindValue(2,$s_userID,PDO::PARAM_INT);
             $ps->execute();
         }
 
         function post_close($userID,$postID,$dp){
+            $user = $this->get_user_info($userID);
+            $beforeTrp = $user['evaluation_trp'];
             $pdo = $this->dbConnect();
+            if($dp != 0){
+                $sql = "INSERT INTO `notices`(`post_id`, `user_id`, `notice_readFlag`, `notice_getRP`, 
+                                            `notice_beforeTrp`, `notice_evaluateNum`) 
+                                    VALUES ( ?, ?, 1, ?, ?, ?)";
+                $ps = $pdo->prepare($sql);
+                $ps->bindValue(1,$postID,PDO::PARAM_INT);
+                $ps->bindValue(2,$userID,PDO::PARAM_INT);
+                $ps->bindValue(3,$dp*3,PDO::PARAM_INT);
+                $ps->bindValue(4,$beforeTrp,PDO::PARAM_INT);
+                $ps->bindValue(5, 3,PDO::PARAM_INT);
+                $ps->execute();
+            }
+            
             $sql = "UPDATE `posts`
                     SET `post_flag`= 0 
                     WHERE post_id = ? ";
@@ -422,10 +450,31 @@
             $ps->execute();
         }
 
+        function get_notices($userID){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM notices
+                    WHERE user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$userID,PDO::PARAM_STR);
+            $ps->execute();
+            $search = $ps->fetchAll();
+            return $search;
+        }
+
+        function read_notice($noticeID){
+            $pdo = $this->dbConnect();
+            $sql = "UPDATE `notices`
+                    SET `notice_readFlag`= 0
+                    WHERE notice_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$noticeID,PDO::PARAM_INT);
+            $ps->execute();
+        }
+
         function reConvertMark($text){
             $text = str_replace('<', '&lt;', $text);
             $text = str_replace('>', '&gt;', $text);
-    
+
             $text = str_replace("z slash z","/",$text);
             $text = str_replace("z point z","`",$text);
             $text = str_replace("z s-elect z","select",$text);
@@ -452,6 +501,14 @@
 
             return $text;
         }
+/*
+        function reConvertMark($text){
+            $text = htmlspecialchars($text);
 
+            $text = SQLite3::escapeString($text);
+
+            return $text;
+        }
+*/
     }
 ?>

@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Echo5 {
@@ -11,6 +13,7 @@ public class Echo5 {
         String s = "INSERT INTO `evaluation`(`user_id`, `evaluation_trp`, `evaluation_receivednum`, `evaluation_receivedvalue`, `evaluation_sentnum`, `evaluation_sentvalue`)\nVALUES\n";
         double id, trp, num, Rvalue, Svalue;
         Random random = new Random();
+        ArrayList<Integer> trps = new ArrayList<>();
 
         for(double x=1; x<=6; x++){
             for(double y=1; y<=6; y++){
@@ -28,11 +31,15 @@ public class Echo5 {
                     }
                     
                     s += "                        ("+(int)id+","+(int)trp+","+(int)num+","+(int)Rvalue+","+(int)num+","+(int)Svalue+"),\n";
+                    trps.add((int)num);
 
                 }
             }
         }
         s = s.substring(0,s.length()-2);
+        Collections.sort(trps);
+        Collections.reverse(trps);
+        System.out.println(trps);
 
         String filePath = "A_sql/Insert_evaluation/Insert_evaluation.txt";
 
@@ -56,7 +63,7 @@ public class Echo5 {
     }
 
     private static int generateRandomNumber(Random random) {
-        int maxNumber = 1800;
+        int maxNumber = 1650;
         while (true) {
         int randomNumber = random.nextInt(maxNumber + 1);
         double probability;

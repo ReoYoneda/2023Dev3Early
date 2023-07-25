@@ -67,7 +67,7 @@
                     <a id="nav-col-fixed" class="nav-col" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
                     <a class="nav-col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
                     <a class="nav-col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="nav-col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                    <a class="nav-col" href="G1-10.php" title="通知"><i class="bi bi-bell"></i></a>
                 </div>
                 <!--/ナビ -->
 
@@ -85,7 +85,7 @@
 
         <div class="row justify-content-center"><!-- 用コンテナ -->
 
-            <div class="col-11 col-lg-10 col-xl-9"><!-- 用のコンテナサイズ -->
+            <div class="col-lg-10 col-xl-9"><!-- 用のコンテナサイズ -->
 
                 <div class="row mb
                             justify-content-between">
@@ -131,23 +131,25 @@
                             <div class="td m-0">　与評 :　<?php echo $user["user_Savg"] ?></div>
                         </div>
                     </div>
-                    
+
+                    <?php
+                    if($post["post_image_path"]!=null || $post["post_file_path"]!=null){
+                        echo '
                     <div class="td col-md-3">
-                        <div class="row justify-content-center pt-2">
-                            <?php 
-                            if($post["post_image_path"]!=null){
-                                echo 
-                            '<div class="col-6 col-md-12">
+                        <div class="row justify-content-center pt-2">';
+                        if($post["post_image_path"]!=null){
+                            echo '
+                            <div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="td source-box col-10" onclick="openImg('."'".$post['post_image_path']."'".')">
                                         <img src="'.$post["post_image_path"].'">
                                     </div>
                                 </div>
                             </div>';
-                            }
-                            if($post["post_file_path"]!=null){
-                                echo 
-                            '<div class="col-6 col-md-12">
+                        }
+                        if($post["post_file_path"]!=null){
+                            echo '
+                            <div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
                                     onmouseout="restoreText(this,\''.substr($post["post_file_path"],22).'\')" 
@@ -156,18 +158,18 @@
                                     </div>
                                 </div>
                             </div>';
-                            }
-                            ?>
-
+                        }
+                        echo '
                         </div>
-                    </div>
+                    </div>';
+                    }
+                    ?>
 
-                    <div class="td text-display col-md-9"><?php echo $post["post_text"] ?></div>
+                    <div id="text-p<?php echo $post['post_id'] ?>" class="td text-display col" onclick="textOpenSwitch(this.id)"><?php echo $post["post_text"] ?></div>
                     
                 </div>
 
                 <?php
-
                 if(count($replies) == 0){
                     echo
                         '<div class="text-center">
@@ -177,29 +179,30 @@
 
                 foreach($replies as $reply){
                     $user = $get->get_user_info($reply["user_id"]);
-                    $reply = $get->get_reply($reply["reply_id"]);
+                    $replyID = $reply["reply_id"];
+                    $reply = $get->get_reply($replyID);
                     echo '
                 <div class="row tdiv">
 
                     <div class="td col-6 col-md-9">'.$user["user_name"].'</div>
-                    <div class="td text-center col-6 col-md-3">'.date('Y/m/d　H:i',strtotime($reply["reply_date"])).'</div>
-
+                    <div class="td text-center col-6 col-md-3">'.date('Y/m/d　H:i',strtotime($reply["reply_date"])).'</div>';
+                    if($reply["reply_image_path"]!=null || $reply["reply_file_path"]!=null){
+                        echo '
                     <div class="td col-md-3">
                         <div class="row justify-content-center pt-2">';
-                            
-                            if($reply["reply_image_path"]!=null){
-                                echo 
-                            '<div class="col-6 col-md-12">
+                        if($reply["reply_image_path"]!=null){
+                            echo '
+                            <div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="td source-box col-10" onclick="openImg('."'".$reply["reply_image_path"]."'".')">
                                         <img src="'.$reply["reply_image_path"].'">
                                     </div>
                                 </div>
                             </div>';
-                            }
-                            if($reply["reply_file_path"]!=null){
-                                echo 
-                            '<div class="col-6 col-md-12">
+                        }
+                        if($reply["reply_file_path"]!=null){
+                            echo '
+                            <div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
                                     onmouseout="restoreText(this,\''.substr($reply["reply_file_path"],22).'\')" 
@@ -208,19 +211,17 @@
                                     </div>
                                 </div>
                             </div>';
-                            }
-                            
-                    echo '
+                        }
+                        echo '
                         </div>
-                    </div>
-
-                    <div class="td text-display col-md-9">'.$reply["reply_text"].'</div>
+                    </div>';
+                    }
+                    echo '
+                    <div id="text-r'.$replyID.'" class="td text-display col" onclick="textOpenSwitch(this.id)">'.$reply["reply_text"].'</div>
 
                 </div>';
                 }
-
                 ?>
-
 
             </div>
 

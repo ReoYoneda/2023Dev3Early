@@ -16,8 +16,8 @@
 
     require_once "G1-DBManager.php";
     $create_post = new DBManager();
-    $text = str_replace('<', '&lt;', $_POST["text"]);
-    $text = str_replace('>', '&gt;', $text);
+    
+    $text = $create_post->reConvertMark($_POST["text"]);
     
     $create_post->create_reply($_POST["postID"],$_SESSION["userID"],$text);
 

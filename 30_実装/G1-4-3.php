@@ -67,7 +67,7 @@
                     <a id="nav-col-fixed" class="nav-col nav-col-out" href="G1-5.php" title="投稿"><i class="bi bi-plus-circle"></i>
                     <a class="nav-col" href="G1-8.php" title="開催イベント"><i class="bi bi-flag"></i></a>
                     <a class="nav-col" href="G1-9-1.php" title="ステータス"><i class="bi bi-person-circle"></i></a>
-                    <a class="nav-col" href="G1-10.php" title="ヘルプ？"><i class="bi bi-question-circle"></i></a>
+                    <a class="nav-col" href="G1-10.php" title="通知"><i class="bi bi-bell"></i></a>
                 </div>
                 <!--/ナビ -->
 
@@ -85,7 +85,7 @@
 
         <div class="row justify-content-center"><!-- 用コンテナ -->
 
-            <div class="col-11 col-lg-10 col-xl-9"><!-- 用のコンテナサイズ -->
+            <div class="col-lg-10 col-xl-9"><!-- 用のコンテナサイズ -->
 
                 <div class="row mb">
 
@@ -122,22 +122,24 @@
                         </div>
                     </div>
                     
+                    <?php
+                    if($post["post_image_path"]!=null || $post["post_file_path"]!=null){
+                        echo '
                     <div class="td col-md-3">
-                        <div class="row justify-content-center pt-2">
-                            <?php 
-                            if($post["post_image_path"]!=null){
-                                echo 
-                            '<div class="col-6 col-md-12">
+                        <div class="row justify-content-center pt-2">';
+                        if($post["post_image_path"]!=null){
+                            echo '
+                            <div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="td source-box col-10" onclick="openImg('."'".$post['post_image_path']."'".')">
                                         <img src="'.$post["post_image_path"].'">
                                     </div>
                                 </div>
                             </div>';
-                            }
-                            if($post["post_file_path"]!=null){
-                                echo 
-                            '<div class="col-6 col-md-12">
+                        }
+                        if($post["post_file_path"]!=null){
+                            echo '
+                            <div class="col-6 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="td black source-box py-2 col-10" onmouseover="changeText(this)" 
                                     onmouseout="restoreText(this,\''.substr($post["post_file_path"],22).'\')" 
@@ -146,18 +148,19 @@
                                     </div>
                                 </div>
                             </div>';
-                            }
-                            ?>
-
+                        }
+                        echo '
                         </div>
-                    </div>
+                    </div>';
+                    }
+                    ?>
 
-                    <div class="td text-display col-md-9"><?php echo $post["post_text"] ?></div>
+                    <div id="text-p<?php echo $post['post_id'] ?>" class="td text-display col" onclick="textOpenSwitch(this.id)"><?php echo $post["post_text"] ?></div>
 
                 </div>
 
 
-                <form action="G1-4-3(b).php" method="post" enctype="multipart/form-data" onsubmit="return convertMark()">
+                <form action="G1-4-3(b).php" method="post" enctype="multipart/form-data" onsubmit="return convertMark()"><!-- onsubmit="return convertMark()"-->
 
                 <input type="hidden" name="postID" value="<?php echo $_GET["postID"] ?>">
                 
@@ -175,7 +178,7 @@
                                 <div class="row justify-content-center">
 
                                     <label class="td source-box py-2 col-10">
-                                            <input type="file" id="img" name="reply_image" accept="image/*" style="display: none;" onchange="viewImg(this)">
+                                        <input type="file" id="img" name="reply_image" accept="image/*" style="display: none;" onchange="viewImg(this)">
                                         <i class="bi bi-image"></i> IMG <i class="bi bi-upload"></i>
                                     </label>
                                     <div id="imgBox" class="td source-box col-10" style="display: none;" onclick="previewImg()">
@@ -189,8 +192,8 @@
                                 <div class="row justify-content-center">
 
                                     <label class="td source-box py-2 col-10">
-                                            <input type="file" id="src" name="reply_file" style="display: none;" onchange="viewSrc(this)">
-                                            <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
+                                        <input type="file" id="src" name="reply_file" style="display: none;" onchange="viewSrc(this)">
+                                        <i class="bi bi-text-left"></i> SRC <i class="bi bi-upload"></i>
                                     </label>
                                     <div id="srcBox" class="td black source-box py-2 col-10" style="display: none; box-shadow: none; outline: none">
                                     
@@ -202,7 +205,7 @@
                         </div>
                     </div>
 
-                    <textarea class="td text-display col-md-9" name="text" rows="10" required></textarea>
+                    <textarea class="td text-input col-md-9" name="text" rows="10" required></textarea>
                     
                 </div>
 

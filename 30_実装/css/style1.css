@@ -28,7 +28,7 @@ body{/*
     border-radius: 100%;
     font-size: 1.7rem;
     background-color: rgba(0,0,0, 0.5);
-    color: #fff;
+    color: #eff;
 
     position: fixed;
     right: 15px;
@@ -89,6 +89,7 @@ select:hover,
 .G1-4-1 .tdiv:hover,
 .G1-6-1-1 .tdiv:hover,
 .G1-6-2-1 .tdiv:hover,
+.G1-10 .tdiv:hover,
 
 .source-box:hover{
     box-shadow: 0px 0px 4px 1px #888;
@@ -119,8 +120,7 @@ input[type="button"].black,
 
 .td .black{
     background-color: rgba(0,0,0, 0.5);
-    color: #fff;
-
+    color: #eff;
 }
 /*----- /section1-1 -----*/
 
@@ -154,25 +154,40 @@ input[type="button"].black,
 
 .rank,
 .rate{
-    background-color: rgba(0,0,0, 0.5);
-    color: #fff;
-    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1.5px solid #333;
     font-weight: bold;
+}
+/*
+.text-display{
     white-space: nowrap;
+    white-space: pre;
     overflow: hidden;
+    max-height: 70vh;
+}
+*/
+.text-display{
+    padding: 1rem 0.5rem;
+    white-space: nowrap;
+    white-space: pre;
+    overflow: auto;
+    max-height: 170px;
+}
+.bi-chevron-compact-down{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    font-weight: bold;
 }
 
-.text-display{
+.text-input{
+    padding: 1rem 0.5rem;
     white-space: nowrap;
     white-space: pre;
     overflow: auto;
     max-height: 80vh;
 }
-
 
 .status{
     background-color: rgba(255,255,255, 0.5);
@@ -282,7 +297,7 @@ input[type="button"].black,
 
     .nav{
         background-color: #fafafa;
-        width: 100%;
+        width: 101%;
         min-width: 360px;
         z-index: 5;
 
@@ -292,7 +307,7 @@ input[type="button"].black,
         position: fixed;
         transform: translate(-50%, 0%);
         left: 50%;
-        bottom: -2px;
+        bottom: -1px;
     }
     
     .nav-col{
@@ -304,16 +319,16 @@ input[type="button"].black,
         right: 2px;
         bottom: 65px;
 
-        padding: 3.5px 8px 0;
-        border-radius: 50px;
+        padding: 4px 8px 0;
+        border-radius: 100%;
 
         position: fixed;
     }
     #nav-col-fixed>i{
-        border-radius: 30px;
-        border-top: 5px solid rgba(0,0,0, 0);
-        border-left: 7px solid rgba(0,0,0, 0);
-        border-right: 7px solid rgba(0,0,0, 0);
+        border-radius: 100%;
+        border-top: 3.5px solid rgba(0,0,0, 0);
+        border-left: 6px solid rgba(0,0,0, 0);
+        border-right: 6px solid rgba(0,0,0, 0);
         background-color: rgba(250,250,250, 0.6);
     }
     .nav-col-out{
